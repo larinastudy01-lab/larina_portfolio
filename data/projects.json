@@ -1,0 +1,1280 @@
+[
+  {
+    "id": "executive-function",
+    "title": "Game-based Executive Function Assessment & Adaptive Training for Preschool Children",
+    "type": "Team Graduation Project / Research Prototype",
+    "year": "Research prototype",
+    "role": "Main Developer · Research Data Architecture",
+    "tags": [
+      "AI",
+      "HCI",
+      "Health",
+      "Data",
+      "System"
+    ],
+    "featured": true,
+    "visual": "assessment",
+    "visual_label": "01 / BEYOND THE SCORE",
+    "summary": "A forest-adventure platform connecting six cognitive games, trial-level records, adaptive training, family feedback, professional follow-up, and reproducible research.",
+    "process": [
+      "Assessment",
+      "Record",
+      "Analyze",
+      "Explain",
+      "Training",
+      "Tracking"
+    ],
+    "links": [
+      {
+        "label": "GitHub",
+        "url": "https://github.com/larinastudy01-lab/ef-game.git"
+      }
+    ],
+    "section_groups": [
+      {
+        "id": "case-overview",
+        "title": "Project Overview & Research Questions",
+        "sections": ["overview", "problem", "question", "role"]
+      },
+      {
+        "id": "case-experience",
+        "title": "Users & Game Design",
+        "sections": ["user-flow", "games", "engagement"]
+      },
+      {
+        "id": "case-system",
+        "title": "System Architecture & Data",
+        "sections": ["technology", "process", "data"]
+      },
+      {
+        "id": "case-training",
+        "title": "Assessment & Training Strategy",
+        "sections": ["adaptation", "recommendation"]
+      },
+      {
+        "id": "case-research",
+        "title": "Research Tools & Validation",
+        "sections": ["rag", "method", "statistics"]
+      },
+      {
+        "id": "case-reflections",
+        "title": "Results, Reflections & Future Work",
+        "sections": ["results", "learning", "limitations", "future"]
+      }
+    ],
+    "sections": [
+      {
+        "id": "overview",
+        "title": "Overview",
+        "body": "A three-person graduation project advised by 莊宗嚴, designed as a research prototype for preschool children, parents, and professionals. It combines working-memory, inhibitory-control, and cognitive-flexibility tasks.",
+        "paragraphs": [
+          "The current six tasks are SRT, Picture Memory (PM), Corsi Block Tapping (CBT), the sound-rule task (SSG), DCCS, and Linking Balloons (LB). Forest stories connect working memory, attention and inhibitory control, and cognitive flexibility, while each response remains available for later analysis."
+        ]
+      },
+      {
+        "id": "problem",
+        "title": "Problem",
+        "body": "A final score hides response timing, errors, hints, and changes within a session. Six tasks also need compatible records so that analysis can trace back to the original behavior.",
+        "paragraphs": [
+          "A wrong response is not automatically evidence of low ability. The child may have misunderstood a rule, missed an instruction, become tired, or struggled with the interface. This made interaction design and behavioral recording inseparable: the system needed to preserve enough context to avoid interpreting every failure in the same way."
+        ]
+      },
+      {
+        "id": "question",
+        "title": "Research Question",
+        "body": "How can trial-level behavioral records support interpretable assessment, adaptive training decisions, and long-term feedback for different users?"
+      },
+      {
+        "id": "role",
+        "title": "My Role",
+        "body": "I led programming, research data architecture, and system integration: six cognitive games, role-specific interfaces, database permissions, analysis modules, dashboards, exports, testing, and debugging.",
+        "paragraphs": [
+          "My integration work connected front-end task events to database records, derived features, analysis outputs, and research dashboards. I also handled module tests and cross-module debugging, so that a change in a task or data field could be traced through the rest of the workflow."
+        ]
+      },
+      {
+        "id": "user-flow",
+        "title": "Four User Perspectives",
+        "body": "One behavioral record supports different questions: children need an understandable next step, parents need usable feedback, professionals need traceable evidence, and researchers need comparable data.",
+        "table": {
+          "caption": "Role-specific workflows",
+          "headers": [
+            "Reader",
+            "Workflow and feedback"
+          ],
+          "rows": [
+            [
+              "Children",
+              "Choose a forest character, learn the rules, complete assessment or training, and receive stars, encouragement, stickers, and achievements."
+            ],
+            [
+              "Parents",
+              "Create a child profile, choose training games and duration, and review accuracy, reaction time, errors, support needs, and history on the parent result page."
+            ],
+            [
+              "Professionals",
+              "After role approval and case authorization, inspect trends and individual trials, compare records, add notes and reminders, export Excel reports, and consult the RAG assistant."
+            ],
+            [
+              "Researchers",
+              "Use pseudonymous records for quality checks, features, statistics, prediction, model explanation, recommendation comparisons, and longitudinal analysis."
+            ]
+          ]
+        },
+        "paragraphs": [
+          "The parent assistant currently uses controlled rules based on results, errors, and fatigue signals, with speech playback. The professional assistant uses case context and literature retrieval; a parent-facing RAG knowledge base remains future work."
+        ]
+      },
+      {
+        "id": "games",
+        "title": "Six Forest Games",
+        "body": "The tasks retain their own rules, response units, and stopping conditions. A high score in one game cannot be treated as the same ability measure in another.",
+        "games": [
+          {
+            "code": "SRT",
+            "domain": "Attention & inhibition",
+            "name": "The Squirrel and the Acorns",
+            "instruction": "Tap ordinary and golden acorns, and withhold a response to bad acorns. Background taps and repeated clicks are recorded separately.",
+            "observations": "Hits, misses, false alarms, reaction time, hints, and changes between the first and second half.",
+            "assessment": "Ends after about five minutes or at 180 trials; targets are shown for about 1.2 seconds.",
+            "training": "Nine fine-grained levels vary target visibility, pace, size, and the probability of no-go stimuli."
+          },
+          {
+            "code": "PM",
+            "domain": "Working memory",
+            "name": "The Goddess and the Rabbit",
+            "instruction": "Remember a set of pictures, then select all of the targets among distractors. Wrong selections, cancellations, omissions, and timeouts remain visible in the record.",
+            "observations": "Memory span, selected pictures and order, errors, completion, and response stability.",
+            "assessment": "Fourteen trials across spans of one to seven pictures; two failures at the same span trigger an early stop.",
+            "training": "Six fine-grained levels vary memory load, viewing and response time, and visual motion."
+          },
+          {
+            "code": "CBT",
+            "domain": "Working memory",
+            "name": "The Deer and the Stone Bridge",
+            "instruction": "Watch stones light up and reproduce the sequence. More advanced training asks for the reverse order; independent success is distinguished from success after replay or rescue.",
+            "observations": "Spatial sequence, first error position, timing, replay, hints, independent span, and fatigue signals.",
+            "assessment": "Up to ten trials with sequence lengths from two to six; paired failures or consecutive timeouts can end the task early.",
+            "training": "Eighteen micro-levels vary board size, sequence length, playback speed, order, and available support."
+          },
+          {
+            "code": "SSG",
+            "domain": "Attention & inhibition",
+            "name": "The Cat and Dog Choir",
+            "instruction": "Wait for the sound, then choose the opposite animal: a cat sound means selecting the dog, and vice versa. Left and right positions change.",
+            "observations": "Opposite-rule accuracy, premature responses, same-animal errors, side bias, timing, and audio status.",
+            "assessment": "Twenty trials balance sound type and answer position, with no automatic difficulty changes during assessment.",
+            "training": "Easy, normal, and hard use eight, twelve, and sixteen trials, with different time limits, hints, and replay support."
+          },
+          {
+            "code": "DCCS",
+            "domain": "Cognitive flexibility",
+            "name": "The Peacock Clothing Shop",
+            "instruction": "Sort clothing first by color, then by type, then by the color of clothing inside a bag. The current rule and basket cues determine each answer.",
+            "observations": "Rule switching, old-rule responses, interference, stage-specific accuracy, and reaction time.",
+            "assessment": "With sufficient assets, two practice trials precede twenty scored trials across three stages. Practice is excluded from the summary.",
+            "training": "Ten configurations cover rule learning, switching, maintenance, and interference. Some configured hint policies still need implementation checks."
+          },
+          {
+            "code": "LB",
+            "domain": "Cognitive flexibility",
+            "name": "Help Grandma Sheep Get Home",
+            "instruction": "Connect numbered signs in order, then combine ascending numbers with alternating red and blue signs while ignoring distractors.",
+            "observations": "Selection path, number and color errors, step reaction time, switching accuracy, hints, and total completion time.",
+            "assessment": "Two stages: ascending numbers from one to ten, followed by the combined number-and-color rule.",
+            "training": "Task-specific settings adjust sequence, rules, preview, hint delay, and shuffled positions."
+          }
+        ],
+        "paragraphs": [
+          "Map position, task difficulty, and trial number describe different things. Training level counts are task-specific, and their labels are not validated age norms or clinical categories."
+        ]
+      },
+      {
+        "id": "technology",
+        "title": "Technology",
+        "body": "React handles the games and role-specific interfaces, Supabase stores behavioral records and permissions, and a separate Express service supports professional AI and literature retrieval.",
+        "table": {
+          "caption": "Technology and responsibility",
+          "headers": [
+            "Layer",
+            "Technology and use"
+          ],
+          "rows": [
+            [
+              "Frontend",
+              "React 18, JavaScript / JSX, React Router, and Recharts for games, navigation, dashboards, and trends."
+            ],
+            [
+              "Data & identity",
+              "Supabase / PostgreSQL, Auth, row-level security (RLS), and SQL RPC for authenticated, case-related data access."
+            ],
+            [
+              "Professional API",
+              "Node.js / Express validates identity, case access, request size, allowed origins, and request rate."
+            ],
+            [
+              "Literature retrieval",
+              "pdf-parse, Transformers.js, multilingual E5 embeddings, pgvector, HNSW, and cosine similarity."
+            ],
+            [
+              "Generated explanations",
+              "OpenAI Responses API combines authorized case context, verified calculations, and retrieved sources."
+            ],
+            [
+              "Reports & verification",
+              "ExcelJS / docx support document outputs; Jest, React Testing Library, and Node tests cover computation, interface, and API behavior."
+            ],
+            [
+              "Deployment",
+              "GitHub Actions builds the static frontend for GitHub Pages. Express requires a separate server environment."
+            ]
+          ]
+        }
+      },
+      {
+        "id": "process",
+        "title": "System Flow & Architecture",
+        "body": "Child interaction produces trial records; task-specific scoring and analysis then support feedback, difficulty suggestions, UCB1 recommendations, professional review, and research.",
+        "paragraphs": [
+          "These two SVGs are the supplied project architecture diagrams. The frontend diagram also lists implemented but currently hidden room and furniture routes. The diagrams describe structure and navigation, rather than current interface screenshots or verified deployment status."
+        ],
+        "diagrams": [
+          {
+            "title": "Frontend Navigation Flow",
+            "caption": "Entry and identity, child selection, assessment and training, six games, results and rewards, and professional workspaces.",
+            "alt": "SVG navigation diagram connecting family entry, child profiles, two activity modes, six tasks, feedback, and clinical and research dashboards.",
+            "src": "images/projects/executive-function/frontend-flowchart.svg",
+            "src_en": "images/projects/executive-function/frontend-flowchart-en.svg",
+            "width": 1600,
+            "height": 1180
+          },
+          {
+            "title": "Backend System Architecture",
+            "caption": "React clients, Supabase identity and data, the Express assistant API, literature retrieval, research records, and deployment boundaries.",
+            "alt": "SVG backend architecture showing React, Supabase Auth and RLS, PostgreSQL, the Express API, RAG retrieval, OpenAI, and research data lineage.",
+            "src": "images/projects/executive-function/backend-architecture.svg",
+            "src_en": "images/projects/executive-function/backend-architecture-en.svg",
+            "width": 1600,
+            "height": 1200
+          }
+        ]
+      },
+      {
+        "id": "data",
+        "title": "Data & Behavioral Features",
+        "body": "The hierarchy is Participant → Session → Task Session → Raw Trial → Derived Trial. Original responses stay intact; quality flags, exclusions, and versioned features are stored separately.",
+        "table": {
+          "caption": "From responses to analysis",
+          "headers": [
+            "Record",
+            "Contents"
+          ],
+          "rows": [
+            [
+              "Task context",
+              "Pseudonymous participant ID, shared session, task, mode, difficulty, rule, completion state, and version."
+            ],
+            [
+              "Raw trial",
+              "Stimulus, expected and actual answer, timestamps, reaction time, errors, timeout, hints, replay, and selection path."
+            ],
+            [
+              "Derived features",
+              "Accuracy, RT mean / median / SD / CV, consecutive errors, support use, early-to-late change, memory span, and switching performance."
+            ],
+            [
+              "Decision trace",
+              "Allowed actions, context, selected game and difficulty, policy and reward versions, and the actual outcome."
+            ]
+          ]
+        },
+        "paragraphs": [
+          "Research features use valid trials and retain missing RT as null. Original task scores may use different denominators, so the cleaned analysis must not overwrite them. Reaction time is stored in milliseconds, and incomplete or unsupported observations remain visible."
+        ]
+      },
+      {
+        "id": "adaptation",
+        "title": "Assessment & Adaptive Training",
+        "body": "Assessment observes behavior under each task's established rules. Training adjusts challenge and support from task-specific indicators, with separate decisions for scoring, next difficulty, and the next recommended game.",
+        "paragraphs": [
+          "Parents can choose a training duration of 10–60 minutes and one or more allowed games. A plan contains at most twelve stages; the system uses recent performance when no game is selected and places the online UCB1 recommendation in the first stage.",
+          "Rule-based analyzers check data sufficiency before using accuracy, errors, support, response stability, and fatigue signals. The output can maintain or change a level, shorten a sequence, extend response time, reduce interference, or add support."
+        ],
+        "table": {
+          "caption": "Examples of task-specific adjustment",
+          "headers": [
+            "Task",
+            "Decision signals"
+          ],
+          "rows": [
+            [
+              "SRT",
+              "With enough data, upgrading requires accuracy ≥85%, unprompted accuracy ≥80%, low miss and false-alarm rates, limited support, and stable responses."
+            ],
+            [
+              "CBT",
+              "Early errors, spatial or order errors, timeout, and replay needs can take priority over score-based upgrading; some branches adjust two micro-levels."
+            ],
+            [
+              "SSG",
+              "The default upgrade rule requires two qualifying rounds, while falling performance can trigger support or a lower level sooner."
+            ],
+            [
+              "PM / DCCS / LB",
+              "Memory load, switching, interference, sequence errors, and independence are interpreted according to each task's configuration."
+            ]
+          ]
+        }
+      },
+      {
+        "id": "recommendation",
+        "title": "UCB1 Training Recommendations",
+        "body": "UCB1 treats each game as an arm. It balances the average feedback from completed recommendations with an exploration bonus for games tried less often.",
+        "steps": [
+          "Verify the child-account relationship and obtain the pseudonymous research ID.",
+          "Rebuild UCB1 state from completed decisions, then restrict candidates to allowed games and difficulty boundaries.",
+          "Save the candidates, selected action, and policy version before presenting the first recommended stage.",
+          "After a saved game result, append its outcome and reward once so the next recommendation can use the feedback."
+        ],
+        "formula": "UCB = mean_reward + sqrt(2 × ln(total_choices) / game_choices)\n\nreward_balanced_v1\n= 0.55 × accuracy + 0.20 × efficiency\n+ 0.15 × stability + 0.10 × completion",
+        "paragraphs": [
+          "The balanced reward is bounded to 0–1. It is an algorithmic behavior-feedback value, separate from stars or coins, and does not establish treatment benefit. Known-difficulty candidates allow the same level or ±1; game analyzers can use a different internal scale.",
+          "Pending recommendations are reused within the browser session. If storage or recommendation tables are unavailable, the original training plan remains available with a fallback message.",
+          "Current limits include game-level arms rather than independently learned game–difficulty pairs, selection of the first allowed action for that game, a fixed 1,000 ms target RT, placeholder context values, and null-to-zero conversion that can inflate efficiency or stability.",
+          "Random, rule-based, ε-Greedy, Thompson Sampling, and a contextual-bandit prototype support research comparisons. Synthetic simulations check mechanisms; they do not demonstrate learning gains in children."
+        ]
+      },
+      {
+        "id": "rag",
+        "title": "Literature-grounded RAG Assistant",
+        "body": "The professional assistant retrieves literature before explaining authorized case data. It combines verified calculations and source passages; task difficulty remains the responsibility of rule-based analyzers.",
+        "steps": [
+          "Import PDF text and metadata, clean it, and split passages into approximately 1,800 characters with 250-character overlap.",
+          "Create normalized, 384-dimensional multilingual E5 vectors and store passages and metadata in Supabase.",
+          "Verify professional identity and case access, then embed the query and retrieve with pgvector / HNSW and cosine similarity.",
+          "Filter and deduplicate up to twelve candidates at a 0.45 similarity threshold, retaining at most six passages and 18,000 characters in total.",
+          "Combine authorized case context, verified calculations, and numbered sources for the Responses API, then display the explanation, citations, and retrieval status."
+        ],
+        "paragraphs": [
+          "For example, a question about more errors after a DCCS rule switch uses the actual before-and-after record together with literature on switching and interference. Missing sources must be stated, and the professional dashboard can fall back to a local summary when the backend fails.",
+          "Retrieved literature and case text are treated as data rather than instructions. Citations improve traceability, but neither retrieval nor a generated explanation establishes a diagnosis or guarantees correctness."
+        ]
+      },
+      {
+        "id": "method",
+        "title": "Research Models & Validation",
+        "body": "Research pipelines examine later-in-session behavior, the next formal assessment, and cross-game prediction. They preserve each target's timing and remove features that would reveal the answer.",
+        "paragraphs": [
+          "Twenty percent of participants form an untouched test set. GroupKFold or StratifiedGroupKFold is applied to the remainder; imputation, scaling, and feature filtering are fitted within each training fold, keeping one child's records from crossing training and test sets.",
+          "Baselines include logistic regression, weighted logistic regression, linear regression, and decision trees. Random forest is enabled only with at least thirty participants. Classification uses measures such as balanced accuracy, F1, ROC-AUC, and PR-AUC; regression uses MAE, RMSE, and R².",
+          "Explanation tools use coefficients, permutation importance, individual additive contributions, feature perturbations, and ranking stability across participant folds. Linear contributions use a declared baseline; tree perturbations are not presented as TreeSHAP, and predictive explanations do not establish causes.",
+          "Experiments retain dataset and feature versions, model settings, seed, participant splits, metrics, and timestamps. Synthetic demonstrations are labeled DEMO and kept separate from real observational results."
+        ]
+      },
+      {
+        "id": "statistics",
+        "title": "Statistics & Longitudinal Follow-up",
+        "body": "The research workspace provides descriptive distributions, correlations, group comparisons, effect sizes, bootstrap confidence intervals, and Benjamini–Hochberg FDR correction, subject to sample and design requirements.",
+        "paragraphs": [
+          "Longitudinal summaries compare the first and latest valid observations, calculate absolute and relative change, use three-session rolling summaries, and estimate an OLS trend after at least three valid observations. A zero baseline leaves relative change undefined.",
+          "Comparisons use the child's own baseline and must consider mode, difficulty, device, and practice effects. Cross-game correlations require the same participant and shared session; different dates must not be paired arbitrarily.",
+          "A mixed-effects model has a readiness and planning interface only: it has not been fitted. Reaching the proposed sample threshold does not automatically produce coefficients or p-values."
+        ]
+      },
+      {
+        "id": "engagement",
+        "title": "Rewards & Continued Participation",
+        "body": "Stars, stickers, achievements, and the forest map provide immediate encouragement. Longer-term rewards combine participation across days with completed training, rather than relying only on repeated play in one sitting.",
+        "paragraphs": [
+          "The honey mission checks both valid training days and accumulated stars, with a daily credit cap of eighteen stars. Five milestone thresholds are defined, but claiming honey and automatically advancing through rounds remain unfinished.",
+          "A hat-and-sticker invitation appears after a randomized interval of five to eight valid training stages. Child-specific progress and one-time reward records prevent duplicate credits; participation rewards are not ability norms or evidence of effectiveness."
+        ]
+      },
+      {
+        "id": "results",
+        "title": "Results",
+        "body": "The prototype integrates six tasks and research modules. Testing with young children showed that self-selecting Easy/Normal/Hard was confusing, prompting performance-based difficulty adjustment. Parent and professional result views were separated to match their information needs.",
+        "paragraphs": [
+          "The result-page redesign also changed the information hierarchy. Parents need an understandable summary of completion, tasks that were relatively stable or required help, and trends over time. Professionals need access to accuracy, reaction time, error types, difficulty, hints, and, when necessary, individual trials. More data is useful only when its presentation matches the reader's question."
+        ]
+      },
+      {
+        "id": "learning",
+        "title": "What I Learned",
+        "body": "A working interface does not guarantee sustained participation. Early exits, repeated clicks, waiting time, and the need for parental reminders also matter. This shifted my focus from implementing features to designing evidence around research questions.",
+        "paragraphs": [
+          "The difficulty-selection change was especially important to me. Offering three buttons had looked like giving children control, but testing showed that the labels themselves imposed a decision they could not make. I learned to test whether an apparent choice is actually understandable and useful to the person using it."
+        ]
+      },
+      {
+        "id": "limitations",
+        "title": "Limitations",
+        "body": "This is a research and demonstration prototype, not a substitute for standardized assessment or clinical diagnosis. Reliability, validity, and training effectiveness lack sufficient empirical validation. An NSTC undergraduate research proposal was completed and submitted but was not funded.",
+        "paragraphs": [
+          "The README was checked on 2026-09-09 and the RACE technical notes were compiled on 2026-10-01. This portfolio update consolidates those supplied documents; it does not verify the production service or re-run the game project's full test suite.",
+          "Pseudonymous IDs still connect repeated observations. Research sharing needs consent, authorized fields, and review of timestamps and free text; a defined retention, deletion, and backup policy remains necessary for deployment."
+        ],
+        "table": {
+          "caption": "What has been implemented, and what remains unverified",
+          "headers": [
+            "Capability",
+            "Current status"
+          ],
+          "rows": [
+            [
+              "Games & analysis",
+              "Six games, scoring, and task-specific adjustment have implementations; suggested settings and their application must be checked separately."
+            ],
+            [
+              "Online UCB1",
+              "Connected to the training entry and result feedback; depends on authentication and recommendation tables."
+            ],
+            [
+              "Professional RAG",
+              "Import, retrieval, and generation paths exist; availability depends on the knowledge base, API, and permissions."
+            ],
+            [
+              "ML / XAI / statistics",
+              "Research tools and prototypes, requiring sufficient real data and appropriate validation."
+            ],
+            [
+              "Mixed-effects model",
+              "Not fitted; readiness planning only."
+            ],
+            [
+              "Norms & effectiveness",
+              "Validated age norms, diagnostic use, and training-effectiveness evidence have not been established."
+            ]
+          ]
+        }
+      },
+      {
+        "id": "future",
+        "title": "Future Work",
+        "body": "Further work requires user studies and professional collaboration to validate tasks, measures, and feedback. Preschool tasks cannot be transferred directly to adults or stroke rehabilitation.",
+        "paragraphs": [
+          "Next steps include calibrating rewards across tasks and difficulty levels, resolving missing-value handling, testing device compatibility, reviewing literature coverage, and evaluating recommendations with real longitudinal data."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "collocation-errors",
+    "title": "Not All Collocation Errors Matter Equally",
+    "full_title": "Not All Collocation Errors Matter Equally: A Corpus-Based Study of Error Severity and Writing Quality in EFL Learners",
+    "type": "International Conference Research",
+    "year": "2026.07",
+    "role": "First Author",
+    "tags": [
+      "Research",
+      "Learning",
+      "Data"
+    ],
+    "featured": true,
+    "visual": "errors",
+    "visual_label": "02 / UNDERSTANDING ERROR SEVERITY",
+    "summary": "A corpus-based study of 100 sampled essays examines why error severity and type explain more than error counts alone.",
+    "process": [
+      "10,000 Essays",
+      "100 Sampled Essays",
+      "Error Identification",
+      "Severity Coding",
+      "Data Analysis",
+      "Educational Implications"
+    ],
+    "links": [
+      {
+        "label": "Read Paper PDF",
+        "url": "/static/files/collocation-errors-paper.pdf"
+      },
+      {
+        "label": "Conference Invitation",
+        "url": "https://drive.google.com/file/d/1HY76Z1q5_QNzDprC3JFfk3PlXFLKn6uM/view?usp=sharing"
+      }
+    ],
+    "sections": [
+      {
+        "id": "overview",
+        "title": "Overview",
+        "body": "First-author conference research with four authors, advised by 張智凱 and presented in English at IIAI AAI 2026 in Fukui, Japan, during July 12–17, 2026.",
+        "paragraphs": [
+          "The paper asks a practical teaching question: when two essays contain the same number of errors, should they receive the same kind of feedback? A slightly unnatural expression and one that obscures the writer's meaning may both count as one error, yet they create different problems for a reader. This distinction became the starting point for the study."
+        ]
+      },
+      {
+        "id": "problem",
+        "title": "Problem",
+        "body": "Collocation errors differ in their impact on meaning and naturalness. Counting all errors equally can hide which problems most affect writing quality."
+      },
+      {
+        "id": "question",
+        "title": "Research Question",
+        "body": "How are collocation error frequency, type, and severity associated with writing quality, and do stronger and weaker essays show different error patterns?"
+      },
+      {
+        "id": "role",
+        "title": "My Role",
+        "body": "I participated in question formulation, literature review, corpus processing, error classification and severity coding, Orange analysis, visualization, manuscript writing and revision, and the first-author English presentation."
+      },
+      {
+        "id": "method",
+        "title": "Method",
+        "body": "From approximately 10,000 entrance-exam essays, 100 were randomly sampled. Errors were coded by type and as Minor, Moderate, or Severe with weights of 1, 2, and 3, then examined through descriptive statistics, correlations, group comparisons, and RReliefF.",
+        "paragraphs": [
+          "The manuscript describes selecting complete essays on the same or similar writing tasks, excluding incomplete, extremely short, or off-topic texts. Each essay was read manually, and potential collocation errors were checked against reference materials in context. Classification distinguished lexical combinations from general grammar errors before adding severity judgments.",
+          "Minor errors retain a clear meaning but sound less natural; moderate errors remain understandable while noticeably weakening clarity or naturalness; severe errors make the intended meaning unclear or misleading. The weighting scheme is an analytical choice, not a diagnosis of a learner's overall ability."
+        ]
+      },
+      {
+        "id": "technology",
+        "title": "Technology",
+        "body": "TECCL and English dictionaries supported error identification; Orange Data Mining supported quantitative analysis and visualization."
+      },
+      {
+        "id": "process",
+        "title": "System / Research Process",
+        "body": "Sampling → error identification → type classification → severity coding → feature construction → analysis → interpretation → writing and conference presentation."
+      },
+      {
+        "id": "data",
+        "title": "Data",
+        "body": "Original essay scores served as the writing-quality measure. Features included Verb–Noun, Adjective–Noun, and Noun–Noun errors, error frequency, and severity-weighted scores.",
+        "paragraphs": [
+          "For each essay, the dataset records total collocation errors, counts by subtype, counts at each severity level, the weighted score, and the original writing score. The weighted score is calculated as minor errors × 1 + moderate errors × 2 + severe errors × 3. These parallel measures allow frequency and severity to be compared rather than assumed to mean the same thing."
+        ]
+      },
+      {
+        "id": "results",
+        "title": "Results",
+        "body": "In this sample, error counts alone did not clearly explain writing quality. Verb–Noun errors were the most common type. Severity-weighted measures showed clearer differences across writing levels and stronger associations with scores than frequency alone.",
+        "paragraphs": [
+          "The manuscript reports that essays with more errors did not consistently receive lower scores. Verb–Noun errors were frequent, while Verb–Noun and Adjective–Noun patterns were more closely associated with writing scores than several other subtypes. The result supports a more selective approach to feedback, but it does not show that correcting one subtype alone will cause a specific score increase."
+        ]
+      },
+      {
+        "id": "learning",
+        "title": "What I Learned",
+        "body": "Choosing a measure is part of defining the problem. Feedback can prioritize errors that affect meaning, clarity, and naturalness instead of treating every error as equally important.",
+        "paragraphs": [
+          "Preparing the English presentation required turning a sequence of analyses into a clear argument: why counting was insufficient, how the severity measure was defined, what the comparisons showed, and where interpretation had to stop. The Fukui presentation photographs below document that stage of communicating the research beyond the written paper."
+        ]
+      },
+      {
+        "id": "limitations",
+        "title": "Limitations",
+        "body": "Only 100 essays were analyzed. Human judgment influences identification and severity coding, and the study does not fully account for organization, coherence, or task response. Associations do not establish causation.",
+        "paragraphs": [
+          "The manuscript does not supply an inter-rater reliability result or sufficient numerical detail to reconstruct every chart from the PDF alone. I therefore present the reported patterns without adding unprovided coefficients, p-values, or claims of validated instructional improvement."
+        ]
+      },
+      {
+        "id": "future",
+        "title": "Future Work",
+        "body": "The findings suggest opportunities for targeted EFL feedback and corpus-supported teaching; their usefulness in instruction still requires evaluation.",
+        "paragraphs": [
+          "A next study could increase the sample, involve multiple raters, and examine organization and coherence alongside lexical measures. A teaching evaluation would then be needed to test whether severity-prioritized feedback actually helps learners revise more effectively."
+        ]
+      }
+    ],
+    "gallery": [
+      {
+        "src": "images/research/fukui-presentation.jpg",
+        "width": 1477,
+        "height": 1108,
+        "alt": "Larina presenting collocation research at the conference in Fukui",
+        "caption": "English oral presentation · Explaining why frequency alone is not enough."
+      },
+      {
+        "src": "images/research/fukui-conference.jpg",
+        "width": 1045,
+        "height": 1567,
+        "alt": "Larina at the IIAI conference venue in Fukui, Japan",
+        "caption": "At the conference venue · Fukui, Japan."
+      }
+    ],
+    "thumbnail": "images/research/fukui-presentation.jpg",
+    "thumbnail_alt": "Larina presenting collocation research at the conference in Fukui",
+    "paper_file": "files/collocation-errors-paper.pdf",
+    "paper_note": "Author-provided conference paper PDF. The file still contains publication-template placeholders; final volume, article ID, and DOI are not listed here."
+  },
+  {
+    "id": "chatgpt-usage",
+    "title": "ChatGPT Usage among University Students",
+    "full_title": "Motivation, Usage Patterns, and Educational Implications of ChatGPT Use among University Students in Taiwan",
+    "type": "Mixed Methods Research",
+    "year": "2025.02–2026.02",
+    "role": "Independent Researcher",
+    "tags": [
+      "Research",
+      "AI",
+      "Learning",
+      "Data"
+    ],
+    "featured": true,
+    "visual": "survey",
+    "visual_label": "03 / LISTENING TO LEARNERS",
+    "summary": "Questionnaires and interviews with 131 students across six colleges connect AI usage patterns with motivation and context.",
+    "process": [
+      "Research Question",
+      "Questionnaires",
+      "Interviews",
+      "Analysis",
+      "Interpretation"
+    ],
+    "links": [
+      {
+        "label": "Research Report",
+        "url": "https://drive.google.com/file/d/1ECbH1Tc65NTlWmpf_7EeOXptLX16pH0f/view?usp=sharing"
+      },
+      {
+        "label": "Research Poster",
+        "url": "https://drive.google.com/file/d/1745FZe_U99v28xptiK0WDNn5Xy5fEcxA/view?usp=sharing"
+      }
+    ],
+    "sections": [
+      {
+        "id": "overview",
+        "title": "Overview",
+        "body": "An individual research project conducted from February 2025 to February 2026 under Dr. Yi-Chun Christine Yang (楊逸君), focusing on ChatGPT in higher education."
+      },
+      {
+        "id": "problem",
+        "title": "Problem",
+        "body": "Similar usage frequencies may reflect very different learning needs. Attitudes alone do not show why students use AI or how disciplinary contexts shape their choices.",
+        "paragraphs": [
+          "An identical frequency response can describe very different activities: solving a programming problem, revising an essay, generating ideas, or checking an explanation. Without asking about purpose and context, the same number risks flattening distinct learning experiences into a single usage category."
+        ]
+      },
+      {
+        "id": "question",
+        "title": "Research Question",
+        "body": "Why do students use ChatGPT, what do they use it for, how do patterns differ across colleges, and how do they view accuracy, integrity, and dependence?"
+      },
+      {
+        "id": "role",
+        "title": "My Role",
+        "body": "I carried out the research process from questions, literature, and theory through questionnaire design, recruitment, interviews, statistical analysis, qualitative coding, interpretation, and reflection on limitations."
+      },
+      {
+        "id": "method",
+        "title": "Method",
+        "body": "A mixed-methods design used Self-Determination Theory, descriptive statistics, cross-tabulation, proportion Z-tests, semi-structured interviews, and thematic analysis.",
+        "paragraphs": [
+          "The questionnaire captured background, frequency, purpose, motivation, satisfaction, and attitudes. Semi-structured interviews then allowed students to explain how they made decisions about using ChatGPT. Open coding and thematic analysis connected these accounts to the quantitative patterns rather than treating interview quotations as decoration."
+        ]
+      },
+      {
+        "id": "technology",
+        "title": "Technology",
+        "body": "The work centers on survey analysis and qualitative coding rather than a software platform. Analysis methods are documented in the linked research report."
+      },
+      {
+        "id": "process",
+        "title": "System / Research Process",
+        "body": "Questionnaires describe patterns across colleges; interviews add the motivations and contexts that numbers alone cannot explain."
+      },
+      {
+        "id": "data",
+        "title": "Data",
+        "body": "131 undergraduate and graduate students at National University of Tainan: 120 questionnaire respondents and 11 interviewees, spanning six colleges."
+      },
+      {
+        "id": "results",
+        "title": "Results",
+        "body": "Time saving was the leading motivation. Science and engineering students used ChatGPT more for programming and technical problems, while humanities and education students emphasized writing and idea generation. Acceptance was high, alongside concerns about accuracy, integrity, and overreliance.",
+        "paragraphs": [
+          "Disciplinary differences changed how the findings should be read. Technical problem solving, writing support, and concerns about creativity or originality are different demands on the same tool. For me, the important implication was that university AI guidance should be responsive to learning contexts as well as responsible-use principles."
+        ]
+      },
+      {
+        "id": "learning",
+        "title": "What I Learned",
+        "body": "The same tool can serve different needs. Combining numerical patterns with students' accounts helped me interpret use in context rather than equating frequency with purpose.",
+        "paragraphs": [
+          "The unequal college sample sizes reminded me to distinguish descriptive proportions from statistical comparisons. Self-reported use also cannot stand in for observed behavior. Keeping these boundaries visible was part of learning how to communicate a result without extending it beyond the data."
+        ]
+      },
+      {
+        "id": "limitations",
+        "title": "Limitations",
+        "body": "The sample comes from one university, with unequal college sizes and self-reported behavior. Self-efficacy, AI literacy, and actual interaction logs were not fully incorporated."
+      },
+      {
+        "id": "future",
+        "title": "Future Work",
+        "body": "Extend recruitment across universities, add longitudinal observations and interaction logs, and examine self-efficacy, AI literacy, and instructor policies."
+      }
+    ]
+  },
+  {
+    "id": "life-investment",
+    "title": "Life × Investment — Learning through Decisions",
+    "type": "Educational Simulation",
+    "year": "2026.08",
+    "role": "Independent Designer & Developer",
+    "tags": [
+      "HCI",
+      "Learning",
+      "System"
+    ],
+    "featured": true,
+    "visual": "life",
+    "visual_label": "04 / LEARNING THROUGH CHOICES",
+    "summary": "A front-end simulation links life stages, cash flow, market uncertainty, and reflection rather than rewarding final wealth alone.",
+    "process": [
+      "Decision",
+      "Outcome",
+      "Reflection",
+      "Decision"
+    ],
+    "links": [],
+    "sections": [
+      {
+        "id": "overview",
+        "title": "Overview",
+        "body": "An independently developed web-based educational simulation completed in August 2026. The controls on this portfolio page are a small storytelling demo, not the full original application."
+      },
+      {
+        "id": "problem",
+        "title": "Problem",
+        "body": "Financial definitions alone do not show how income, living costs, family responsibilities, housing, insurance, and uncertainty interact over time.",
+        "paragraphs": [
+          "If the game rewards final wealth alone, concentrated high-risk bets may look like good decisions. I therefore treated financial health and risk exposure as part of the learning problem, so that the result could explain the trade-offs behind an outcome rather than celebrate only the amount earned."
+        ]
+      },
+      {
+        "id": "question",
+        "title": "Research Question",
+        "body": "How can scenario-based decisions make risk, cash flow, and long-term trade-offs tangible enough to reflect on?"
+      },
+      {
+        "id": "role",
+        "title": "My Role",
+        "body": "I independently planned and developed the user flow, front-end interactions, fictional market model, financial rules, scoring, learning content, and local records.",
+        "paragraphs": [
+          "The main integration challenge was maintaining consistency among the user flow, fictional market data, financial calculations, scoring, and learning feedback. A transaction changes more than a balance: it can change liquidity, risk concentration, and the interpretation of later outcomes. Thinking across those dependencies was central to the design."
+        ]
+      },
+      {
+        "id": "method",
+        "title": "Method",
+        "body": "The learning loop is Decision → Outcome → Reflection → Decision. Evaluation considers performance, drawdown, concentration, financial health, risk management, decision quality, and learning growth."
+      },
+      {
+        "id": "technology",
+        "title": "Technology",
+        "body": "HTML, CSS, JavaScript, and browser local storage form a static front-end prototype."
+      },
+      {
+        "id": "process",
+        "title": "System / Research Process",
+        "body": "Choose a profession and life stage → handle income and expenses → respond to market and life events → inspect multidimensional feedback → revise decisions.",
+        "paragraphs": [
+          "A turn combines occupational income with expenses, taxes, housing, insurance, family responsibilities, and market changes. This makes investment one part of a broader life scenario. Learners can revisit their decisions after seeing feedback on drawdown, reserves, and concentration, then try a different approach in the next simulation."
+        ]
+      },
+      {
+        "id": "data",
+        "title": "Data",
+        "body": "All companies, prices, and market events are fictional. The system models income, taxes, housing, insurance, debt, emergency reserves, and asset allocation for educational use."
+      },
+      {
+        "id": "results",
+        "title": "Results",
+        "body": "The prototype includes 20 professions, 5 life stages, 50 fictional companies, 38 market/policy/company events, 14 life/career events, and 150 graded learning articles, with saved game records and multidimensional feedback."
+      },
+      {
+        "id": "learning",
+        "title": "What I Learned",
+        "body": "A feature should have a learning purpose and produce interpretable feedback. Designing this system strengthened my requirements analysis, data modeling, interaction design, and integration.",
+        "paragraphs": [
+          "This work shifted my attention from whether a feature runs to what a learner can understand through it. A useful result page needs to connect a visible outcome to the decisions that produced it and give the learner a reason to reflect, without implying that a fictional simulation predicts real-world returns."
+        ]
+      },
+      {
+        "id": "limitations",
+        "title": "Limitations",
+        "body": "Learning effectiveness has not been validated through formal user research. Accounts and records are local, without cross-device synchronization or true real-time multiplayer. This is educational simulation, not investment advice."
+      },
+      {
+        "id": "future",
+        "title": "Future Work",
+        "body": "Evaluate financial understanding, risk recognition, and decision quality with users; consider a backend and synchronization after validating the learning experience."
+      }
+    ]
+  },
+  {
+    "id": "sleep-posture",
+    "title": "Sleep Posture Recognition based on CNN",
+    "year": "Course project",
+    "type": "Team AI Course Project",
+    "role": "ResNet18 Training & Results Analysis",
+    "tags": [
+      "AI",
+      "Health",
+      "Data",
+      "Research"
+    ],
+    "featured": false,
+    "visual": "study",
+    "visual_label": "MORE WORK / Sleep Posture Recognition based on CNN",
+    "summary": "Comparing a baseline CNN and fine-tuned ResNet18 with synthetic training images and a separate real-image test set.",
+    "process": [],
+    "sections": [
+      {
+        "id": "overview",
+        "title": "Overview",
+        "body": "A two-person course project classifying single images into Back, Fetal, Side, and Stomach positions."
+      },
+      {
+        "id": "problem",
+        "title": "Problem",
+        "body": "The team had approximately 100 real images and uneven class sizes, limiting direct training and generalization."
+      },
+      {
+        "id": "role",
+        "title": "My Role",
+        "body": "I trained and fine-tuned ResNet18, analyzed results, and wrote part of the report. Synthetic data generation and the overall comparison were team work."
+      },
+      {
+        "id": "method",
+        "title": "Method",
+        "body": "The team generated about 400 images per class with ComfyUI, JuggernautXL, and ControlNet. Real images were reserved for external testing. Training used augmentation and WeightedRandomSampler; analysis included a confusion matrix and Grad-CAM.",
+        "paragraphs": [
+          "Fine-tuning replaced ResNet18's classification layer with four outputs and updated the network using preprocessed images, augmentation, and Adam optimization. The small set of real photographs was kept separate from training, making the external test a check on transfer from generated images rather than another measure on the same image source."
+        ]
+      },
+      {
+        "id": "results",
+        "title": "Results",
+        "body": "The source reports approximately 60–70% accuracy for the baseline CNN, 82% for fine-tuned ResNet18, and 80% on real-image testing. Fetal and Side were the main sources of confusion.",
+        "paragraphs": [
+          "Looking at the confusion matrix changed the focus from overall accuracy to failure patterns. Fetal and Side can share similar hip and leg configurations, and Grad-CAM helped inspect the regions the model attended to. This made data definitions and visual ambiguity as important as the choice of network."
+        ]
+      },
+      {
+        "id": "limitations",
+        "title": "Limitations",
+        "body": "The real dataset is small; synthetic-to-real differences and subjective class boundaries remain. This is static-image classification, not a clinically validated sleep-monitoring system."
+      },
+      {
+        "id": "future",
+        "title": "Future Work",
+        "body": "Expand real-image evaluation, investigate domain adaptation and pose-aware models, and explore temporal information."
+      }
+    ],
+    "links": [
+      {
+        "label": "GitHub",
+        "url": "https://github.com/NOtwhitelol/Sleep-Pose-Recognition.git"
+      },
+      {
+        "label": "Project Report",
+        "url": "https://drive.google.com/file/d/1YRNrMihJIdxsrtAXYFGYznpOtUB3ooGd/view?usp=sharing"
+      }
+    ],
+    "visual_metric": "CNN → ResNet18"
+  },
+  {
+    "id": "fitplay",
+    "title": "FitPlay — A Health Learning Management System",
+    "year": "2025.05–06",
+    "type": "Independent Course Project",
+    "role": "System Planning & Development",
+    "tags": [
+      "Learning",
+      "Health",
+      "System",
+      "HCI"
+    ],
+    "featured": false,
+    "visual": "study",
+    "visual_label": "MORE WORK / FitPlay — A Health Learning Management System",
+    "summary": "Connecting health content, interactive games, error clarification, and progress tracking in a working LMS.",
+    "process": [],
+    "sections": [
+      {
+        "id": "overview",
+        "title": "Overview",
+        "body": "Developed for a learning-management-systems course, FitPlay serves learners of basic health, nutrition, and exercise topics."
+      },
+      {
+        "id": "role",
+        "title": "My Role",
+        "body": "I independently planned and built the complete information system, connecting front-end interactions, server behavior, and cloud data storage."
+      },
+      {
+        "id": "technology",
+        "title": "Technology",
+        "body": "Node.js, HTML, CSS, JavaScript, and cloud data storage. Modules cover accounts, tasks, notes, games, and learning records.",
+        "paragraphs": [
+          "The front end presents learning tasks, notes, games, and progress; the server handles account and activity flows; storage preserves task progress and game outcomes. Splitting these responsibilities helped me debug integration problems without treating the entire application as one page of unrelated features."
+        ]
+      },
+      {
+        "id": "results",
+        "title": "Results",
+        "body": "The working LMS includes a learning map, task management, notes, games, results, progress tracking, and administration."
+      },
+      {
+        "id": "learning",
+        "title": "What I Learned",
+        "body": "This was my first independently planned complete information system and an important reason for changing my major. Working software still needs learning goals and meaningful feedback.",
+        "paragraphs": [
+          "The intended learning sequence is explanation, practice through interaction, clarification of errors, and progress tracking. A game is useful in that sequence only when it supports the content being learned and gives a meaningful response to mistakes. That realization later influenced how I approached cognitive tasks and adaptive feedback."
+        ]
+      },
+      {
+        "id": "limitations",
+        "title": "Limitations",
+        "body": "Content and game variety remain limited. Large-scale user testing has not established effects on learning or motivation."
+      }
+    ],
+    "links": [
+      {
+        "label": "Watch Demo",
+        "url": "https://youtu.be/PB6MTFOoG94"
+      }
+    ],
+    "visual_metric": "LEARN → PLAY"
+  },
+  {
+    "id": "pokemon-rpg",
+    "title": "Pokémon RPG",
+    "year": "2026.07.01–14",
+    "type": "Independent Programming Project",
+    "role": "C++ / Qt Development",
+    "tags": [
+      "System"
+    ],
+    "featured": false,
+    "visual": "study",
+    "visual_label": "MORE WORK / Pokémon RPG",
+    "summary": "A complete RPG loop used to practice event-driven programming, state management, and integration.",
+    "process": [],
+    "sections": [
+      {
+        "id": "overview",
+        "title": "Overview",
+        "body": "An independent learning project based on a Pokémon RPG assignment from National Cheng Kung University's Electrical Engineering introductory computing course; this does not imply enrollment in that program."
+      },
+      {
+        "id": "role",
+        "title": "My Role",
+        "body": "I developed the C++/Qt prototype, iteratively testing movement, collisions, scenes, inventory, encounters, and battle states.",
+        "paragraphs": [
+          "Large-map exploration required a camera offset, while movement needed collision checks before updating coordinates. Dialogue and inventory states had to disable incompatible actions. In battle, phase management ensured that using an item, changing a Pokémon, or selecting a move connected to the correct next turn."
+        ]
+      },
+      {
+        "id": "technology",
+        "title": "Technology",
+        "body": "C++, Qt, QPainter, QRect, event handling, timers, vectors, and camera coordinate transforms."
+      },
+      {
+        "id": "results",
+        "title": "Results",
+        "body": "Implemented exploration, NPC and object interaction, inventory, random encounters, turn-based battles, capture, switching, leveling, and evolution."
+      },
+      {
+        "id": "learning",
+        "title": "What I Learned",
+        "body": "Integrating functions required clear control over when movement, dialogue, inventory, and combat could operate, not just correct individual features.",
+        "paragraphs": [
+          "The project gave me a concrete way to revisit programming fundamentals after struggling with earlier coursework. I learned through a repeated cycle of implementing a behavior, finding a state conflict, tracing the cause, and revising the logic. It also exposed why a growing project needs separate scene, battle, inventory, and data-management responsibilities."
+        ]
+      },
+      {
+        "id": "limitations",
+        "title": "Limitations",
+        "body": "It remains a learning prototype with limited content and simple enemy logic. Many controls are concentrated in MainWindow, so modularization is a next step."
+      }
+    ],
+    "links": [],
+    "visual_metric": "C++ / Qt"
+  },
+  {
+    "id": "crazy-arcade",
+    "title": "Crazy Arcade",
+    "year": "2026.07.17–30",
+    "type": "Independent Programming Project",
+    "role": "Algorithms & Game Logic",
+    "tags": [
+      "AI",
+      "System"
+    ],
+    "featured": false,
+    "visual": "study",
+    "visual_label": "MORE WORK / Crazy Arcade",
+    "summary": "Applying BFS and state management to real-time movement, chain explosions, and rule-based enemy behavior.",
+    "process": [],
+    "sections": [
+      {
+        "id": "overview",
+        "title": "Overview",
+        "body": "A C++/Qt action-game prototype developed after Pokémon RPG to practice real-time events, multi-object updates, and algorithmic behavior."
+      },
+      {
+        "id": "role",
+        "title": "My Role",
+        "body": "I independently built Robot Mode and Monster Mode, including grid-based explosions, obstacles, items, levels, and boss behavior."
+      },
+      {
+        "id": "method",
+        "title": "Method",
+        "body": "BFS finds routes; state-based rules handle pursuit, attacks, clearing obstacles, and escape. Danger checks consider blast ranges and whether a safe exit remains.",
+        "paragraphs": [
+          "Explosion effects were represented as grid-coordinate sets so that damage, obstacles, and chain reactions could be evaluated consistently. Robot movement combined route planning with checks for destructible barriers, bomb placement, and escape routes. These checks made the game an exercise in coordinating multiple conditions, not simply running BFS."
+        ]
+      },
+      {
+        "id": "results",
+        "title": "Results",
+        "body": "The prototype integrates chain explosions, destructible obstacles, random items, multiple stages, and boss battles with enemy path planning."
+      },
+      {
+        "id": "learning",
+        "title": "What I Learned",
+        "body": "The shortest route is not always a reasonable action: an agent must also account for obstacles, hazards, attack positions, and escape.",
+        "paragraphs": [
+          "Compared with the turn-based RPG, the real-time game required many objects to update together without inconsistent states. I began asking how the system should behave under changing conditions, and which component should own each decision. This was a step toward thinking about architecture as well as algorithms."
+        ]
+      },
+      {
+        "id": "limitations",
+        "title": "Limitations",
+        "body": "Enemy behavior is rule-based, not learned AI. Some control logic remains concentrated in MainWindow and needs clearer module boundaries."
+      }
+    ],
+    "links": [],
+    "visual_metric": "BFS → DECISION"
+  },
+  {
+    "id": "safe-seat",
+    "title": "Safe Seat — AI Creative Competition",
+    "year": "2024.07",
+    "type": "Competition Prototype",
+    "role": "Project Coordination & Image Data",
+    "tags": [
+      "AI",
+      "HCI",
+      "System"
+    ],
+    "featured": false,
+    "visual": "study",
+    "visual_label": "MORE WORK / Safe Seat — AI Creative Competition",
+    "summary": "An interdisciplinary prototype exploring communication around priority seating in public transport.",
+    "process": [],
+    "sections": [
+      {
+        "id": "overview",
+        "title": "Overview",
+        "body": "A six-person team of two professors and four students entered the 2024 CTCI Foundation AI Creative Competition and passed eligibility review to reach the preliminary round."
+      },
+      {
+        "id": "role",
+        "title": "My Role",
+        "body": "I managed progress, tracked weekly tasks, consolidated materials, and participated in image-data preparation and training.",
+        "paragraphs": [
+          "Progress tracking and material consolidation were part of making an interdisciplinary idea executable. I recorded meeting progress, followed weekly tasks, and helped prepare and test image data, while collaborating with members whose engineering expertise differed from mine."
+        ]
+      },
+      {
+        "id": "technology",
+        "title": "Technology",
+        "body": "The team proposed combining image recognition, a camera, Raspberry Pi, and a physical reminder device."
+      },
+      {
+        "id": "results",
+        "title": "Results",
+        "body": "The team completed the competition proposal and prototype work and entered the preliminary round. This is not a claim of an award or a deployed public-service system."
+      },
+      {
+        "id": "limitations",
+        "title": "Limitations",
+        "body": "Appearance does not reliably establish a person's seating needs. Privacy, misclassification, and labeling risks require attention before any real-world deployment.",
+        "paragraphs": [
+          "The experience made me more attentive to the gap between recognizing an image category and understanding a person's actual need. A public-facing system must consider how an incorrect label could affect people and whether the interaction itself creates pressure. The prototype experience is therefore also a lesson in questioning the assumptions behind a technical solution."
+        ]
+      }
+    ],
+    "links": [
+      {
+        "label": "Participation Record",
+        "url": "https://drive.google.com/file/d/11pmknPGUtOQfHDRDLUI59vRT8O4Dlwfs/view?usp=sharing"
+      }
+    ],
+    "visual_metric": "AI × ESG"
+  },
+  {
+    "id": "404-daily",
+    "title": "404 Daily — Technology Storytelling",
+    "year": "2026.08–present",
+    "type": "Independent Media Project",
+    "role": "Planning, Writing & Visual Communication",
+    "tags": [
+      "HCI",
+      "Learning"
+    ],
+    "featured": false,
+    "visual": "study",
+    "visual_label": "MORE WORK / 404 Daily — Technology Storytelling",
+    "summary": "Using illustrated mysteries to make information access, system transparency, and technology concepts easier to explore.",
+    "process": [],
+    "sections": [
+      {
+        "id": "overview",
+        "title": "Overview",
+        "body": "An ongoing Instagram and Threads project begun in August 2026. Its first season, 404: The Hidden World, uses twelve planned cases to explore information gaps."
+      },
+      {
+        "id": "role",
+        "title": "My Role",
+        "body": "I independently plan the brand, world, characters, seasonal story, technology research, scripts, storyboards, layouts, questions, and platform-specific copy."
+      },
+      {
+        "id": "method",
+        "title": "Method",
+        "body": "A case creates a concrete question, the investigation introduces technology, and a knowledge page connects the concept to daily life before inviting reflection.",
+        "paragraphs": [
+          "Each piece starts with a recap and an unusual event, then introduces a technology question, an explanation, an audience prompt, and a clue for the next story. Instagram uses a sequence of illustrated panels; Threads adapts the same topic into a shorter, discussion-oriented format rather than repeating the panels verbatim."
+        ]
+      },
+      {
+        "id": "results",
+        "title": "Results",
+        "body": "The source documents brand and character development, a twelve-month first-season outline, and six connected pieces for the first month's system-update storyline. These are content-production milestones, not validated learning outcomes.",
+        "paragraphs": [
+          "The first storyline uses a missing minute during a city-wide system update to introduce versions, synchronization, update logs, rollback, patches, and bugs. The mystery gives readers a reason to ask how digital records work before they encounter the terminology. This is a narrative design approach, not yet evidence that the approach improves learning."
+        ]
+      },
+      {
+        "id": "limitations",
+        "title": "Limitations",
+        "body": "The project is early-stage, with limited reader data. It cannot yet establish that storytelling improves understanding or information literacy."
+      },
+      {
+        "id": "future",
+        "title": "Future Work",
+        "body": "Compare narrative and explanatory formats through reader feedback and, later, structured studies of comprehension, recall, and participation."
+      }
+    ],
+    "links": [],
+    "visual_metric": "STORY → INSIGHT"
+  },
+  {
+    "id": "matches",
+    "title": "Matches — 3D Animation",
+    "year": "2024.12–2025.01",
+    "type": "Team Animation Course Project",
+    "role": "Modeling, Animation & Story Support",
+    "tags": [
+      "System"
+    ],
+    "featured": false,
+    "visual": "study",
+    "visual_label": "MORE WORK / Matches — 3D Animation",
+    "summary": "A three-person animation project connecting story ideas with models, scenes, motion, and final rendering.",
+    "process": [],
+    "sections": [
+      {
+        "id": "overview",
+        "title": "Overview",
+        "body": "A three-person project for a computer-animation production course, created with Blender."
+      },
+      {
+        "id": "role",
+        "title": "My Role",
+        "body": "I created some character and object models and scene content, adjusted animation, and contributed to parts of the story.",
+        "paragraphs": [
+          "Working on models and motion meant repeatedly checking whether the scene, character action, timing, and camera supported the same story moment. I contributed specific assets and animation adjustments while coordinating with the other two members, rather than producing the entire film alone."
+        ]
+      },
+      {
+        "id": "results",
+        "title": "Results",
+        "body": "The team completed a 3D animated work through story planning, modeling, materials, motion, cameras, and rendering."
+      },
+      {
+        "id": "learning",
+        "title": "What I Learned",
+        "body": "Visual storytelling depends on the relationships among story, movement, scenes, and cameras, not modeling alone.",
+        "paragraphs": [
+          "A finished model is only one part of a readable animation. The project helped me connect visual decisions to communication: where the viewer should look, how movement conveys intent, and how successive shots form a coherent experience. Those questions also apply to interface and information design."
+        ]
+      },
+      {
+        "id": "limitations",
+        "title": "Limitations",
+        "body": "Time and hardware constrained model detail, movement, materials, and lighting; stronger storyboarding could improve coherence."
+      }
+    ],
+    "links": [
+      {
+        "label": "Watch Demo",
+        "url": "https://youtu.be/tvgUO9hY3Fw"
+      }
+    ],
+    "visual_metric": "Blender / 3D"
+  },
+  {
+    "id": "snow-alien",
+    "title": "Snow Alien — 3D Exploration Game",
+    "year": "2024.12–2025.01",
+    "type": "Team Game Course Project",
+    "role": "Game Planning & Sound Design",
+    "tags": [
+      "HCI",
+      "System"
+    ],
+    "featured": false,
+    "visual": "study",
+    "visual_label": "MORE WORK / Snow Alien — 3D Exploration Game",
+    "summary": "A five-person Unity project combining a winter-city setting, character switching, collection, and time-based ratings.",
+    "process": [],
+    "sections": [
+      {
+        "id": "overview",
+        "title": "Overview",
+        "body": "A five-person digital-content course project built with Unity, Blender, and C#."
+      },
+      {
+        "id": "role",
+        "title": "My Role",
+        "body": "I planned the world, characters, gameplay, and completion rules, and arranged background music and interaction sounds.",
+        "paragraphs": [
+          "From the planning side, I needed to make the player goal, character constraints, collection rules, completion conditions, and sound feedback understandable to the whole team. The work connected narrative intent with the rules programmers and artists needed to implement."
+        ]
+      },
+      {
+        "id": "results",
+        "title": "Results",
+        "body": "The team built a playable winter-city game with five switchable characters, coin collection, completion conditions, and S/A/B/C time ratings."
+      },
+      {
+        "id": "learning",
+        "title": "What I Learned",
+        "body": "Planning, art, code, and sound need a shared understanding of player goals, limits, and feedback.",
+        "paragraphs": [
+          "Coordinating the game showed me that an interaction depends on more than the input working correctly. Players also need to understand what changed, why it matters, and what to do next. Planning the rules and feedback helped me think about the complete experience across visual, programming, and audio work."
+        ]
+      },
+      {
+        "id": "limitations",
+        "title": "Limitations",
+        "body": "The course prototype centers on a single scene and collection mechanic. Character abilities, levels, interactions, and interface design could be expanded."
+      }
+    ],
+    "links": [
+      {
+        "label": "Watch Demo",
+        "url": "https://youtu.be/32--2j8pTJ0"
+      },
+      {
+        "label": "Project Report",
+        "url": "https://drive.google.com/file/d/1kByig7LMrnfkqOCmJcuxeKb3adlbz1ph/view?usp=sharing"
+      }
+    ],
+    "visual_metric": "Unity / C#"
+  }
+]

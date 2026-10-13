@@ -1,0 +1,3268 @@
+[
+  [
+    "Project Overview & Research Questions",
+    "專案概覽與研究問題"
+  ],
+  [
+    "Users & Game Design",
+    "使用者與遊戲設計"
+  ],
+  [
+    "System Architecture & Data",
+    "系統架構與資料"
+  ],
+  [
+    "Research Tools & Validation",
+    "研究工具與驗證"
+  ],
+  [
+    "Assessment & Training Strategy",
+    "評估與適性訓練"
+  ],
+  [
+    "Results, Reflections & Future Work",
+    "成果、反思與展望"
+  ],
+  [
+    "PDF / RESEARCH",
+    "PDF／研究論文"
+  ],
+  [
+    "Download PDF ↓",
+    "下載 PDF ↓"
+  ],
+  [
+    "A wrong response is not automatically evidence of low ability. The child may have misunderstood a rule, missed an instruction, become tired, or struggled with the interface. This made interaction design and behavioral recording inseparable: the system needed to preserve enough context to avoid interpreting every failure in the same way.",
+    "答錯並不必然代表能力不足，也可能來自規則理解、指令遺漏、疲勞或介面負擔。因此，互動設計與行為紀錄必須一起思考，系統需要保留足夠脈絡，避免將不同原因的失敗解讀成同一種問題。"
+  ],
+  [
+    "My integration work connected front-end task events to database records, derived features, analysis outputs, and research dashboards. I also handled module tests and cross-module debugging, so that a change in a task or data field could be traced through the rest of the workflow.",
+    "整合工作包含將前端任務事件串接至資料庫紀錄、衍生特徵、分析輸出與研究儀表板。我也負責模組測試與跨模組除錯，讓任務或欄位變更可以沿著完整資料流程追蹤。"
+  ],
+  [
+    "Raw and derived trial records are separated to retain the original observations while supporting reproducible feature engineering. Recommendation decision logs and version information make it possible to inspect why a difficulty or training choice was made, instead of showing only the recommendation's final output.",
+    "原始與衍生逐題資料分開保存，既保留觀察依據，也支援可重現的特徵工程。推薦決策紀錄與版本資訊，讓研究者能回看難度或訓練選擇的理由，而非只看到最後的推薦結果。"
+  ],
+  [
+    "The result-page redesign also changed the information hierarchy. Parents need an understandable summary of completion, tasks that were relatively stable or required help, and trends over time. Professionals need access to accuracy, reaction time, error types, difficulty, hints, and, when necessary, individual trials. More data is useful only when its presentation matches the reader's question.",
+    "結果頁的修正也涉及資訊層級。家長需要看懂完成情況、較穩定或較需協助的任務，以及長期趨勢；專業人員則需要正確率、反應時間、錯誤類型、難度、提示，必要時再下鑽到逐題紀錄。資料越多不一定越有幫助，呈現方式必須對應讀者的問題。"
+  ],
+  [
+    "The difficulty-selection change was especially important to me. Offering three buttons had looked like giving children control, but testing showed that the labels themselves imposed a decision they could not make. I learned to test whether an apparent choice is actually understandable and useful to the person using it.",
+    "難度選擇的修正對我特別重要：提供三個按鈕看似讓孩子自主，測試後卻發現標籤本身帶來超出理解能力的決策。我學到，介面上的選擇是否真正有用，必須由使用者能否理解與參與來驗證。"
+  ],
+  [
+    "The paper asks a practical teaching question: when two essays contain the same number of errors, should they receive the same kind of feedback? A slightly unnatural expression and one that obscures the writer's meaning may both count as one error, yet they create different problems for a reader. This distinction became the starting point for the study.",
+    "論文從一個實際教學問題出發：兩篇作文的錯誤數相同，是否就需要相同的回饋？略顯不自然的表達與妨礙語意理解的表達都可能被算成一次錯誤，但對讀者造成的問題不同。這項差異成為研究的起點。"
+  ],
+  [
+    "The manuscript describes selecting complete essays on the same or similar writing tasks, excluding incomplete, extremely short, or off-topic texts. Each essay was read manually, and potential collocation errors were checked against reference materials in context. Classification distinguished lexical combinations from general grammar errors before adding severity judgments.",
+    "論文描述選取相同或相近寫作任務中的完整作文，排除不完整、過短或離題文本。研究先人工閱讀，再依情境與參考資料檢查可能的搭配詞錯誤，先區分詞彙組合與一般文法問題，再加入嚴重程度判斷。"
+  ],
+  [
+    "Minor errors retain a clear meaning but sound less natural; moderate errors remain understandable while noticeably weakening clarity or naturalness; severe errors make the intended meaning unclear or misleading. The weighting scheme is an analytical choice, not a diagnosis of a learner's overall ability.",
+    "輕微錯誤仍能清楚傳意，但較不自然；中度錯誤雖可理解，卻明顯降低清晰度或自然度；嚴重錯誤則使語意不清或造成誤導。權重是分析上的選擇，不能直接用來判定學習者的整體能力。"
+  ],
+  [
+    "For each essay, the dataset records total collocation errors, counts by subtype, counts at each severity level, the weighted score, and the original writing score. The weighted score is calculated as minor errors × 1 + moderate errors × 2 + severe errors × 3. These parallel measures allow frequency and severity to be compared rather than assumed to mean the same thing.",
+    "每篇作文記錄總錯誤數、各搭配類型次數、各嚴重程度次數、加權分數與原始作文分數。加權分數為「輕微次數 × 1＋中度次數 × 2＋嚴重次數 × 3」。保留這些平行指標，才能比較頻率與嚴重程度，而不先假定兩者代表相同資訊。"
+  ],
+  [
+    "The manuscript reports that essays with more errors did not consistently receive lower scores. Verb–Noun errors were frequent, while Verb–Noun and Adjective–Noun patterns were more closely associated with writing scores than several other subtypes. The result supports a more selective approach to feedback, but it does not show that correcting one subtype alone will cause a specific score increase.",
+    "論文指出，錯誤較多的作文並不總是低分。動詞—名詞錯誤常見，而動詞—名詞與形容詞—名詞類型，比部分其他類型更接近寫作分數的變化。結果支持更有選擇性的回饋，但不能推論只修正某一類錯誤，就必然帶來特定幅度的分數提升。"
+  ],
+  [
+    "Preparing the English presentation required turning a sequence of analyses into a clear argument: why counting was insufficient, how the severity measure was defined, what the comparisons showed, and where interpretation had to stop. The Fukui presentation photographs below document that stage of communicating the research beyond the written paper.",
+    "準備英語口頭發表時，我需要將多項分析整理成清楚的論述：為何只計數不足、嚴重程度如何定義、比較看見了什麼，以及詮釋應停在哪裡。下方福井研討會照片記錄了將書面研究轉化為現場學術溝通的階段。"
+  ],
+  [
+    "The manuscript does not supply an inter-rater reliability result or sufficient numerical detail to reconstruct every chart from the PDF alone. I therefore present the reported patterns without adding unprovided coefficients, p-values, or claims of validated instructional improvement.",
+    "此份論文未提供評分者一致性的結果，也沒有足夠數值讓讀者僅憑 PDF 重建每張圖。因此，作品頁呈現論文所報告的模式，不補入未提供的係數、p 值或已驗證教學改善的說法。"
+  ],
+  [
+    "A next study could increase the sample, involve multiple raters, and examine organization and coherence alongside lexical measures. A teaching evaluation would then be needed to test whether severity-prioritized feedback actually helps learners revise more effectively.",
+    "後續研究可增加樣本、納入多位評分者，並將篇章組織與連貫性和詞彙指標一起分析。若要將結果用於教學，還需要另外設計評估，檢驗依嚴重程度排序的回饋是否真的有助修訂。"
+  ],
+  [
+    "An identical frequency response can describe very different activities: solving a programming problem, revising an essay, generating ideas, or checking an explanation. Without asking about purpose and context, the same number risks flattening distinct learning experiences into a single usage category.",
+    "相同的使用頻率可能來自程式解題、作文修改、想法生成，或確認課程解釋。若不追問用途與情境，同一個數字就可能把不同的學習經驗壓縮成同一種使用行為。"
+  ],
+  [
+    "The questionnaire captured background, frequency, purpose, motivation, satisfaction, and attitudes. Semi-structured interviews then allowed students to explain how they made decisions about using ChatGPT. Open coding and thematic analysis connected these accounts to the quantitative patterns rather than treating interview quotations as decoration.",
+    "問卷涵蓋背景、頻率、用途、動機、滿意度與態度；半結構式訪談則讓學生說明自己如何決定使用 ChatGPT。透過開放編碼與主題分析，將敘述連結到量化模式，讓訪談成為解釋的一部分，而非只作為裝飾性引言。"
+  ],
+  [
+    "Disciplinary differences changed how the findings should be read. Technical problem solving, writing support, and concerns about creativity or originality are different demands on the same tool. For me, the important implication was that university AI guidance should be responsive to learning contexts as well as responsible-use principles.",
+    "學科差異也改變了結果的解讀方式：技術解題、寫作支持，以及對創意或原創性的顧慮，都是對同一工具的不同要求。對我而言，重要的教育意涵是大學 AI 指引需要同時考量學習情境與負責任使用原則。"
+  ],
+  [
+    "The unequal college sample sizes reminded me to distinguish descriptive proportions from statistical comparisons. Self-reported use also cannot stand in for observed behavior. Keeping these boundaries visible was part of learning how to communicate a result without extending it beyond the data.",
+    "各學院樣本不均，提醒我要區分描述性比例與統計比較；自陳使用也不能代替實際行為觀察。清楚保留這些界線，是我學習如何傳達研究結果、避免超出資料推論的重要部分。"
+  ],
+  [
+    "If the game rewards final wealth alone, concentrated high-risk bets may look like good decisions. I therefore treated financial health and risk exposure as part of the learning problem, so that the result could explain the trade-offs behind an outcome rather than celebrate only the amount earned.",
+    "如果遊戲只獎勵最終資產，高風險集中押注也可能看起來是好決策。因此，我將財務健康與風險暴露納入學習問題，讓結果可以解釋報酬背後的取捨，而不只慶祝賺了多少。"
+  ],
+  [
+    "A turn combines occupational income with expenses, taxes, housing, insurance, family responsibilities, and market changes. This makes investment one part of a broader life scenario. Learners can revisit their decisions after seeing feedback on drawdown, reserves, and concentration, then try a different approach in the next simulation.",
+    "每回合結合職業收入、生活支出、稅務、住房、保險、家庭責任與市場變動，使投資成為人生情境的一部分。使用者可在看見回撤、預備金與集中度回饋後，重新檢視決策，再於下一次模擬嘗試不同方式。"
+  ],
+  [
+    "The main integration challenge was maintaining consistency among the user flow, fictional market data, financial calculations, scoring, and learning feedback. A transaction changes more than a balance: it can change liquidity, risk concentration, and the interpretation of later outcomes. Thinking across those dependencies was central to the design.",
+    "整合上的主要挑戰，是維持使用流程、虛構市場資料、財務計算、評分與學習回饋的一致性。一筆交易不只改變餘額，也會影響流動性、風險集中度與後續結果的解讀；設計必須同時考量這些連動關係。"
+  ],
+  [
+    "This work shifted my attention from whether a feature runs to what a learner can understand through it. A useful result page needs to connect a visible outcome to the decisions that produced it and give the learner a reason to reflect, without implying that a fictional simulation predicts real-world returns.",
+    "此作品讓我從功能能否執行，轉向使用者能透過它理解什麼。有用的結果頁需要將可見結果與造成它的決策連起來，提供反思依據，同時避免讓人以為虛構模擬能預測真實報酬。"
+  ],
+  [
+    "Fine-tuning replaced ResNet18's classification layer with four outputs and updated the network using preprocessed images, augmentation, and Adam optimization. The small set of real photographs was kept separate from training, making the external test a check on transfer from generated images rather than another measure on the same image source.",
+    "微調時將 ResNet18 的分類層改為四類輸出，使用影像前處理、資料增強與 Adam 最佳化更新網路。少量真實照片保留在訓練之外，讓外部測試檢查模型能否從生成影像轉移，而非只在相同影像來源上再次量測。"
+  ],
+  [
+    "Looking at the confusion matrix changed the focus from overall accuracy to failure patterns. Fetal and Side can share similar hip and leg configurations, and Grad-CAM helped inspect the regions the model attended to. This made data definitions and visual ambiguity as important as the choice of network.",
+    "混淆矩陣讓分析從整體準確率轉向失敗模式。胎兒式與側睡可能有相近的髖部與腿部姿態，Grad-CAM 則協助觀察模型關注的區域。這讓我看見資料定義與視覺模糊性，和選擇哪個網路一樣重要。"
+  ],
+  [
+    "The front end presents learning tasks, notes, games, and progress; the server handles account and activity flows; storage preserves task progress and game outcomes. Splitting these responsibilities helped me debug integration problems without treating the entire application as one page of unrelated features.",
+    "前端呈現任務、筆記、遊戲與進度，伺服器處理帳號與活動流程，儲存端保留任務進展與遊戲成果。拆分責任讓我能逐步檢查整合問題，而不是把整個應用看成堆在同一頁的獨立功能。"
+  ],
+  [
+    "The intended learning sequence is explanation, practice through interaction, clarification of errors, and progress tracking. A game is useful in that sequence only when it supports the content being learned and gives a meaningful response to mistakes. That realization later influenced how I approached cognitive tasks and adaptive feedback.",
+    "設計中的學習順序是知識說明、互動練習、錯誤釐清與進度追蹤。遊戲只有在支持學習內容、並對錯誤提供有意義回應時，才真正融入流程。這項理解也影響我後來設計認知任務與適性回饋的方式。"
+  ],
+  [
+    "Large-map exploration required a camera offset, while movement needed collision checks before updating coordinates. Dialogue and inventory states had to disable incompatible actions. In battle, phase management ensured that using an item, changing a Pokémon, or selecting a move connected to the correct next turn.",
+    "大型地圖需要鏡頭偏移，角色移動則要在更新座標前檢查碰撞；對話與背包狀態必須停用不相容的操作。戰鬥階段管理也需確保使用道具、切換 Pokémon 或選擇招式後，能銜接正確的下一回合。"
+  ],
+  [
+    "The project gave me a concrete way to revisit programming fundamentals after struggling with earlier coursework. I learned through a repeated cycle of implementing a behavior, finding a state conflict, tracing the cause, and revising the logic. It also exposed why a growing project needs separate scene, battle, inventory, and data-management responsibilities.",
+    "在先前程式課程遇到困難後，這項作品提供重新練習基礎的具體途徑。我透過「實作行為、發現狀態衝突、追查原因、修改邏輯」反覆學習，也看見成長中的專案為何需要分離場景、戰鬥、背包與資料管理責任。"
+  ],
+  [
+    "Explosion effects were represented as grid-coordinate sets so that damage, obstacles, and chain reactions could be evaluated consistently. Robot movement combined route planning with checks for destructible barriers, bomb placement, and escape routes. These checks made the game an exercise in coordinating multiple conditions, not simply running BFS.",
+    "爆炸影響以格狀座標集合表示，讓傷害、障礙與連鎖反應能一致判斷。Robot 移動結合路徑規劃、可破壞障礙物、水球放置與逃生檢查，使作品成為協調多重條件的練習，而非單純執行 BFS。"
+  ],
+  [
+    "Compared with the turn-based RPG, the real-time game required many objects to update together without inconsistent states. I began asking how the system should behave under changing conditions, and which component should own each decision. This was a step toward thinking about architecture as well as algorithms.",
+    "相較回合制 RPG，即時遊戲需要多個物件同步更新且維持一致狀態。我開始思考系統在變動條件下應如何反應，以及每個決策由哪個元件負責，逐步將注意力從演算法延伸到架構。"
+  ],
+  [
+    "Progress tracking and material consolidation were part of making an interdisciplinary idea executable. I recorded meeting progress, followed weekly tasks, and helped prepare and test image data, while collaborating with members whose engineering expertise differed from mine.",
+    "進度追蹤與資料統整，是讓跨域想法可以執行的一部分。我記錄會議進展、追蹤每週任務，協助影像資料準備與測試，並與具有不同工程專長的成員協作。"
+  ],
+  [
+    "The experience made me more attentive to the gap between recognizing an image category and understanding a person's actual need. A public-facing system must consider how an incorrect label could affect people and whether the interaction itself creates pressure. The prototype experience is therefore also a lesson in questioning the assumptions behind a technical solution.",
+    "這段經驗讓我更注意「辨識影像類別」與「理解個人真實需求」之間的差距。面向公眾的系統必須考量錯誤標籤如何影響人，以及互動本身是否造成壓力。因此，原型經驗也讓我學會檢視技術方案背後的假設。"
+  ],
+  [
+    "Each piece starts with a recap and an unusual event, then introduces a technology question, an explanation, an audience prompt, and a clue for the next story. Instagram uses a sequence of illustrated panels; Threads adapts the same topic into a shorter, discussion-oriented format rather than repeating the panels verbatim.",
+    "每篇內容依序安排前情回顧、異常事件、科技問題、知識說明、讀者提問與下一篇線索。Instagram 以連續圖像呈現，Threads 則將相同主題改寫為較短、偏討論的形式，而非直接重複圖卡。"
+  ],
+  [
+    "The first storyline uses a missing minute during a city-wide system update to introduce versions, synchronization, update logs, rollback, patches, and bugs. The mystery gives readers a reason to ask how digital records work before they encounter the terminology. This is a narrative design approach, not yet evidence that the approach improves learning.",
+    "首個故事以全城系統更新時「消失的一分鐘」，帶入版本、同步、更新紀錄、回復、修補與錯誤等概念。懸疑情境讓讀者先產生理解數位紀錄的理由，再接觸術語；這是敘事設計方法，尚非提升學習效果的證據。"
+  ],
+  [
+    "Working on models and motion meant repeatedly checking whether the scene, character action, timing, and camera supported the same story moment. I contributed specific assets and animation adjustments while coordinating with the other two members, rather than producing the entire film alone.",
+    "製作模型與動作時，需要反覆檢查場景、角色行為、時間與鏡頭是否共同支持同一段情節。我與另外兩位成員協作，貢獻特定素材及動畫調整，而非獨自製作整部影片。"
+  ],
+  [
+    "A finished model is only one part of a readable animation. The project helped me connect visual decisions to communication: where the viewer should look, how movement conveys intent, and how successive shots form a coherent experience. Those questions also apply to interface and information design.",
+    "完成模型只是可理解動畫的一部分。這項作品讓我將視覺選擇與溝通連結：觀眾應看哪裡、動作如何表達意圖，以及連續鏡頭如何形成一致體驗。這些問題也能延伸到介面與資訊設計。"
+  ],
+  [
+    "From the planning side, I needed to make the player goal, character constraints, collection rules, completion conditions, and sound feedback understandable to the whole team. The work connected narrative intent with the rules programmers and artists needed to implement.",
+    "從企劃角度，我需要讓團隊理解玩家目標、角色限制、蒐集規則、過關條件與音效回饋，將敘事意圖轉換為程式與美術可實作的規則。"
+  ],
+  [
+    "Coordinating the game showed me that an interaction depends on more than the input working correctly. Players also need to understand what changed, why it matters, and what to do next. Planning the rules and feedback helped me think about the complete experience across visual, programming, and audio work.",
+    "協作過程讓我看見，互動不只取決於輸入能否正確執行；玩家也需要知道發生了什麼變化、為何重要，以及下一步該做什麼。規則與回饋規劃，讓我從視覺、程式與音效之間思考完整體驗。"
+  ],
+  [
+    "Portrait of Yen-Yu Chen (Larina)",
+    "陳彥妤（Larina）個人肖像"
+  ],
+  [
+    "Larina presenting collocation research at the conference in Fukui",
+    "Larina 在福井研討會現場發表搭配詞研究"
+  ],
+  [
+    "English oral presentation · Explaining why frequency alone is not enough.",
+    "英語口頭發表 · 說明為何僅看錯誤頻率並不足夠。"
+  ],
+  [
+    "Larina at the IIAI conference venue in Fukui, Japan",
+    "Larina 於日本福井 IIAI 研討會會場留影"
+  ],
+  [
+    "At the conference venue · Fukui, Japan.",
+    "研討會會場留影 · 日本福井。"
+  ],
+  [
+    "Read Paper PDF",
+    "閱讀論文 PDF"
+  ],
+  [
+    "Author-provided conference paper PDF. The file still contains publication-template placeholders; final volume, article ID, and DOI are not listed here.",
+    "作者提供的研討會論文 PDF。檔案仍含出版模板佔位文字，本頁未列入未確認的卷期、文章編號與 DOI。"
+  ],
+  [
+    "I presented this study in English in Fukui, Japan. The session brought the research question, severity-coding approach, and findings into a concise explanation of why writing feedback should look beyond total error counts.",
+    "我在日本福井以英語發表此研究，將研究問題、嚴重程度編碼與結果整理成清楚的說明，呈現寫作回饋為何需要看見總錯誤數之外的資訊。"
+  ],
+  [
+    "CONFERENCE MOMENTS",
+    "研討會現場"
+  ],
+  [
+    "From the paper to the presentation.",
+    "從論文走向現場發表。"
+  ],
+  [
+    "Read the conference paper",
+    "閱讀研討會論文"
+  ],
+  [
+    "Download PDF",
+    "下載 PDF"
+  ],
+  [
+    "Paper preview",
+    "論文預覽"
+  ],
+  [
+    "Open PDF in a new tab",
+    "在新分頁開啟 PDF"
+  ],
+  [
+    "Conference paper PDF preview",
+    "研討會論文 PDF 預覽"
+  ],
+  [
+    "Full-size photograph",
+    "查看原尺寸照片"
+  ],
+  [
+    "INTERDISCIPLINARY PROGRAMS",
+    "跨領域學分學程"
+  ],
+  [
+    "CNN → ResNet18",
+    "CNN → ResNet18"
+  ],
+  [
+    "LEARN → PLAY",
+    "學習 → 互動"
+  ],
+  [
+    "C++ / Qt",
+    "C++／Qt"
+  ],
+  [
+    "BFS → DECISION",
+    "BFS → 決策"
+  ],
+  [
+    "AI × ESG",
+    "AI × ESG"
+  ],
+  [
+    "STORY → INSIGHT",
+    "故事 → 洞見"
+  ],
+  [
+    "Blender / 3D",
+    "Blender／3D"
+  ],
+  [
+    "Unity / C#",
+    "Unity／C#"
+  ],
+  [
+    "National University of Tainan · Major in Digital Learning and Technology · Minor in English",
+    "國立臺南大學 · 數位學習科技學系主修 · 英語學系輔修"
+  ],
+  [
+    "I am Yen-Yu Chen (Larina), a Digital Learning and Technology major with a minor in English at National University of Tainan. I bring language, teaching, user research, and system development together to understand where people need support.",
+    "我是陳彥妤（Larina），就讀國立臺南大學數位學習科技學系，輔修英語學系。我結合語言、教學、使用者研究與系統開發，理解人們真正需要支持的位置。"
+  ],
+  [
+    "I began in English in 2022, added a Digital Learning and Technology minor in September 2023, and transferred to the department in September 2025. Building FitPlay helped me turn an idea into a working learning system and commit to this direction.",
+    "2022 年從英語學系起步，2023 年 9 月開始輔修數位學習科技，2025 年 9 月正式轉系。FitPlay 讓我第一次把想法轉換成可操作的學習系統，也成為確認方向的重要契機。"
+  ],
+  [
+    "Teaching and research taught me to look beyond scores and completion. Experience accompanying a family member through rehabilitation drew my attention to small changes over time, everyday independence, and caregiver needs. I hope to work with professionals and users to turn these observations into research questions.",
+    "教學與研究讓我開始關注分數與完成結果之外的歷程；陪伴家人復健的經驗，則讓我看見長期細微變化、生活自主與照顧者需求。我希望與專業人員及使用者合作，將觀察轉化為可研究的問題。"
+  ],
+  [
+    "I am strengthening modular architecture, testing, refactoring, user interviews, and usability evaluation. I use AI and documentation to support development while remaining responsible for defining problems, checking results, and explaining design decisions.",
+    "我持續補強模組化架構、測試、重構、使用者訪談與可用性評估，並運用 AI 與文件協助開發，同時對問題定義、結果檢查與設計選擇負責。"
+  ],
+  [
+    "Interdisciplinary Program in Digital Technology Applications",
+    "數位科技應用人才跨領域學分學程"
+  ],
+  [
+    "Interdisciplinary Program in Digital Humanities and Arts",
+    "數位人文與藝術跨領域學分學程"
+  ],
+  [
+    "A 131-participant mixed-methods study connects questionnaires, interviews, theory, and interpretation.",
+    "透過 131 位參與者的混合研究，串連問卷、訪談、理論與結果詮釋。"
+  ],
+  [
+    "Trial-level records and severity-aware error measures reveal what aggregate scores miss.",
+    "以逐題行為紀錄與錯誤嚴重程度指標，理解總分未能呈現的問題。"
+  ],
+  [
+    "Six cognitive tasks, role-specific interfaces, and research modules connect needs with implementation.",
+    "整合六項認知任務、分層角色介面與研究模組，將需求轉換為系統。"
+  ],
+  [
+    "Knowledge Translation",
+    "知識轉譯"
+  ],
+  [
+    "Life × Investment and 404 Daily turn abstract ideas into decisions, stories, and reflection.",
+    "透過「別打股折」與「404 日報」，將抽象知識轉換成決策、故事與反思。"
+  ],
+  [
+    "Entered the Department of English at National University of Tainan, building a foundation in language, writing, teaching, and text analysis.",
+    "進入國立臺南大學英語學系，累積語言、寫作、教學與文本分析基礎。"
+  ],
+  [
+    "Added a Digital Learning and Technology minor and began two interdisciplinary credit programs, exploring programming, digital materials, and animation.",
+    "開始輔修數位學習科技學系，同時修習兩個跨領域學分學程，接觸程式、數位教材與動畫。"
+  ],
+  [
+    "Worked on Safe Seat, 3D animation, and a Unity game; independently built FitPlay in May–June 2025 to connect health content, games, and learning records.",
+    "參與安心座、3D 動畫與 Unity 遊戲，並於 2025 年 5–6 月獨立完成 FitPlay，串連健康知識、遊戲與學習紀錄。"
+  ],
+  [
+    "A New Major, a Connected Background",
+    "正式轉系，延續跨域背景"
+  ],
+  [
+    "Transferred to Digital Learning and Technology and retained English as a minor, while strengthening mathematics, programming, and information-systems foundations.",
+    "正式轉入數位學習科技學系，保留英語輔修，並持續補強數學、程式與資訊系統基礎。"
+  ],
+  [
+    "Research & Academic Communication",
+    "研究與學術溝通"
+  ],
+  [
+    "Completed the ChatGPT mixed-methods study, presented collocation research as first author in Fukui, and developed C++/Qt projects to strengthen system and algorithm skills.",
+    "完成 ChatGPT 混合研究，以第一作者身分於日本福井發表搭配詞研究，並透過 C++／Qt 自主作品補強系統與演算法能力。"
+  ],
+  [
+    "Simulation & Technology Storytelling",
+    "情境模擬與科技敘事"
+  ],
+  [
+    "Developed Life × Investment and began 404 Daily, extending a human-centered approach into financial education and technology communication.",
+    "開發「別打股折」並開始經營「404 日報」，將人本思考延伸至理財教育與科技知識轉譯。"
+  ],
+  [
+    "Game-based Executive Function Assessment & Adaptive Training for Preschool Children",
+    "遊戲式學齡前幼兒執行功能之評測與適性訓練系統"
+  ],
+  [
+    "Research prototype",
+    "研究原型"
+  ],
+  [
+    "Six cognitive tasks connect trial-level behavior, explainable analysis, adaptive training, and longitudinal tracking.",
+    "以六項認知任務串連逐題行為、可解釋分析、適性訓練與長期追蹤。"
+  ],
+  [
+    "A three-person graduation project advised by 莊宗嚴, designed as a research prototype for preschool children, parents, and professionals. It combines working-memory, inhibitory-control, and cognitive-flexibility tasks.",
+    "由三人團隊、莊宗嚴老師指導的畢業專題，為幼兒、家長與專業人員設計研究型原型，整合工作記憶、抑制控制與認知彈性任務。"
+  ],
+  [
+    "A final score hides response timing, errors, hints, and changes within a session. Six tasks also need compatible records so that analysis can trace back to the original behavior.",
+    "單一總分難以呈現反應時間、錯誤、提示與前後段表現；六項任務也需要一致的紀錄格式，讓分析能回溯至原始行為。"
+  ],
+  [
+    "How can trial-level behavioral records support interpretable assessment, adaptive training decisions, and long-term feedback for different users?",
+    "如何以逐題行為紀錄，支持可理解的評估、適性訓練決策，以及符合不同角色需求的長期回饋？"
+  ],
+  [
+    "I led programming, research data architecture, and system integration: six cognitive games, role-specific interfaces, database permissions, analysis modules, dashboards, exports, testing, and debugging.",
+    "我主要負責程式開發、研究資料架構與系統整合，涵蓋六項認知遊戲、分層介面、資料庫權限、分析模組、儀表板、匯出、測試與除錯。"
+  ],
+  [
+    "The data workflow uses quality checks, feature engineering, statistics, and participant-level model validation. Participant holdout and GroupKFold/StratifiedGroupKFold keep one child's records from crossing training and test sets.",
+    "資料流程包含品質檢核、特徵工程、統計與參與者層級模型驗證；採用 Participant-level Holdout 與 GroupKFold／StratifiedGroupKFold，避免同一幼兒跨越訓練與測試資料集。"
+  ],
+  [
+    "The featured system uses React, Node.js/Express, Supabase/PostgreSQL, OpenAI API, Recharts, pgvector, and embedding retrieval. This portfolio itself remains a Flask website.",
+    "作品系統使用 React、Node.js／Express、Supabase／PostgreSQL、OpenAI API、Recharts、pgvector 與嵌入式檢索；本作品集網站仍使用 Flask。"
+  ],
+  [
+    "User roles → six cognitive tasks → trial records → data quality and features → statistics and machine learning → explanation → adaptive recommendations → longitudinal feedback.",
+    "使用者角色 → 六項認知任務 → 逐題紀錄 → 資料品質與特徵 → 統計與機器學習 → 解釋 → 適性推薦 → 長期回饋。"
+  ],
+  [
+    "The hierarchy is Participant → Session → Task Session → Raw Trial → Derived Trial. Records include accuracy, reaction time, error patterns, hints, difficulty, early/late performance, and versioned recommendation decisions.",
+    "資料層級為 Participant → Session → Task Session → Raw Trial → Derived Trial，保存正確率、反應時間、錯誤型態、提示、難度、前後段表現與版本化推薦決策。"
+  ],
+  [
+    "The prototype integrates six tasks and research modules. Testing with young children showed that self-selecting Easy/Normal/Hard was confusing, prompting performance-based difficulty adjustment. Parent and professional result views were separated to match their information needs.",
+    "原型整合六項任務與研究模組。幼兒測試發現「簡單／普通／困難」難度標籤不易理解，因此改由作答表現進行適性調整；家長與專業端結果頁也依資訊需求分層。"
+  ],
+  [
+    "A working interface does not guarantee sustained participation. Early exits, repeated clicks, waiting time, and the need for parental reminders also matter. This shifted my focus from implementing features to designing evidence around research questions.",
+    "介面可以操作，不代表使用者願意持續完成。中途退出、重複點擊、停留時間與家長提醒同樣值得觀察；這讓我從功能實作走向依研究問題設計資料與證據。"
+  ],
+  [
+    "This is a research and demonstration prototype, not a substitute for standardized assessment or clinical diagnosis. Reliability, validity, and training effectiveness lack sufficient empirical validation. An NSTC undergraduate research proposal was completed and submitted but was not funded.",
+    "系統仍屬研究與展示原型，不能取代標準化評估或臨床診斷；信度、效度與訓練成效尚缺足夠實證驗證。曾完成並申請國科會大專學生研究計畫，但未獲補助。"
+  ],
+  [
+    "Further work requires user studies and professional collaboration to validate tasks, measures, and feedback. Preschool tasks cannot be transferred directly to adults or stroke rehabilitation.",
+    "後續需透過使用者研究與專業合作，驗證任務、指標與回饋；幼兒任務不能直接套用至成人或中風復健。"
+  ],
+  [
+    "Not All Collocation Errors Matter Equally: A Corpus-Based Study of Error Severity and Writing Quality in EFL Learners",
+    "並非所有搭配詞錯誤都同等重要：以語料探討 EFL 學習者的錯誤嚴重程度與寫作品質"
+  ],
+  [
+    "A corpus-based study of 100 sampled essays examines why error severity and type explain more than error counts alone.",
+    "從約一萬篇作文抽樣一百篇，透過語料分析理解錯誤類型與嚴重程度如何補足單純次數的不足。"
+  ],
+  [
+    "Conference Invitation",
+    "研討會邀請函"
+  ],
+  [
+    "First-author conference research with four authors, advised by 張智凱 and presented in English at IIAI AAI 2026 in Fukui, Japan, during July 12–17, 2026.",
+    "由張智凱老師指導、四位作者共同完成的研討會研究；我以第一作者身分，於 2026 年 7 月 12–17 日在日本福井 IIAI AAI 2026 進行英語口頭發表。"
+  ],
+  [
+    "Collocation errors differ in their impact on meaning and naturalness. Counting all errors equally can hide which problems most affect writing quality.",
+    "搭配詞錯誤對語意與自然度的影響不同，將所有錯誤等量計算，可能忽略真正影響寫作品質的問題。"
+  ],
+  [
+    "How are collocation error frequency, type, and severity associated with writing quality, and do stronger and weaker essays show different error patterns?",
+    "搭配詞錯誤的頻率、類型與嚴重程度如何與寫作品質相關？高低分作文是否呈現不同的錯誤模式？"
+  ],
+  [
+    "I participated in question formulation, literature review, corpus processing, error classification and severity coding, Orange analysis, visualization, manuscript writing and revision, and the first-author English presentation.",
+    "我參與研究問題形成、文獻整理、語料處理、錯誤分類與嚴重程度編碼、Orange 分析、視覺化、論文撰寫修改，並擔任第一作者英語口頭發表者。"
+  ],
+  [
+    "From approximately 10,000 entrance-exam essays, 100 were randomly sampled. Errors were coded by type and as Minor, Moderate, or Severe with weights of 1, 2, and 3, then examined through descriptive statistics, correlations, group comparisons, and RReliefF.",
+    "從約 10,000 篇入學考試作文隨機抽取 100 篇，依類型與輕微、中度、嚴重三級編碼，給予 1、2、3 權重，再進行描述統計、相關分析、群組比較與 RReliefF。"
+  ],
+  [
+    "TECCL and English dictionaries supported error identification; Orange Data Mining supported quantitative analysis and visualization.",
+    "以 TECCL 與英語字典協助錯誤辨識，使用 Orange Data Mining 進行量化分析與視覺化。"
+  ],
+  [
+    "Sampling → error identification → type classification → severity coding → feature construction → analysis → interpretation → writing and conference presentation.",
+    "抽樣 → 錯誤辨識 → 類型分類 → 嚴重程度編碼 → 特徵建立 → 分析 → 詮釋 → 論文與研討會發表。"
+  ],
+  [
+    "Original essay scores served as the writing-quality measure. Features included Verb–Noun, Adjective–Noun, and Noun–Noun errors, error frequency, and severity-weighted scores.",
+    "以原始作文分數作為寫作品質指標，特徵包含動詞—名詞、形容詞—名詞、名詞—名詞等錯誤類型、錯誤頻率與嚴重程度加權分數。"
+  ],
+  [
+    "In this sample, error counts alone did not clearly explain writing quality. Verb–Noun errors were the most common type. Severity-weighted measures showed clearer differences across writing levels and stronger associations with scores than frequency alone.",
+    "在此樣本中，單純錯誤次數無法清楚解釋寫作品質；動詞—名詞錯誤最常見。相較於次數，嚴重程度加權指標更能呈現寫作程度差異，且與作文分數的關聯較強。"
+  ],
+  [
+    "Choosing a measure is part of defining the problem. Feedback can prioritize errors that affect meaning, clarity, and naturalness instead of treating every error as equally important.",
+    "指標選擇本身就是問題定義的一部分。回饋可以優先處理影響語意、清晰度與自然度的錯誤，而非將所有錯誤視為同等重要。"
+  ],
+  [
+    "Only 100 essays were analyzed. Human judgment influences identification and severity coding, and the study does not fully account for organization, coherence, or task response. Associations do not establish causation.",
+    "研究僅分析 100 篇作文；錯誤辨識與嚴重程度涉及人工判斷，也未完整納入組織、連貫性與任務回應等因素。相關性不代表因果關係。"
+  ],
+  [
+    "The findings suggest opportunities for targeted EFL feedback and corpus-supported teaching; their usefulness in instruction still requires evaluation.",
+    "研究結果可延伸至針對性的 EFL 寫作回饋與語料輔助教學，實際教學效益仍需驗證。"
+  ],
+  [
+    "Motivation, Usage Patterns, and Educational Implications of ChatGPT Use among University Students in Taiwan",
+    "臺灣大學生使用 ChatGPT 的動機、使用模式與教育意涵"
+  ],
+  [
+    "Independent Researcher",
+    "個人研究"
+  ],
+  [
+    "Questionnaires and interviews with 131 students across six colleges connect AI usage patterns with motivation and context.",
+    "結合六個學院 131 位學生的問卷與訪談，從動機與情境理解 AI 使用模式。"
+  ],
+  [
+    "Research Report",
+    "研究報告"
+  ],
+  [
+    "Research Poster",
+    "研究海報"
+  ],
+  [
+    "An individual research project conducted from February 2025 to February 2026 under Dr. Yi-Chun Christine Yang (楊逸君), focusing on ChatGPT in higher education.",
+    "2025 年 2 月至 2026 年 2 月完成的個人研究專題，由 Dr. Yi-Chun Christine Yang（楊逸君）指導，聚焦高等教育中的 ChatGPT 使用。"
+  ],
+  [
+    "Similar usage frequencies may reflect very different learning needs. Attitudes alone do not show why students use AI or how disciplinary contexts shape their choices.",
+    "相同使用頻率可能代表不同的學習需求；單看態度，無法理解学生為何使用 AI，以及學科情境如何影響選擇。"
+  ],
+  [
+    "Why do students use ChatGPT, what do they use it for, how do patterns differ across colleges, and how do they view accuracy, integrity, and dependence?",
+    "學生為何使用 ChatGPT、如何使用、各學院是否有不同模式，以及如何看待正確性、學術誠信與依賴問題？"
+  ],
+  [
+    "I carried out the research process from questions, literature, and theory through questionnaire design, recruitment, interviews, statistical analysis, qualitative coding, interpretation, and reflection on limitations.",
+    "我完成從問題、文獻與理論，到問卷設計、招募、訪談、統計分析、質性編碼、結果詮釋與限制反思的研究流程。"
+  ],
+  [
+    "A mixed-methods design used Self-Determination Theory, descriptive statistics, cross-tabulation, proportion Z-tests, semi-structured interviews, and thematic analysis.",
+    "採混合研究設計，以自我決定理論為基礎，結合描述統計、交叉分析、比例 Z 檢定、半結構式訪談與主題分析。"
+  ],
+  [
+    "The work centers on survey analysis and qualitative coding rather than a software platform. Analysis methods are documented in the linked research report.",
+    "本研究以問卷分析與質性編碼為核心，並非軟體平台開發；分析方法可參閱連結中的研究報告。"
+  ],
+  [
+    "Questionnaires describe patterns across colleges; interviews add the motivations and contexts that numbers alone cannot explain.",
+    "透過問卷描述跨學院的使用分布，再用訪談補充數字無法單獨解釋的動機與情境。"
+  ],
+  [
+    "131 undergraduate and graduate students at National University of Tainan: 120 questionnaire respondents and 11 interviewees, spanning six colleges.",
+    "資料包含國立臺南大學六個學院的 131 位大學生與研究生，其中 120 位填答問卷、11 位接受訪談。"
+  ],
+  [
+    "Time saving was the leading motivation. Science and engineering students used ChatGPT more for programming and technical problems, while humanities and education students emphasized writing and idea generation. Acceptance was high, alongside concerns about accuracy, integrity, and overreliance.",
+    "節省時間是主要動機；理工學生較常處理程式與技術問題，人文與教育學生較偏向寫作與想法生成。整體接受度高，同時仍關注正確性、誠信與過度依賴。"
+  ],
+  [
+    "The same tool can serve different needs. Combining numerical patterns with students' accounts helped me interpret use in context rather than equating frequency with purpose.",
+    "相同工具可能服務不同需求；結合數據與學生敘述，讓我能從情境理解使用行為，而非把頻率直接當成目的。"
+  ],
+  [
+    "The sample comes from one university, with unequal college sizes and self-reported behavior. Self-efficacy, AI literacy, and actual interaction logs were not fully incorporated.",
+    "樣本集中於單一大學，各學院人數不均，並依賴自陳資料；尚未完整納入自我效能、AI 素養與實際操作紀錄。"
+  ],
+  [
+    "Extend recruitment across universities, add longitudinal observations and interaction logs, and examine self-efficacy, AI literacy, and instructor policies.",
+    "未來可拓展多校樣本，加入長期觀察與操作紀錄，並探討自我效能、AI 素養及教師規範。"
+  ],
+  [
+    "Life × Investment — Learning through Decisions",
+    "別打股折：人生 × 投資情境式模擬"
+  ],
+  [
+    "Independent Designer & Developer",
+    "個人設計與開發"
+  ],
+  [
+    "A front-end simulation links life stages, cash flow, market uncertainty, and reflection rather than rewarding final wealth alone.",
+    "以純前端模擬串連人生階段、現金流、市場不確定性與反思，不以最終資產作為唯一目標。"
+  ],
+  [
+    "An independently developed web-based educational simulation completed in August 2026. The controls on this portfolio page are a small storytelling demo, not the full original application.",
+    "2026 年 8 月自主開發的網頁教育模擬系統。本作品集頁面的按鈕是敘事示範，並非完整原作。"
+  ],
+  [
+    "Financial definitions alone do not show how income, living costs, family responsibilities, housing, insurance, and uncertainty interact over time.",
+    "只學理財名詞，難以體會收入、生活支出、家庭責任、住房、保險與不確定性如何長期交互影響。"
+  ],
+  [
+    "How can scenario-based decisions make risk, cash flow, and long-term trade-offs tangible enough to reflect on?",
+    "如何透過情境決策，讓風險、現金流與長期取捨變得可體驗、可反思？"
+  ],
+  [
+    "I independently planned and developed the user flow, front-end interactions, fictional market model, financial rules, scoring, learning content, and local records.",
+    "我獨立規劃與開發使用流程、前端互動、虛構市場模型、財務規則、評分、學習內容與本機紀錄。"
+  ],
+  [
+    "The learning loop is Decision → Outcome → Reflection → Decision. Evaluation considers performance, drawdown, concentration, financial health, risk management, decision quality, and learning growth.",
+    "以決策 → 結果 → 反思 → 再決策形成學習循環，評估投資績效、回撤、集中度、財務健康、風險管理、決策品質與學習成長。"
+  ],
+  [
+    "HTML, CSS, JavaScript, and browser local storage form a static front-end prototype.",
+    "以 HTML、CSS、JavaScript 與瀏覽器本機儲存建構靜態前端原型。"
+  ],
+  [
+    "Choose a profession and life stage → handle income and expenses → respond to market and life events → inspect multidimensional feedback → revise decisions.",
+    "選擇職業與人生階段 → 處理收支 → 回應市場與生活事件 → 查看多面向回饋 → 調整決策。"
+  ],
+  [
+    "All companies, prices, and market events are fictional. The system models income, taxes, housing, insurance, debt, emergency reserves, and asset allocation for educational use.",
+    "所有公司、價格與市場事件皆為虛構，系統以教育用途模擬收入、稅務、住房、保險、債務、緊急預備金與資產配置。"
+  ],
+  [
+    "The prototype includes 20 professions, 5 life stages, 50 fictional companies, 38 market/policy/company events, 14 life/career events, and 150 graded learning articles, with saved game records and multidimensional feedback.",
+    "原型整合 20 種職業、5 個人生階段、50 家虛構公司、38 種市場／政策／公司事件、14 種人生／職業事件，以及 150 篇分級教材，並保存遊戲紀錄與多面向回饋。"
+  ],
+  [
+    "A feature should have a learning purpose and produce interpretable feedback. Designing this system strengthened my requirements analysis, data modeling, interaction design, and integration.",
+    "功能需要對應學習目的，結果也應能被合理解釋；此專題讓我深化需求分析、資料建模、互動設計與系統整合。"
+  ],
+  [
+    "Learning effectiveness has not been validated through formal user research. Accounts and records are local, without cross-device synchronization or true real-time multiplayer. This is educational simulation, not investment advice.",
+    "尚未透過正式使用者研究驗證學習成效；帳號與紀錄儲存於本機，未支援跨裝置同步或真正即時多人競賽。作品定位為教育模擬，非投資建議。"
+  ],
+  [
+    "Evaluate financial understanding, risk recognition, and decision quality with users; consider a backend and synchronization after validating the learning experience.",
+    "後續可評估使用者的財務理解、風險辨識與決策品質，在驗證學習體驗後再考慮後端與同步。"
+  ],
+  [
+    "Course project",
+    "課程專題"
+  ],
+  [
+    "A two-person course project classifying single images into Back, Fetal, Side, and Stomach positions.",
+    "兩人團體課程專題，以單張影像辨識仰睡、胎兒式、側睡與趴睡四類姿勢。"
+  ],
+  [
+    "The team had approximately 100 real images and uneven class sizes, limiting direct training and generalization.",
+    "團隊僅有約 100 張真實影像，且各類數量不均，限制直接訓練與泛化能力。"
+  ],
+  [
+    "I trained and fine-tuned ResNet18, analyzed results, and wrote part of the report. Synthetic data generation and the overall comparison were team work.",
+    "我負責 ResNet18 訓練與微調、結果分析及部分文本撰寫；合成資料生成與整體比較屬團隊成果。"
+  ],
+  [
+    "The team generated about 400 images per class with ComfyUI, JuggernautXL, and ControlNet. Real images were reserved for external testing. Training used augmentation and WeightedRandomSampler; analysis included a confusion matrix and Grad-CAM.",
+    "團隊以 ComfyUI、JuggernautXL 與 ControlNet 每類生成約 400 張影像，真實影像保留作外部測試；訓練使用資料增強與 WeightedRandomSampler，並以混淆矩陣及 Grad-CAM 分析。"
+  ],
+  [
+    "The source reports approximately 60–70% accuracy for the baseline CNN, 82% for fine-tuned ResNet18, and 80% on real-image testing. Fetal and Side were the main sources of confusion.",
+    "原資料記錄基礎 CNN 準確率約 60–70%、微調 ResNet18 約 82%、真實影像測試約 80%；主要混淆來自胎兒式與側睡。"
+  ],
+  [
+    "The real dataset is small; synthetic-to-real differences and subjective class boundaries remain. This is static-image classification, not a clinically validated sleep-monitoring system.",
+    "真實資料量有限，仍存在合成與真實影像差距及類別判定主觀性；目前為靜態影像分類，並非經臨床驗證的睡眠監測系統。"
+  ],
+  [
+    "Expand real-image evaluation, investigate domain adaptation and pose-aware models, and explore temporal information.",
+    "後續可擴充真實影像評估，探索領域調適、姿勢感知模型與時間序列資訊。"
+  ],
+  [
+    "Project Report",
+    "專題報告"
+  ],
+  [
+    "Sleep Posture Recognition based on CNN",
+    "基於 CNN 的睡眠姿勢辨識"
+  ],
+  [
+    "Team AI Course Project",
+    "團體人工智慧課程專題"
+  ],
+  [
+    "ResNet18 Training & Results Analysis",
+    "ResNet18 訓練與結果分析"
+  ],
+  [
+    "MORE WORK / Sleep Posture Recognition based on CNN",
+    "其他作品／基於 CNN 的睡眠姿勢辨識"
+  ],
+  [
+    "Comparing a baseline CNN and fine-tuned ResNet18 with synthetic training images and a separate real-image test set.",
+    "使用合成影像訓練與獨立真實影像測試，比較基礎 CNN 與微調 ResNet18。"
+  ],
+  [
+    "Developed for a learning-management-systems course, FitPlay serves learners of basic health, nutrition, and exercise topics.",
+    "於學習管理系統課程中開發，服務學習基礎健康、飲食與運動知識的使用者。"
+  ],
+  [
+    "I independently planned and built the complete information system, connecting front-end interactions, server behavior, and cloud data storage.",
+    "我獨立規劃並建立完整資訊系統，串連前端互動、伺服器流程與雲端資料儲存。"
+  ],
+  [
+    "Node.js, HTML, CSS, JavaScript, and cloud data storage. Modules cover accounts, tasks, notes, games, and learning records.",
+    "使用 Node.js、HTML、CSS、JavaScript 與雲端資料儲存，模組涵蓋帳號、任務、筆記、遊戲與學習紀錄。"
+  ],
+  [
+    "The working LMS includes a learning map, task management, notes, games, results, progress tracking, and administration.",
+    "完成可操作的 LMS，包含學習地圖、任務、筆記、遊戲、成果紀錄、進度追蹤與後台管理。"
+  ],
+  [
+    "This was my first independently planned complete information system and an important reason for changing my major. Working software still needs learning goals and meaningful feedback.",
+    "這是我第一次獨立規劃完整資訊系統，也是申請轉系的重要原因；系統能運作之外，還需要明確的學習目標與回饋。"
+  ],
+  [
+    "Content and game variety remain limited. Large-scale user testing has not established effects on learning or motivation.",
+    "內容與遊戲數量仍有限，尚未透過大規模使用者測試驗證學習與動機成效。"
+  ],
+  [
+    "Watch Demo",
+    "觀看成果影片"
+  ],
+  [
+    "FitPlay — A Health Learning Management System",
+    "FitPlay／霸王別肌學習管理系統"
+  ],
+  [
+    "Independent Course Project",
+    "獨立課程專題"
+  ],
+  [
+    "System Planning & Development",
+    "系統規劃與開發"
+  ],
+  [
+    "MORE WORK / FitPlay — A Health Learning Management System",
+    "其他作品／FitPlay／霸王別肌學習管理系統"
+  ],
+  [
+    "Connecting health content, interactive games, error clarification, and progress tracking in a working LMS.",
+    "將健康內容、互動遊戲、錯誤釐清與進度追蹤整合為可操作的 LMS。"
+  ],
+  [
+    "An independent learning project based on a Pokémon RPG assignment from National Cheng Kung University's Electrical Engineering introductory computing course; this does not imply enrollment in that program.",
+    "以成功大學電機系計算機概論的 Pokémon RPG 作業為自主練習題材，並非該系修課或就讀經歷。"
+  ],
+  [
+    "I developed the C++/Qt prototype, iteratively testing movement, collisions, scenes, inventory, encounters, and battle states.",
+    "我以 C++／Qt 開發原型，反覆測試移動、碰撞、場景、背包、遇敵與戰鬥狀態。"
+  ],
+  [
+    "C++, Qt, QPainter, QRect, event handling, timers, vectors, and camera coordinate transforms.",
+    "使用 C++、Qt、QPainter、QRect、事件處理、計時器、向量與鏡頭座標轉換。"
+  ],
+  [
+    "Implemented exploration, NPC and object interaction, inventory, random encounters, turn-based battles, capture, switching, leveling, and evolution.",
+    "完成探索、NPC 與物件互動、背包、隨機遇敵、回合制戰鬥、捕捉、切換、升級與進化。"
+  ],
+  [
+    "Integrating functions required clear control over when movement, dialogue, inventory, and combat could operate, not just correct individual features.",
+    "整合功能需要釐清移動、對話、背包與戰鬥何時可執行，並非只讓單一功能正確運作。"
+  ],
+  [
+    "It remains a learning prototype with limited content and simple enemy logic. Many controls are concentrated in MainWindow, so modularization is a next step.",
+    "作品仍屬學習原型，內容與敵方邏輯有限，多項控制集中於 MainWindow，後續需要模組化。"
+  ],
+  [
+    "Pokémon RPG",
+    "Pokémon RPG 自主開發"
+  ],
+  [
+    "Independent Programming Project",
+    "自主程式實作"
+  ],
+  [
+    "C++ / Qt Development",
+    "C++／Qt 開發"
+  ],
+  [
+    "MORE WORK / Pokémon RPG",
+    "其他作品／Pokémon RPG 自主開發"
+  ],
+  [
+    "A complete RPG loop used to practice event-driven programming, state management, and integration.",
+    "透過完整 RPG 循環，練習事件驅動程式設計、狀態管理與系統整合。"
+  ],
+  [
+    "A C++/Qt action-game prototype developed after Pokémon RPG to practice real-time events, multi-object updates, and algorithmic behavior.",
+    "在 Pokémon RPG 之後開發的 C++／Qt 動作遊戲原型，練習即時事件、多物件更新與演算法行為。"
+  ],
+  [
+    "I independently built Robot Mode and Monster Mode, including grid-based explosions, obstacles, items, levels, and boss behavior.",
+    "我獨立開發 Robot Mode 與 Monster Mode，包含格狀爆炸判定、障礙物、道具、關卡與 Boss 行為。"
+  ],
+  [
+    "BFS finds routes; state-based rules handle pursuit, attacks, clearing obstacles, and escape. Danger checks consider blast ranges and whether a safe exit remains.",
+    "以 BFS 搜尋路線，再用狀態規則處理追蹤、攻擊、開路與逃生；危險判斷同時考量爆炸範圍與安全出口。"
+  ],
+  [
+    "The prototype integrates chain explosions, destructible obstacles, random items, multiple stages, and boss battles with enemy path planning.",
+    "原型整合連鎖爆炸、可破壞障礙物、隨機道具、多關卡、Boss 戰與敵方路徑規劃。"
+  ],
+  [
+    "The shortest route is not always a reasonable action: an agent must also account for obstacles, hazards, attack positions, and escape.",
+    "最短路徑不一定是合理行為；系統還必須考量障礙、危險、攻擊位置與逃生。"
+  ],
+  [
+    "Enemy behavior is rule-based, not learned AI. Some control logic remains concentrated in MainWindow and needs clearer module boundaries.",
+    "敵方行為屬規則式設計，並非學習型 AI；部分邏輯仍集中於 MainWindow，需要更清楚的模組邊界。"
+  ],
+  [
+    "Crazy Arcade",
+    "Crazy Arcade 自主開發"
+  ],
+  [
+    "Independent Programming Project",
+    "自主程式實作"
+  ],
+  [
+    "Algorithms & Game Logic",
+    "演算法與遊戲邏輯"
+  ],
+  [
+    "MORE WORK / Crazy Arcade",
+    "其他作品／Crazy Arcade 自主開發"
+  ],
+  [
+    "Applying BFS and state management to real-time movement, chain explosions, and rule-based enemy behavior.",
+    "將 BFS 與狀態管理應用於即時移動、連鎖爆炸與規則式敵方行為。"
+  ],
+  [
+    "A six-person team of two professors and four students entered the 2024 CTCI Foundation AI Creative Competition and passed eligibility review to reach the preliminary round.",
+    "由兩位教授與四位學生組成六人團隊，參與 2024 中技社 AI 創意競賽，通過資格審查進入初賽。"
+  ],
+  [
+    "I managed progress, tracked weekly tasks, consolidated materials, and participated in image-data preparation and training.",
+    "我負責進度管理、每週任務追蹤、資料統整，並參與影像資料準備與訓練。"
+  ],
+  [
+    "The team proposed combining image recognition, a camera, Raspberry Pi, and a physical reminder device.",
+    "團隊提出以影像辨識、攝影機、Raspberry Pi 與實體提醒裝置整合的設計。"
+  ],
+  [
+    "The team completed the competition proposal and prototype work and entered the preliminary round. This is not a claim of an award or a deployed public-service system.",
+    "團隊完成競賽企畫與原型實作並進入初賽，此成果不等同獲獎或已部署的公共服務系統。"
+  ],
+  [
+    "Appearance does not reliably establish a person's seating needs. Privacy, misclassification, and labeling risks require attention before any real-world deployment.",
+    "外觀無法可靠判斷個人的座位需求；實際應用前須面對隱私、誤判與標籤化風險。"
+  ],
+  [
+    "Participation Record",
+    "參賽證明"
+  ],
+  [
+    "Safe Seat — AI Creative Competition",
+    "安心座：AI 創意競賽"
+  ],
+  [
+    "Competition Prototype",
+    "競賽原型"
+  ],
+  [
+    "Project Coordination & Image Data",
+    "進度協調與影像資料"
+  ],
+  [
+    "MORE WORK / Safe Seat — AI Creative Competition",
+    "其他作品／安心座：AI 創意競賽"
+  ],
+  [
+    "An interdisciplinary prototype exploring communication around priority seating in public transport.",
+    "跨域團隊以原型探索公共運輸博愛座的需求溝通問題。"
+  ],
+  [
+    "2026.08–present",
+    "2026.08–至今"
+  ],
+  [
+    "An ongoing Instagram and Threads project begun in August 2026. Its first season, 404: The Hidden World, uses twelve planned cases to explore information gaps.",
+    "2026 年 8 月開始的 Instagram／Threads 持續企劃，第一季《404：被隱藏的世界》以規劃中的十二起案件探索資訊落差。"
+  ],
+  [
+    "I independently plan the brand, world, characters, seasonal story, technology research, scripts, storyboards, layouts, questions, and platform-specific copy.",
+    "我獨立負責品牌、世界觀、角色、季度故事、科技資料整理、腳本、分鏡、版面、互動題目與各平台文案。"
+  ],
+  [
+    "A case creates a concrete question, the investigation introduces technology, and a knowledge page connects the concept to daily life before inviting reflection.",
+    "先以案件提出具體問題，透過調查引入科技，再以知識頁連結日常經驗並邀請反思。"
+  ],
+  [
+    "The source documents brand and character development, a twelve-month first-season outline, and six connected pieces for the first month's system-update storyline. These are content-production milestones, not validated learning outcomes.",
+    "資料記錄已完成品牌與角色設定、第一季十二個月大綱，以及首月系統更新故事的六篇連續內容；這些屬內容製作成果，並非已驗證的學習成效。"
+  ],
+  [
+    "The project is early-stage, with limited reader data. It cannot yet establish that storytelling improves understanding or information literacy.",
+    "企劃仍在初期，讀者資料有限，尚不能證明故事化內容提升理解或資訊素養。"
+  ],
+  [
+    "Compare narrative and explanatory formats through reader feedback and, later, structured studies of comprehension, recall, and participation.",
+    "未來可透過讀者回饋比較故事與知識說明形式，再以結構化研究評估理解、記憶與參與。"
+  ],
+  [
+    "404 Daily — Technology Storytelling",
+    "404 日報：科技敘事與知識轉譯"
+  ],
+  [
+    "Independent Media Project",
+    "個人自媒體企劃"
+  ],
+  [
+    "Planning, Writing & Visual Communication",
+    "企劃、撰寫與視覺溝通"
+  ],
+  [
+    "MORE WORK / 404 Daily — Technology Storytelling",
+    "其他作品／404 日報：科技敘事與知識轉譯"
+  ],
+  [
+    "Using illustrated mysteries to make information access, system transparency, and technology concepts easier to explore.",
+    "以圖像懸疑故事，讓資訊可及性、系統透明度與科技概念更容易被理解與探討。"
+  ],
+  [
+    "A three-person project for a computer-animation production course, created with Blender.",
+    "以 Blender 製作的電腦動畫課程專題，團隊共三人。"
+  ],
+  [
+    "I created some character and object models and scene content, adjusted animation, and contributed to parts of the story.",
+    "我負責部分角色、物件建模與場景內容，調整動畫動作，並參與部分故事設計。"
+  ],
+  [
+    "The team completed a 3D animated work through story planning, modeling, materials, motion, cameras, and rendering.",
+    "團隊經歷故事規劃、建模、材質、動作、鏡頭與算圖流程，完成 3D 動畫作品。"
+  ],
+  [
+    "Visual storytelling depends on the relationships among story, movement, scenes, and cameras, not modeling alone.",
+    "視覺敘事需要整合故事、動作、場景與鏡頭，而非只完成模型。"
+  ],
+  [
+    "Time and hardware constrained model detail, movement, materials, and lighting; stronger storyboarding could improve coherence.",
+    "時間與硬體限制了模型細節、動作、材質與光影，前期分鏡也仍有深化空間。"
+  ],
+  [
+    "Matches — 3D Animation",
+    "Matches：3D 動畫"
+  ],
+  [
+    "Team Animation Course Project",
+    "團體動畫課程專題"
+  ],
+  [
+    "Modeling, Animation & Story Support",
+    "建模、動畫與故事協作"
+  ],
+  [
+    "MORE WORK / Matches — 3D Animation",
+    "其他作品／Matches：3D 動畫"
+  ],
+  [
+    "A three-person animation project connecting story ideas with models, scenes, motion, and final rendering.",
+    "三人團隊將故事構想轉換為模型、場景、動作與最終動畫輸出。"
+  ],
+  [
+    "A five-person digital-content course project built with Unity, Blender, and C#.",
+    "由五人團隊以 Unity、Blender 與 C# 完成的數位內容課程專題。"
+  ],
+  [
+    "I planned the world, characters, gameplay, and completion rules, and arranged background music and interaction sounds.",
+    "我負責世界觀、角色、玩法與過關規則，並配置背景音樂及互動音效。"
+  ],
+  [
+    "The team built a playable winter-city game with five switchable characters, coin collection, completion conditions, and S/A/B/C time ratings.",
+    "團隊完成可操作的冬季都市遊戲，包含五名可切換角色、金幣蒐集、過關條件與 S／A／B／C 時間評級。"
+  ],
+  [
+    "Planning, art, code, and sound need a shared understanding of player goals, limits, and feedback.",
+    "企劃、美術、程式與音效需要對玩家目標、限制與回饋建立共同理解。"
+  ],
+  [
+    "The course prototype centers on a single scene and collection mechanic. Character abilities, levels, interactions, and interface design could be expanded.",
+    "課程原型以單一場景與蒐集玩法為主，角色能力、關卡、互動與介面仍可擴充。"
+  ],
+  [
+    "Snow Alien — 3D Exploration Game",
+    "雪地外星人：3D 探索遊戲"
+  ],
+  [
+    "Team Game Course Project",
+    "團體遊戲課程專題"
+  ],
+  [
+    "Game Planning & Sound Design",
+    "遊戲企劃與音效設計"
+  ],
+  [
+    "MORE WORK / Snow Alien — 3D Exploration Game",
+    "其他作品／雪地外星人：3D 探索遊戲"
+  ],
+  [
+    "A five-person Unity project combining a winter-city setting, character switching, collection, and time-based ratings.",
+    "五人 Unity 專題，結合冬季都市、角色切換、蒐集與計時評級。"
+  ],
+  [
+    "Fukui, Japan · July 12–17, 2026",
+    "日本福井 · 2026 年 7 月 12–17 日"
+  ],
+  [
+    "First author among four authors; advisor: 張智凱. The supplied records describe acceptance and an English oral presentation.",
+    "四位作者中的第一作者，指導老師為張智凱；提供資料記錄為已接受並進行英語口頭發表。"
+  ],
+  [
+    "HCI / AI / Digital Health",
+    "人機互動／AI／數位健康"
+  ],
+  [
+    "Home",
+    "首頁"
+  ],
+  [
+    "About",
+    "關於我"
+  ],
+  [
+    "Research",
+    "研究"
+  ],
+  [
+    "Projects",
+    "作品"
+  ],
+  [
+    "Publications",
+    "研究發表"
+  ],
+  [
+    "Journey",
+    "跨域旅程"
+  ],
+  [
+    "Contact",
+    "聯絡我"
+  ],
+  [
+    "Menu",
+    "選單"
+  ],
+  [
+    "Open menu",
+    "開啟選單"
+  ],
+  [
+    "Close menu",
+    "關閉選單"
+  ],
+  [
+    "Main navigation",
+    "主要導覽"
+  ],
+  [
+    "Skip to main content",
+    "跳至主要內容"
+  ],
+  [
+    "Larina home",
+    "Larina 首頁"
+  ],
+  [
+    "Back to top ↑",
+    "回到頂端 ↑"
+  ],
+  [
+    "Understanding people.",
+    "理解人的需求。"
+  ],
+  [
+    "Building meaningful systems.",
+    "建立有意義的系統。"
+  ],
+  [
+    "Research Portfolio",
+    "研究作品集"
+  ],
+  [
+    "Human-centered research",
+    "以人為中心的研究"
+  ],
+  [
+    "Page not found",
+    "找不到頁面"
+  ],
+  [
+    "HUMAN-CENTERED RESEARCH & DESIGN",
+    "以人為中心的研究與設計"
+  ],
+  [
+    "Hi, I'm",
+    "你好，我是"
+  ],
+  [
+    "Hi, I'm Larina.",
+    "你好，我是 Larina。"
+  ],
+  [
+    "I explore where users actually struggle,",
+    "我探索使用者真正遇到的困難，"
+  ],
+  [
+    "then turn those problems into",
+    "再將這些問題轉換為"
+  ],
+  [
+    "trackable and testable digital systems.",
+    "可追蹤、可驗證的數位系統。"
+  ],
+  [
+    "Explore My Research",
+    "探索我的研究"
+  ],
+  [
+    "View Projects",
+    "查看作品"
+  ],
+  [
+    "A little more about Larina",
+    "多認識一點 Larina"
+  ],
+  [
+    "FROM PEOPLE, FOR PEOPLE",
+    "從人的需求出發，為人設計"
+  ],
+  [
+    "FIG. 01",
+    "圖 01"
+  ],
+  [
+    "Human",
+    "人"
+  ],
+  [
+    "Behavior",
+    "行為"
+  ],
+  [
+    "Data",
+    "資料"
+  ],
+  [
+    "System",
+    "系統"
+  ],
+  [
+    "Feedback",
+    "回饋"
+  ],
+  [
+    "Start with a real need",
+    "從真實需求出發"
+  ],
+  [
+    "Observe the experience",
+    "觀察使用經驗"
+  ],
+  [
+    "Find the meaningful signals",
+    "找出有意義的訊號"
+  ],
+  [
+    "Make ideas testable",
+    "讓想法可以被驗證"
+  ],
+  [
+    "Learn. Refine. Repeat.",
+    "學習、調整、持續改進。"
+  ],
+  [
+    "A continuous loop of understanding.",
+    "持續理解與回饋的循環。"
+  ],
+  [
+    "Research cycle: Human, Behavior, Data, System, Feedback, and back to people.",
+    "研究循環：Human、Behavior、Data、System、Feedback，再回到人。"
+  ],
+  [
+    "Read more below",
+    "往下閱讀"
+  ],
+  [
+    "EXPLORING THE INTERSECTION OF",
+    "探索跨領域的交會"
+  ],
+  [
+    "Human-centered AI",
+    "以人為中心的 AI"
+  ],
+  [
+    "HCI",
+    "人機互動"
+  ],
+  [
+    "Human–Computer Interaction",
+    "人機互動"
+  ],
+  [
+    "Learning Analytics",
+    "學習分析"
+  ],
+  [
+    "Digital Health",
+    "數位健康"
+  ],
+  [
+    "01 / THE STARTING POINT",
+    "01 / 問題的起點"
+  ],
+  [
+    "I don't start",
+    "我的起點"
+  ],
+  [
+    "with technology.",
+    "不是技術。"
+  ],
+  [
+    "I start with the problem.",
+    "而是問題本身。"
+  ],
+  [
+    "Understanding where users truly struggle is the starting point.",
+    "理解使用者真正卡住的位置，是一切的起點。"
+  ],
+  [
+    "Where does the user struggle?",
+    "使用者在哪裡遇到困難？"
+  ],
+  [
+    "What behavior can we observe?",
+    "我們能觀察到哪些行為？"
+  ],
+  [
+    "What data can we collect?",
+    "我們能蒐集哪些資料？"
+  ],
+  [
+    "How can technology support them?",
+    "科技如何提供支持？"
+  ],
+  [
+    "02 / RESEARCH INTERESTS",
+    "02 / 研究興趣"
+  ],
+  [
+    "Different lenses.",
+    "不同的研究視角。"
+  ],
+  [
+    "One human focus.",
+    "共同關注人的需求。"
+  ],
+  [
+    "Explore research",
+    "探索研究方向"
+  ],
+  [
+    "Intelligence that starts with people.",
+    "從人的需求出發，思考智慧系統。"
+  ],
+  [
+    "Understand the person behind the interaction.",
+    "理解互動背後的人。"
+  ],
+  [
+    "Look beyond the final score.",
+    "看見最終分數之外的歷程。"
+  ],
+  [
+    "Make small changes visible.",
+    "讓微小的變化被看見。"
+  ],
+  [
+    "User Needs",
+    "使用者需求"
+  ],
+  [
+    "Explainability",
+    "可解釋性"
+  ],
+  [
+    "Adaptive Systems",
+    "適性系統"
+  ],
+  [
+    "Human-AI Interaction",
+    "人與 AI 互動"
+  ],
+  [
+    "User Research",
+    "使用者研究"
+  ],
+  [
+    "Interaction Design",
+    "互動設計"
+  ],
+  [
+    "Usability",
+    "易用性"
+  ],
+  [
+    "Empirical Evaluation",
+    "實證評估"
+  ],
+  [
+    "Behavioral Data",
+    "行為資料"
+  ],
+  [
+    "Longitudinal Data",
+    "長期資料"
+  ],
+  [
+    "Learning Process",
+    "學習歷程"
+  ],
+  [
+    "Adaptive Feedback",
+    "適性回饋"
+  ],
+  [
+    "Rehabilitation",
+    "復健"
+  ],
+  [
+    "Long-term Tracking",
+    "長期追蹤"
+  ],
+  [
+    "Sensor Data",
+    "感測資料"
+  ],
+  [
+    "Patient Feedback",
+    "病人回饋"
+  ],
+  [
+    "03 / SELECTED PROJECTS",
+    "03 / 精選作品"
+  ],
+  [
+    "Questions into",
+    "讓問題走向"
+  ],
+  [
+    "practice.",
+    "實作。"
+  ],
+  [
+    "All projects",
+    "所有作品"
+  ],
+  [
+    "All Projects",
+    "所有作品"
+  ],
+  [
+    "View Case Study",
+    "查看完整案例"
+  ],
+  [
+    "Executive Function Assessment & Adaptive Training System",
+    "執行功能評估與適性訓練系統"
+  ],
+  [
+    "Not All Collocation Errors Matter Equally",
+    "並非所有搭配詞錯誤都同等重要"
+  ],
+  [
+    "ChatGPT Usage among University Students",
+    "大學生使用 ChatGPT 的行為研究"
+  ],
+  [
+    "Life × Investment Simulation",
+    "人生 × 投資模擬"
+  ],
+  [
+    "Team Graduation Project / Research Prototype",
+    "團隊畢業專題／研究原型"
+  ],
+  [
+    "International Conference Research",
+    "國際研討會研究"
+  ],
+  [
+    "Mixed Methods Research",
+    "混合方法研究"
+  ],
+  [
+    "Educational Simulation",
+    "教育型模擬"
+  ],
+  [
+    "Main Developer",
+    "主要開發者"
+  ],
+  [
+    "Research Data Architecture",
+    "研究資料架構"
+  ],
+  [
+    "First Author",
+    "第一作者"
+  ],
+  [
+    "Research role · Contribution details to be added",
+    "研究角色 · 詳細分工待補",
+    "Research role · 待補詳細分工"
+  ],
+  [
+    "Project contribution · Details to be added",
+    "專案貢獻 · 詳細分工待補",
+    "Project contribution · 待補詳細分工"
+  ],
+  [
+    "01 / BEYOND THE SCORE",
+    "01 / 分數之外"
+  ],
+  [
+    "02 / UNDERSTANDING ERROR SEVERITY",
+    "02 / 理解錯誤嚴重程度"
+  ],
+  [
+    "03 / LISTENING TO LEARNERS",
+    "03 / 傾聽學習者"
+  ],
+  [
+    "04 / LEARNING THROUGH CHOICES",
+    "04 / 在選擇中學習"
+  ],
+  [
+    "Behavioral overview",
+    "行為概覽"
+  ],
+  [
+    "Beyond the score",
+    "分數之外"
+  ],
+  [
+    "ACCURACY",
+    "正確率"
+  ],
+  [
+    "REACTION TIME",
+    "反應時間"
+  ],
+  [
+    "PATTERNS",
+    "行為模式"
+  ],
+  [
+    "Not all errors",
+    "並非每個錯誤"
+  ],
+  [
+    "carry the same",
+    "都有相同的"
+  ],
+  [
+    "weight.",
+    "重要性。"
+  ],
+  [
+    "Minor",
+    "輕微"
+  ],
+  [
+    "Moderate",
+    "中度"
+  ],
+  [
+    "Severe",
+    "嚴重"
+  ],
+  [
+    "human perspectives",
+    "位參與者的觀點"
+  ],
+  [
+    "Every choice opens",
+    "每個選擇，都開啟"
+  ],
+  [
+    "a different path.",
+    "不同的道路。"
+  ],
+  [
+    "Health",
+    "健康"
+  ],
+  [
+    "Learning",
+    "學習"
+  ],
+  [
+    "04 / HOW I WORK",
+    "04 / 我的工作方式"
+  ],
+  [
+    "A question. A process.",
+    "從問題，展開探索。"
+  ],
+  [
+    "A better understanding.",
+    "讓理解更加深入。"
+  ],
+  [
+    "Problem",
+    "問題"
+  ],
+  [
+    "Observe",
+    "觀察"
+  ],
+  [
+    "Design",
+    "設計"
+  ],
+  [
+    "Build",
+    "建構"
+  ],
+  [
+    "Evaluate",
+    "評估"
+  ],
+  [
+    "Each evaluation is the starting point for the next question.",
+    "每一次評估，都是下一個問題的起點。"
+  ],
+  [
+    "05 / RESEARCH IN WORDS",
+    "05 / 研究成果與分享"
+  ],
+  [
+    "From inquiry to",
+    "從探究走向"
+  ],
+  [
+    "insight.",
+    "洞見。"
+  ],
+  [
+    "CONFERENCE RESEARCH",
+    "研討會研究"
+  ],
+  [
+    "20th International Congress on Advanced Applied Informatics",
+    "第 20 屆先進應用資訊國際研討會"
+  ],
+  [
+    "English Oral Presentation",
+    "英語口頭發表"
+  ],
+  [
+    "View publication",
+    "查看研究發表"
+  ],
+  [
+    "06 / THE PATH SO FAR",
+    "06 / 至今的旅程"
+  ],
+  [
+    "Curiosity connects",
+    "好奇心，串連"
+  ],
+  [
+    "the dots.",
+    "每一段經歷。"
+  ],
+  [
+    "View Full Journey",
+    "查看完整旅程"
+  ],
+  [
+    "English",
+    "英語"
+  ],
+  [
+    "Digital Learning",
+    "數位學習"
+  ],
+  [
+    "Programming",
+    "程式設計"
+  ],
+  [
+    "AI & Data",
+    "AI 與資料"
+  ],
+  [
+    "LET'S CONNECT",
+    "一起交流"
+  ],
+  [
+    "Let's build something",
+    "讓我們一起創造"
+  ],
+  [
+    "meaningful.",
+    "有意義的事。"
+  ],
+  [
+    "Research Collaboration",
+    "研究合作"
+  ],
+  [
+    "Graduate Study",
+    "研究所進修"
+  ],
+  [
+    "Contact Larina",
+    "聯絡 Larina"
+  ],
+  [
+    "ABOUT / ABOUT ME",
+    "ABOUT / 關於我"
+  ],
+  [
+    "Different disciplines.",
+    "不同的專業領域。"
+  ],
+  [
+    "The same curiosity.",
+    "不變的好奇心。"
+  ],
+  [
+    "01 / WHO I AM",
+    "01 / 我是誰"
+  ],
+  [
+    "03 / WHAT I CARE ABOUT",
+    "03 / 我關注的事"
+  ],
+  [
+    "The experience behind the outcome.",
+    "結果背後的真實經驗。"
+  ],
+  [
+    "Portrait placeholder",
+    "個人照片預留區"
+  ],
+  [
+    "PORTRAIT TO COME",
+    "個人照片待補"
+  ],
+  [
+    "02 / FROM ENGLISH TO DIGITAL TECHNOLOGY",
+    "02 / 從英語到數位科技"
+  ],
+  [
+    "A change in tools.",
+    "工具持續改變。"
+  ],
+  [
+    "A consistent purpose.",
+    "初衷始終如一。"
+  ],
+  [
+    "Interactive Systems",
+    "互動系統"
+  ],
+  [
+    "04 / CORE STRENGTHS",
+    "04 / 核心能力"
+  ],
+  [
+    "Connecting inquiry",
+    "串連研究探索"
+  ],
+  [
+    "with implementation.",
+    "與實際開發。"
+  ],
+  [
+    "Research Design",
+    "研究設計"
+  ],
+  [
+    "System Development",
+    "系統開發"
+  ],
+  [
+    "05 / RESEARCH INTERESTS",
+    "05 / 研究興趣"
+  ],
+  [
+    "06 / EDUCATION",
+    "06 / 教育背景"
+  ],
+  [
+    "Learning,",
+    "學習，"
+  ],
+  [
+    "always.",
+    "從不停歇。"
+  ],
+  [
+    "RESEARCH / RESEARCH DIRECTIONS",
+    "RESEARCH / 研究方向"
+  ],
+  [
+    "What do I want",
+    "我想要"
+  ],
+  [
+    "to",
+    "深入"
+  ],
+  [
+    "understand?",
+    "理解什麼？"
+  ],
+  [
+    "The human experience behind the data.",
+    "資料背後，是人的真實經驗。"
+  ],
+  [
+    "FOUR CONNECTED LENSES",
+    "四個相互連結的研究視角"
+  ],
+  [
+    "RELATED PROJECTS",
+    "相關作品"
+  ],
+  [
+    "RESEARCH PHILOSOPHY",
+    "研究理念"
+  ],
+  [
+    "Don't just measure",
+    "別只衡量"
+  ],
+  [
+    "the final score.",
+    "最後的分數。"
+  ],
+  [
+    "Score",
+    "分數"
+  ],
+  [
+    "Pattern",
+    "模式"
+  ],
+  [
+    "Intervention",
+    "介入"
+  ],
+  [
+    "DIGITAL HEALTH",
+    "數位健康"
+  ],
+  [
+    "Small changes",
+    "微小的改變，"
+  ],
+  [
+    "matter.",
+    "也很重要。"
+  ],
+  [
+    "Long-term tracking can reveal meaningful changes that a single measurement may miss.",
+    "長期追蹤能發現單次測量可能忽略的重要變化。"
+  ],
+  [
+    "Day 1",
+    "第 1 天"
+  ],
+  [
+    "Week 2",
+    "第 2 週"
+  ],
+  [
+    "Month 3",
+    "第 3 個月"
+  ],
+  [
+    "Month 6",
+    "第 6 個月"
+  ],
+  [
+    "Concept illustration / Not research results",
+    "Concept illustration / 概念示意，非研究結果"
+  ],
+  [
+    "Motion",
+    "動作"
+  ],
+  [
+    "Sensor",
+    "感測器"
+  ],
+  [
+    "Behavior Data",
+    "行為數據"
+  ],
+  [
+    "Trend",
+    "趨勢"
+  ],
+  [
+    "PROJECTS / RESEARCH & PRACTICE",
+    "PROJECTS / 研究與實作"
+  ],
+  [
+    "My",
+    "我的"
+  ],
+  [
+    "Work.",
+    "作品。"
+  ],
+  [
+    "Turning human questions into something we can explore, build, and evaluate.",
+    "將人的問題，轉換成可探索、建構與評估的實作。"
+  ],
+  [
+    "All",
+    "全部"
+  ],
+  [
+    "Filter projects by field",
+    "依領域篩選作品"
+  ],
+  [
+    "No projects in this category yet.",
+    "此分類尚無作品。"
+  ],
+  [
+    "THE QUESTION BEHIND THE WORK",
+    "作品背後的問題"
+  ],
+  [
+    "Score: 78",
+    "分數：78"
+  ],
+  [
+    "But what does 78",
+    "但 78 分"
+  ],
+  [
+    "actually mean?",
+    "真正代表什麼？"
+  ],
+  [
+    "Accuracy",
+    "作答正確率"
+  ],
+  [
+    "Reaction Time",
+    "作答反應時間"
+  ],
+  [
+    "Error Type",
+    "錯誤類型"
+  ],
+  [
+    "Hint",
+    "提示"
+  ],
+  [
+    "Hints",
+    "提示紀錄"
+  ],
+  [
+    "Difficulty",
+    "難度"
+  ],
+  [
+    "Dropout",
+    "中途退出"
+  ],
+  [
+    "Illustrative score / Example only",
+    "Illustrative score / 示意數字"
+  ],
+  [
+    "Assessment",
+    "評估測驗"
+  ],
+  [
+    "Record",
+    "資料層次"
+  ],
+  [
+    "Analyze",
+    "分析"
+  ],
+  [
+    "Explain",
+    "解釋"
+  ],
+  [
+    "Training",
+    "訓練"
+  ],
+  [
+    "Tracking",
+    "追蹤"
+  ],
+  [
+    "100 Errors",
+    "100 個錯誤"
+  ],
+  [
+    "≠ 100 Equal Problems",
+    "≠ 100 個同等重要的問題"
+  ],
+  [
+    "10,000 Essays",
+    "10,000 篇作文"
+  ],
+  [
+    "100 Sampled Essays",
+    "100 篇抽樣作文"
+  ],
+  [
+    "Error Identification",
+    "錯誤辨識"
+  ],
+  [
+    "Severity Coding",
+    "嚴重程度編碼"
+  ],
+  [
+    "Data Analysis",
+    "資料分析"
+  ],
+  [
+    "Educational Implications",
+    "教育意涵"
+  ],
+  [
+    "Participants",
+    "參與者"
+  ],
+  [
+    "Questionnaires",
+    "問卷"
+  ],
+  [
+    "Interviews",
+    "訪談"
+  ],
+  [
+    "Colleges",
+    "學院"
+  ],
+  [
+    "Quantitative + Qualitative",
+    "量化 ＋ 質性"
+  ],
+  [
+    "Mixed Methods",
+    "混合研究方法"
+  ],
+  [
+    "Research Question",
+    "研究問題"
+  ],
+  [
+    "Analysis",
+    "分析處理"
+  ],
+  [
+    "Interpretation",
+    "詮釋"
+  ],
+  [
+    "Every decision is",
+    "每個決策，都是"
+  ],
+  [
+    "a chance to reflect.",
+    "反思的機會。"
+  ],
+  [
+    "Not Investment Advice",
+    "非投資建議"
+  ],
+  [
+    "Decision",
+    "決策"
+  ],
+  [
+    "Outcome",
+    "結果"
+  ],
+  [
+    "Reflection",
+    "反思"
+  ],
+  [
+    "Buy House?",
+    "買房？"
+  ],
+  [
+    "Invest?",
+    "投資？"
+  ],
+  [
+    "Insurance?",
+    "保險？"
+  ],
+  [
+    "Emergency Fund?",
+    "緊急預備金？"
+  ],
+  [
+    "Explore decision scenarios",
+    "探索決策情境"
+  ],
+  [
+    "How would housing costs affect monthly cash flow and other goals?",
+    "住房支出會如何影響每月現金流與其他目標？"
+  ],
+  [
+    "How much uncertainty could you handle when markets fluctuate?",
+    "當市場波動時，你能承擔多少不確定性？"
+  ],
+  [
+    "Which risks to your family and daily life would you want to transfer?",
+    "你希望轉移哪些家庭與生活風險？"
+  ],
+  [
+    "How long a financial buffer would you need if your income stopped?",
+    "如果收入暫停，你需要多久的生活緩衝？"
+  ],
+  [
+    "Choose a scenario to explore the questions it raises.",
+    "選擇一個情境，探索它帶來的問題。"
+  ],
+  [
+    "IN THIS CASE STUDY",
+    "案例內容"
+  ],
+  [
+    "Case study sections",
+    "案例章節"
+  ],
+  [
+    "Overview",
+    "專案概覽"
+  ],
+  [
+    "My Role",
+    "我的角色"
+  ],
+  [
+    "Method",
+    "研究方法"
+  ],
+  [
+    "Technology",
+    "技術"
+  ],
+  [
+    "System / Research Process",
+    "系統／研究流程"
+  ],
+  [
+    "Results",
+    "研究結果"
+  ],
+  [
+    "What I Learned",
+    "學習與反思"
+  ],
+  [
+    "Limitations",
+    "研究限制"
+  ],
+  [
+    "Future Work",
+    "未來方向"
+  ],
+  [
+    "KEEP EXPLORING",
+    "繼續探索"
+  ],
+  [
+    "Related",
+    "相關"
+  ],
+  [
+    "projects.",
+    "作品。"
+  ],
+  [
+    "System Integration",
+    "系統整合"
+  ],
+  [
+    "Requirement Translation",
+    "需求轉譯"
+  ],
+  [
+    "Technical Problem Solving",
+    "技術問題解決"
+  ],
+  [
+    "Longitudinal Change",
+    "長期變化"
+  ],
+  [
+    "Severity-weighted Error Score",
+    "嚴重程度加權錯誤分數"
+  ],
+  [
+    "Correlation",
+    "相關分析"
+  ],
+  [
+    "Group Comparison",
+    "群組比較"
+  ],
+  [
+    "Descriptive Statistics",
+    "描述統計"
+  ],
+  [
+    "Cross-tabulation",
+    "交叉表分析"
+  ],
+  [
+    "Z-test",
+    "Z 檢定"
+  ],
+  [
+    "Thematic Analysis",
+    "主題分析"
+  ],
+  [
+    "Income",
+    "收入"
+  ],
+  [
+    "Housing",
+    "住房"
+  ],
+  [
+    "Insurance",
+    "保險"
+  ],
+  [
+    "Debt",
+    "債務"
+  ],
+  [
+    "Market Risk",
+    "市場風險"
+  ],
+  [
+    "Emergency Fund",
+    "緊急預備金"
+  ],
+  [
+    "Asset Allocation",
+    "資產配置"
+  ],
+  [
+    "Family Responsibility",
+    "家庭責任"
+  ],
+  [
+    "PUBLICATIONS / RESEARCH OUTPUT",
+    "PUBLICATIONS / 研究發表"
+  ],
+  [
+    "Ideas, examined.",
+    "想法，經過檢驗。"
+  ],
+  [
+    "Insights, shared.",
+    "洞見，值得分享。"
+  ],
+  [
+    "A record of research questions and the work they become.",
+    "記錄研究問題，以及它們逐漸形成的成果。"
+  ],
+  [
+    "Paper",
+    "論文"
+  ],
+  [
+    "Slides",
+    "投影片"
+  ],
+  [
+    "To be provided",
+    "待提供"
+  ],
+  [
+    "View Project",
+    "查看作品"
+  ],
+  [
+    "View Paper",
+    "閱讀論文"
+  ],
+  [
+    "View Slides",
+    "查看投影片"
+  ],
+  [
+    "JOURNEY / AN INTERDISCIPLINARY PATH",
+    "JOURNEY / 跨域之路"
+  ],
+  [
+    "Not a straight line.",
+    "不是一條直線。"
+  ],
+  [
+    "A connected path.",
+    "而是彼此連結的道路。"
+  ],
+  [
+    "CONTACT / GET IN TOUCH",
+    "CONTACT / 保持聯繫"
+  ],
+  [
+    "Good work starts",
+    "好的合作，"
+  ],
+  [
+    "with",
+    "始於"
+  ],
+  [
+    "a conversation.",
+    "一段對話。"
+  ],
+  [
+    "Email",
+    "電子郵件"
+  ],
+  [
+    "Download CV",
+    "下載履歷"
+  ],
+  [
+    "Name",
+    "姓名"
+  ],
+  [
+    "Subject",
+    "主旨"
+  ],
+  [
+    "Message",
+    "訊息"
+  ],
+  [
+    "Your name",
+    "你的名字"
+  ],
+  [
+    "What would you like to discuss?",
+    "你想聊什麼？"
+  ],
+  [
+    "Tell me about your idea...",
+    "分享你的想法……"
+  ],
+  [
+    "Preview Message",
+    "預覽訊息"
+  ],
+  [
+    "V1 interaction demo: nothing is sent or saved.",
+    "V1 互動示範：資料不會寄出或儲存。"
+  ],
+  [
+    "Enable JavaScript to use this form demo; this version does not send messages.",
+    "請啟用 JavaScript 以使用表單示範；此版本不寄送訊息。"
+  ],
+  [
+    "404 / A SMALL DETOUR",
+    "404 / 暫時偏離了路線"
+  ],
+  [
+    "This path is",
+    "這條路徑"
+  ],
+  [
+    "still unexplored.",
+    "還有待探索。"
+  ],
+  [
+    "Back to Home",
+    "回到首頁"
+  ],
+  [
+    "This page could not be found. Return home to keep exploring.",
+    "找不到這個頁面，回到首頁繼續探索。"
+  ],
+  [
+    "From language to digital technology, I remain curious about how people understand, learn, and change.",
+    "從語言到數位科技，始終關心的是：人如何理解、學習與改變。"
+  ],
+  [
+    "I aim to understand where users truly struggle, then use research design, behavioral data, and system development to turn problems into understandable, trackable, and testable digital systems.",
+    "我希望理解使用者真正卡住的位置，再透過研究設計、行為資料與系統開發，把問題變成可理解、可追蹤、可驗證的數位系統。"
+  ],
+  [
+    "My research interests sit at the intersection of human-centered AI, HCI, learning analytics, and digital health.",
+    "我的研究興趣位於 Human-centered AI、HCI、Learning Analytics 與 Digital Health 的交會處。"
+  ],
+  [
+    "I look beyond final scores to the choices, challenges, and feedback along the way.",
+    "不只看最後的分數，也看過程中的選擇、困難與回饋。"
+  ],
+  [
+    "Turn ambiguous problems into researchable questions.",
+    "把模糊的問題轉換成可探究的研究問題。"
+  ],
+  [
+    "Build analyzable data structures from behavioral processes.",
+    "從行為歷程建立可分析的資料架構。"
+  ],
+  [
+    "Turn requirements into usable, testable prototypes.",
+    "把需求轉換成可操作、可驗證的原型。"
+  ],
+  [
+    "Continuously refine designs through observation and evidence.",
+    "透過觀察與證據，持續調整設計。"
+  ],
+  [
+    "Institution, degree, and study dates to be added.",
+    "學校、學位與就讀期間待補。"
+  ],
+  [
+    "Starting with language and a curiosity about how people understand, express themselves, and learn.",
+    "從語言出發，關心人如何理解、表達與學習。"
+  ],
+  [
+    "Extending a curiosity about learning into digital environments and learning design.",
+    "將對學習的好奇，延伸到數位環境與學習設計。"
+  ],
+  [
+    "Using programming to turn problems into interactive prototypes.",
+    "透過程式設計，把問題轉換成可以互動的原型。"
+  ],
+  [
+    "Moving beyond outcomes to explore how data can explain user behavior.",
+    "從結果走向歷程，探索資料如何解釋使用者行為。"
+  ],
+  [
+    "Connecting research, systems, and continuous feedback around people.",
+    "以人為中心，串連研究、系統與持續回饋。"
+  ],
+  [
+    "Starting from user needs, I explore understandable and adaptable AI support that keeps people involved in judgment and decisions.",
+    "從使用者需求出發，探索可理解、可調整的 AI 支援，讓人能參與判斷與決策。"
+  ],
+  [
+    "I observe difficulties in human-system interaction, translate needs into usable interfaces, and improve them through evaluation.",
+    "觀察人與系統互動時的困難，將需求轉換成可操作的介面，透過評估持續改進。"
+  ],
+  [
+    "I study learning processes through behavioral and longitudinal data, exploring relationships among errors, patterns, and feedback.",
+    "從行為與長期資料理解學習歷程，探索錯誤、模式與回饋之間的關係。"
+  ],
+  [
+    "I explore rehabilitation, sensor data, and long-term tracking to understand how digital systems can support meaningful health feedback.",
+    "關注復健、感測資料與長期追蹤，探索數位系統如何支持可理解的健康回饋。"
+  ],
+  [
+    "Understanding patterns behind behavior helps us design more meaningful interventions.",
+    "理解行為背後的模式，才能提出更有意義的介入。"
+  ],
+  [
+    "Concept illustration: observing change from day one to month six; not actual research data.",
+    "概念示意：從第一天到第六個月逐步觀察變化，非實際研究數據"
+  ],
+  [
+    "V1 data based on the supplied brief; the formal citation and publication status remain to be confirmed.",
+    "依提供內容建立的 V1 資料；正式書目與發表狀態待確認。"
+  ],
+  [
+    "I welcome conversations about research questions, interdisciplinary collaboration, and future possibilities.",
+    "歡迎交流研究問題、跨域合作與未來的可能。"
+  ],
+  [
+    "Moving beyond a single score to trial-level behavioral data, connecting assessment, explanation, training, and long-term tracking.",
+    "從單一分數走向 trial-level 行為資料，串連評估、解釋、訓練與長期追蹤。"
+  ],
+  [
+    "A team graduation project and research prototype exploring integrated executive-function assessment and adaptive training. This V1 case study follows the brief; full research evidence is pending.",
+    "團隊畢業專題與研究原型，探索執行功能評估與適性訓練的整合。此 V1 案例內容依需求建立，完整研究證據待補。"
+  ],
+  [
+    "An overall score summarizes performance but does not explain where a user encountered difficulties.",
+    "總分能概括表現，卻難以說明使用者在哪個環節遇到困難。"
+  ],
+  [
+    "How can accuracy, reaction time, error types, and hint records be combined into more understandable and trackable training feedback?",
+    "如何結合正確率、反應時間、錯誤類型與提示紀錄，提供更可理解且可追蹤的訓練回饋？"
+  ],
+  [
+    "Primary responsibility for development and research data architecture.",
+    "主要負責開發與研究資料架構。"
+  ],
+  [
+    "Start with user needs, record fine-grained assessment data, and connect observations to adjustable training. Evaluation methods and sample details are pending.",
+    "以使用者需求為起點，建立細粒度的評估紀錄，再將觀察結果連結到可調整的訓練流程。實際評估方法與樣本待補。"
+  ],
+  [
+    "These technologies belong to the featured project. This portfolio website uses Flask and Vanilla JavaScript.",
+    "以下為作品本身的技術組合；本作品集網站使用 Flask 與 Vanilla JavaScript。"
+  ],
+  [
+    "Assessment → Record → Analyze → Explain → Training → Tracking. A traceable data flow connects assessment and feedback.",
+    "Assessment → Record → Analyze → Explain → Training → Tracking。以可追溯的資料流串連評估與回饋。"
+  ],
+  [
+    "Trial-level data preserves the process behind each response.",
+    "以 trial-level 資料保留使用者的作答過程。"
+  ],
+  [
+    "Measured results, system screenshots, and validation metrics are pending. This page makes no claims of proven training or health benefits.",
+    "實測結果、系統截圖與驗證指標待補；本頁不宣稱已證實的訓練或健康成效。"
+  ],
+  [
+    "To add: how research questions shaped data design and the practical trade-offs in system integration.",
+    "待補：研究問題如何影響資料設計，以及系統整合過程中的具體取捨。"
+  ],
+  [
+    "This page presents the research prototype context. Sample details, evaluation conditions, and data-quality limitations remain to be added.",
+    "目前展示的是研究原型脈絡；樣本、評估條件與資料品質限制尚待補充。"
+  ],
+  [
+    "Future work may include user evaluation, longitudinal tracking design, and validation of how well people understand the feedback interface.",
+    "後續可補充使用者評估、長期追蹤設計與回饋介面的可理解性驗證。"
+  ],
+  [
+    "Beyond counting errors, this work explores the severity of collocation errors and their educational implications.",
+    "不只計算錯誤數量，更探索搭配詞錯誤的嚴重程度及其教育意義。"
+  ],
+  [
+    "Research focused on collocation error severity. Conference information follows the supplied brief; the final paper and citation remain to be confirmed.",
+    "以搭配詞錯誤嚴重程度為核心的研究。會議資訊依提供內容建立，正式論文與書目待確認。"
+  ],
+  [
+    "Equal error counts can conceal different degrees of semantic or communication problems.",
+    "相同的錯誤數量，可能包含不同程度的語意或溝通問題。"
+  ],
+  [
+    "Can a severity-aware error measure provide more meaningful learning information than error counts alone?",
+    "納入嚴重程度的錯誤指標，能否提供比單純錯誤次數更有意義的學習資訊？"
+  ],
+  [
+    "First Author · English Oral Presentation. Detailed contributions and presentation records are pending.",
+    "First Author · English Oral Presentation。詳細分工與發表紀錄待補。"
+  ],
+  [
+    "Identify errors, code their severity, and analyze data from sampled essays.",
+    "以抽樣作文進行錯誤辨識、嚴重程度編碼與資料分析。"
+  ],
+  [
+    "Orange Data Mining; data-processing details and a reproducible workflow are pending.",
+    "Orange Data Mining；資料處理細節與可重現流程待補。"
+  ],
+  [
+    "10,000 Essays → 100 Sampled Essays → Error Identification → Severity Coding → Data Analysis → Educational Implications.",
+    "10,000 Essays → 100 Sampled Essays → Error Identification → Severity Coding → Data Analysis → Educational Implications。"
+  ],
+  [
+    "According to the brief, 100 essays were sampled from 10,000 and errors classified as minor, moderate, or severe. Sampling and coding rules are pending.",
+    "依提供資料，從 10,000 篇作文中取樣 100 篇，並區分 Minor、Moderate、Severe 錯誤。抽樣與編碼規則待補。"
+  ],
+  [
+    "Statistical results, effect sizes, and charts are pending. Illustrations do not stand in for actual findings.",
+    "統計結果、效果量與圖表待補，不以示意圖代替實際研究發現。"
+  ],
+  [
+    "To add: defining consistent, educationally meaningful codes when moving from error quantity to error quality.",
+    "待補：從錯誤數量走向錯誤品質時，如何定義一致且有教育意義的編碼。"
+  ],
+  [
+    "Sampling scope, inter-rater agreement, and conditions for using the measure need to be documented.",
+    "需補充抽樣範圍、評分者一致性及指標適用條件。"
+  ],
+  [
+    "Future work may explore how severity measures can become feedback that learners understand.",
+    "後續可探索嚴重程度指標如何轉換為學習者可理解的回饋。"
+  ],
+  [
+    "Combining questionnaires and interviews to understand university students' ChatGPT behaviors, motivations, and experiences.",
+    "結合問卷與訪談，理解大學生使用 ChatGPT 的行為、動機與經驗。"
+  ],
+  [
+    "Using quantitative and qualitative data together to understand university students' experiences with ChatGPT.",
+    "以量化與質性資料共同理解大學生使用 ChatGPT 的經驗。"
+  ],
+  [
+    "Usage frequency alone cannot explain why students adopt AI or how it fits into learning.",
+    "使用頻率本身不足以解釋學生為何採用 AI，以及 AI 如何融入學習過程。"
+  ],
+  [
+    "How are student motivation, learning context, and ChatGPT usage related?",
+    "學生的動機、學習情境與 ChatGPT 使用行為之間，存在什麼關係？"
+  ],
+  [
+    "Individual research responsibilities and specific contributions are pending.",
+    "個人研究分工與具體貢獻待補。"
+  ],
+  [
+    "Combining quantitative and qualitative analysis through the lens of Self-Determination Theory.",
+    "以 Self-Determination Theory 作為研究視角，結合量化與質性分析。"
+  ],
+  [
+    "Statistical and qualitative analysis tools are pending.",
+    "統計與質性分析工具待補。"
+  ],
+  [
+    "Quantitative + Qualitative → Mixed Methods. Questionnaires describe behavioral distributions; interviews explore context and motivation.",
+    "Quantitative + Qualitative → Mixed Methods。以問卷描述行為分布，以訪談理解情境與動機。"
+  ],
+  [
+    "The brief lists 131 participants, 120 questionnaires, 11 interviews, and 6 colleges. Sample overlap, recruitment, and analytical denominators remain to be confirmed.",
+    "依提供內容：131 Participants、120 Questionnaires、11 Interviews、6 Colleges。樣本重疊、招募方式與分析母數待確認。"
+  ],
+  [
+    "Statistical findings, interview themes, and representative quotations are pending.",
+    "統計結果、訪談主題與代表性引文待補。"
+  ],
+  [
+    "To add: how quantitative trends and personal accounts complement each other, and the experience of integrating the analyses.",
+    "待補：量化趨勢與個人敘事如何互相補充，以及整合分析的實際經驗。"
+  ],
+  [
+    "Sample representativeness, self-report limitations, and the study period need to be documented.",
+    "需補充樣本代表性、自陳資料限制與研究期間。"
+  ],
+  [
+    "Future work may compare self-reported usage with observable learning behavior.",
+    "後續可將自陳使用經驗與可觀察的學習行為進行對照。"
+  ],
+  [
+    "Exploring how financial choices influence one another through decisions and reflection in everyday scenarios.",
+    "透過生活情境中的決策與反思，探索財務選擇如何彼此影響。"
+  ],
+  [
+    "An educational simulation concept. This page offers portfolio storytelling and an interaction demo, not investment advice.",
+    "教育型模擬概念。此頁提供作品敘事與互動示範，不提供投資建議。"
+  ],
+  [
+    "Everyday financial choices are interconnected; a single number cannot capture trade-offs among responsibilities and risks.",
+    "生活中的財務選擇相互影響，單一數字難以呈現不同責任與風險之間的取捨。"
+  ],
+  [
+    "Can interactive scenarios help learners understand the connections among decisions, outcomes, and reflection?",
+    "互動情境是否能幫助學習者理解決策、後果與反思的連結？"
+  ],
+  [
+    "Design and development responsibilities are pending.",
+    "設計與開發分工待補。"
+  ],
+  [
+    "Educational scenarios follow Decision → Outcome → Reflection → Decision. The current demo presents reflection prompts only.",
+    "以 Decision → Outcome → Reflection → Decision 組織教育情境；目前示範只呈現反思問題。"
+  ],
+  [
+    "The original project's technologies are pending. This page's demo uses Vanilla JavaScript.",
+    "原作品技術待補。本頁示範使用 Vanilla JavaScript。"
+  ],
+  [
+    "Learners choose a scenario, consider possible outcomes, and adjust their next decision.",
+    "讓學習者選擇情境、思考可能結果，再調整下一個決策。"
+  ],
+  [
+    "The scenarios cover the following areas; no real financial data has been added.",
+    "情境涵蓋下列面向，尚未加入真實財務資料。"
+  ],
+  [
+    "This is currently an interactive portfolio demo. Learning outcomes and user-testing results are pending.",
+    "目前為作品集互動示範。學習成效與使用者測試結果待補。"
+  ],
+  [
+    "To add: balancing model simplification with realistic scenarios.",
+    "待補：如何在模型簡化與情境真實感之間取得平衡。"
+  ],
+  [
+    "A complete simulation model has not been built. Buttons trigger reflection prompts, not predictions of returns or personal financial outcomes.",
+    "未建置完整模擬模型；按鈕觸發反思提示，不預測報酬或個人財務結果。"
+  ],
+  [
+    "Future work may add branching scenarios, decision records, and evaluation of learner feedback.",
+    "後續可增加情境分支、決策紀錄與學習者回饋評估。"
+  ],
+  [
+    "Welcome",
+    "歡迎"
+  ],
+  [
+    "Who am I?",
+    "我是誰？"
+  ],
+  [
+    "Enter Larina's portfolio",
+    "進入 Larina 的作品集"
+  ],
+  [
+    "Larina's illustrated avatar",
+    "Larina 插畫頭像"
+  ],
+  [
+    "Click my portrait to enter.",
+    "點擊頭像，開始探索。"
+  ],
+  [
+    "ME",
+    "我"
+  ],
+  [
+    "Explore?",
+    "探索？"
+  ],
+  [
+    "Drag to play",
+    "拖曳玩一下"
+  ],
+  [
+    "A forest-adventure platform connecting six cognitive games, trial-level records, adaptive training, family feedback, professional follow-up, and reproducible research.",
+    "以森林冒險串接六項認知遊戲、逐題行為紀錄、適性訓練、家長回饋、專業追蹤與可重現的研究分析。"
+  ],
+  [
+    "The current six tasks are SRT, Picture Memory (PM), Corsi Block Tapping (CBT), the sound-rule task (SSG), DCCS, and Linking Balloons (LB). Forest stories connect working memory, attention and inhibitory control, and cognitive flexibility, while each response remains available for later analysis.",
+    "目前六項任務為 SRT、圖片記憶（PM）、方塊序列（CBT）、聲音規則（SSG）、DCCS 與連線任務（LB）。森林故事串接工作記憶、注意與抑制控制、認知彈性，並保留每次作答供後續分析。"
+  ],
+  [
+    "Role-specific workflows",
+    "依角色安排的使用流程"
+  ],
+  [
+    "Reader",
+    "使用者"
+  ],
+  [
+    "Workflow and feedback",
+    "流程與回饋"
+  ],
+  [
+    "Children",
+    "兒童"
+  ],
+  [
+    "Choose a forest character, learn the rules, complete assessment or training, and receive stars, encouragement, stickers, and achievements.",
+    "選擇森林角色、學習規則、完成測驗或訓練，獲得星星、鼓勵、貼紙與成就。"
+  ],
+  [
+    "Parents",
+    "家長"
+  ],
+  [
+    "Create a child profile, choose training games and duration, and review accuracy, reaction time, errors, support needs, and history on the parent result page.",
+    "建立兒童角色、選擇訓練項目與時間，透過家長結果頁查看正確率、反應時間、錯誤、協助需求與歷史紀錄。"
+  ],
+  [
+    "Professionals",
+    "專業人員"
+  ],
+  [
+    "After role approval and case authorization, inspect trends and individual trials, compare records, add notes and reminders, export Excel reports, and consult the RAG assistant.",
+    "通過角色審核與個案授權後，查看趨勢與單題、比較紀錄、建立備註與提醒、匯出 Excel 報告，並使用 RAG 助手。"
+  ],
+  [
+    "Researchers",
+    "研究者"
+  ],
+  [
+    "Use pseudonymous records for quality checks, features, statistics, prediction, model explanation, recommendation comparisons, and longitudinal analysis.",
+    "以去識別化紀錄進行品質檢查、特徵工程、統計、預測、模型解釋、推薦策略比較與縱向分析。"
+  ],
+  [
+    "The parent assistant currently uses controlled rules based on results, errors, and fatigue signals, with speech playback. The professional assistant uses case context and literature retrieval; a parent-facing RAG knowledge base remains future work.",
+    "家長助手目前依結果、錯誤與疲勞訊號使用受控解釋規則，並支援語音朗讀；專業端助手結合個案脈絡與文獻檢索，家長版 RAG 知識庫仍是未來方向。"
+  ],
+  [
+    "Four User Perspectives",
+    "四種使用者視角"
+  ],
+  [
+    "One behavioral record supports different questions: children need an understandable next step, parents need usable feedback, professionals need traceable evidence, and researchers need comparable data.",
+    "同一份行為紀錄回應不同需求：兒童需要容易理解的下一步，家長需要可運用的回饋，專業人員需要可追溯的依據，研究者需要可比較的資料。"
+  ],
+  [
+    "Six Forest Games",
+    "六項森林認知遊戲"
+  ],
+  [
+    "The tasks retain their own rules, response units, and stopping conditions. A high score in one game cannot be treated as the same ability measure in another.",
+    "各任務保留自己的規則、作答單位與停止條件，不能把不同遊戲的高分直接當成相同能力指標。"
+  ],
+  [
+    "Attention & inhibition",
+    "注意與抑制控制"
+  ],
+  [
+    "The Squirrel and the Acorns",
+    "松鼠弟弟採橡實"
+  ],
+  [
+    "Tap ordinary and golden acorns, and withhold a response to bad acorns. Background taps and repeated clicks are recorded separately.",
+    "點擊普通與金色橡實，看到壞橡實時忍住不點；背景誤點與重複點擊分開紀錄。"
+  ],
+  [
+    "Hits, misses, false alarms, reaction time, hints, and changes between the first and second half.",
+    "命中、漏答、誤點、反應時間、提示與前後半段變化。"
+  ],
+  [
+    "Ends after about five minutes or at 180 trials; targets are shown for about 1.2 seconds.",
+    "主要以五分鐘或最多 180 題結束，目標顯示約 1.2 秒。"
+  ],
+  [
+    "Nine fine-grained levels vary target visibility, pace, size, and the probability of no-go stimuli.",
+    "九個細難度調整可見時間、節奏、目標尺寸與不應點擊刺激比例。"
+  ],
+  [
+    "Working memory",
+    "工作記憶"
+  ],
+  [
+    "The Goddess and the Rabbit",
+    "湖中女神與兔子妹妹"
+  ],
+  [
+    "Remember a set of pictures, then select all of the targets among distractors. Wrong selections, cancellations, omissions, and timeouts remain visible in the record.",
+    "記住一組圖片，再從干擾選項中選回所有目標；誤選、取消、漏選與逾時分別保留。"
+  ],
+  [
+    "Memory span, selected pictures and order, errors, completion, and response stability.",
+    "記憶跨度、選取圖片與順序、錯誤、完成度與反應穩定性。"
+  ],
+  [
+    "Fourteen trials across spans of one to seven pictures; two failures at the same span trigger an early stop.",
+    "一至七張圖片的七個跨度，共 14 題；同跨度兩題未通過時提前停止。"
+  ],
+  [
+    "Six fine-grained levels vary memory load, viewing and response time, and visual motion.",
+    "六個細難度調整記憶負荷、顯示與作答時間，以及視覺動態效果。"
+  ],
+  [
+    "The Deer and the Stone Bridge",
+    "鹿先生的石頭小橋"
+  ],
+  [
+    "Watch stones light up and reproduce the sequence. More advanced training asks for the reverse order; independent success is distinguished from success after replay or rescue.",
+    "看石頭依序發亮並重現順序，較進階訓練需倒序作答；獨立答對與重播或救援後答對分開紀錄。"
+  ],
+  [
+    "Spatial sequence, first error position, timing, replay, hints, independent span, and fatigue signals.",
+    "空間序列、第一錯誤位置、時間、重播、提示、獨立跨度與疲勞訊號。"
+  ],
+  [
+    "Up to ten trials with sequence lengths from two to six; paired failures or consecutive timeouts can end the task early.",
+    "最多十題，序列長度二至六；同跨度兩題失敗或連續逾時可提前停止。"
+  ],
+  [
+    "Eighteen micro-levels vary board size, sequence length, playback speed, order, and available support.",
+    "十八個微難度調整棋盤、序列長度、播放速度、順逆序與支持方式。"
+  ],
+  [
+    "The Cat and Dog Choir",
+    "貓狗合唱團"
+  ],
+  [
+    "Wait for the sound, then choose the opposite animal: a cat sound means selecting the dog, and vice versa. Left and right positions change.",
+    "等聲音出現後選相反動物：聽到貓叫選狗，聽到狗叫選貓；左右位置會變換。"
+  ],
+  [
+    "Opposite-rule accuracy, premature responses, same-animal errors, side bias, timing, and audio status.",
+    "相反規則正確率、搶答、同動物錯誤、左右偏好、反應時間與音訊狀態。"
+  ],
+  [
+    "Twenty trials balance sound type and answer position, with no automatic difficulty changes during assessment.",
+    "二十題平衡聲音類型與答案位置，測驗途中不自動升降級。"
+  ],
+  [
+    "Easy, normal, and hard use eight, twelve, and sixteen trials, with different time limits, hints, and replay support.",
+    "簡單、普通、困難分別八、十二、十六題，搭配不同作答時限、提示與重播支持。"
+  ],
+  [
+    "Cognitive flexibility",
+    "認知彈性"
+  ],
+  [
+    "The Peacock Clothing Shop",
+    "孔雀小姐的服飾店"
+  ],
+  [
+    "Sort clothing first by color, then by type, then by the color of clothing inside a bag. The current rule and basket cues determine each answer.",
+    "先按顏色、再按種類，最後依袋中衣服顏色分類；每題依當前規則與籃子線索作答。"
+  ],
+  [
+    "Rule switching, old-rule responses, interference, stage-specific accuracy, and reaction time.",
+    "規則切換、沿用舊規則、干擾、各階段正確率與反應時間。"
+  ],
+  [
+    "With sufficient assets, two practice trials precede twenty scored trials across three stages. Practice is excluded from the summary.",
+    "素材足夠時先練習兩題，再完成三階段共二十題正式題；練習不納入摘要。"
+  ],
+  [
+    "Ten configurations cover rule learning, switching, maintenance, and interference. Some configured hint policies still need implementation checks.",
+    "十個配置涵蓋規則學習、切換、維持與干擾；部分設定中的提示策略仍需核對是否實際套用。"
+  ],
+  [
+    "Help Grandma Sheep Get Home",
+    "綿羊奶奶迷路了"
+  ],
+  [
+    "Connect numbered signs in order, then combine ascending numbers with alternating red and blue signs while ignoring distractors.",
+    "依序連接數字路標，再加入紅藍交替規則，排除錯誤顏色與數字干擾。"
+  ],
+  [
+    "Selection path, number and color errors, step reaction time, switching accuracy, hints, and total completion time.",
+    "選取路徑、數字與顏色錯誤、步驟反應時間、切換正確率、提示與總完成時間。"
+  ],
+  [
+    "Two stages: ascending numbers from one to ten, followed by the combined number-and-color rule.",
+    "兩階段：先依序一至十，再完成數字與顏色的複合規則。"
+  ],
+  [
+    "Task-specific settings adjust sequence, rules, preview, hint delay, and shuffled positions.",
+    "專屬設定調整序列、規則、預覽、提示延遲與位置洗牌。"
+  ],
+  [
+    "Map position, task difficulty, and trial number describe different things. Training level counts are task-specific, and their labels are not validated age norms or clinical categories.",
+    "地圖關卡、任務難度與題次是不同概念，各遊戲的難度數量與尺度也不同；這些標籤不是已驗證的年齡常模或臨床分級。"
+  ],
+  [
+    "Technology and responsibility",
+    "技術與系統分工"
+  ],
+  [
+    "Layer",
+    "層次"
+  ],
+  [
+    "Technology and use",
+    "技術與用途"
+  ],
+  [
+    "Frontend",
+    "前端"
+  ],
+  [
+    "React 18, JavaScript / JSX, React Router, and Recharts for games, navigation, dashboards, and trends.",
+    "React 18、JavaScript／JSX、React Router 與 Recharts，用於遊戲、導覽、儀表板與趨勢圖。"
+  ],
+  [
+    "Data & identity",
+    "資料與身分"
+  ],
+  [
+    "Supabase / PostgreSQL, Auth, row-level security (RLS), and SQL RPC for authenticated, case-related data access.",
+    "Supabase／PostgreSQL、Auth、資料列層級安全（RLS）與 SQL RPC，控制登入與個案資料存取。"
+  ],
+  [
+    "Professional API",
+    "專業端 API"
+  ],
+  [
+    "Node.js / Express validates identity, case access, request size, allowed origins, and request rate.",
+    "Node.js／Express 驗證身分與個案權限，並控制請求大小、來源與頻率。"
+  ],
+  [
+    "Literature retrieval",
+    "文獻檢索"
+  ],
+  [
+    "pdf-parse, Transformers.js, multilingual E5 embeddings, pgvector, HNSW, and cosine similarity.",
+    "pdf-parse、Transformers.js、多語 E5 向量、pgvector、HNSW 與餘弦相似度。"
+  ],
+  [
+    "Generated explanations",
+    "生成式說明"
+  ],
+  [
+    "OpenAI Responses API combines authorized case context, verified calculations, and retrieved sources.",
+    "OpenAI Responses API 結合已授權個案、已計算指標與檢索來源產生說明。"
+  ],
+  [
+    "Reports & verification",
+    "報表與驗證"
+  ],
+  [
+    "ExcelJS / docx support document outputs; Jest, React Testing Library, and Node tests cover computation, interface, and API behavior.",
+    "ExcelJS／docx 支援文件輸出，Jest、React Testing Library 與 Node tests 檢查計算、介面與 API 行為。"
+  ],
+  [
+    "Deployment",
+    "部署"
+  ],
+  [
+    "GitHub Actions builds the static frontend for GitHub Pages. Express requires a separate server environment.",
+    "GitHub Actions 建置靜態前端並發布至 GitHub Pages；Express 需另有伺服器執行環境。"
+  ],
+  [
+    "React handles the games and role-specific interfaces, Supabase stores behavioral records and permissions, and a separate Express service supports professional AI and literature retrieval.",
+    "React 建立遊戲與角色介面，Supabase 保存行為資料與權限，另由 Express 服務支援專業端 AI 與文獻檢索。"
+  ],
+  [
+    "These two SVGs are the supplied project architecture diagrams. The frontend diagram also lists implemented but currently hidden room and furniture routes. The diagrams describe structure and navigation, rather than current interface screenshots or verified deployment status.",
+    "下列兩張 SVG 沿用專案提供的架構圖；前端圖也列出已有實作但目前隱藏的房間與家具路由。圖表呈現結構與導覽，不是目前介面截圖或正式部署驗證。"
+  ],
+  [
+    "Frontend Navigation Flow",
+    "前端使用流程圖"
+  ],
+  [
+    "Entry and identity, child selection, assessment and training, six games, results and rewards, and professional workspaces.",
+    "入口與身分分流、兒童選擇、測驗與訓練、六項遊戲、結果獎勵及專業工作區。"
+  ],
+  [
+    "SVG navigation diagram connecting family entry, child profiles, two activity modes, six tasks, feedback, and clinical and research dashboards.",
+    "SVG 導覽圖：家庭入口、兒童角色、兩種活動模式、六項任務、結果回饋及臨床與研究儀表板。"
+  ],
+  [
+    "Backend System Architecture",
+    "後端系統架構圖"
+  ],
+  [
+    "React clients, Supabase identity and data, the Express assistant API, literature retrieval, research records, and deployment boundaries.",
+    "React 用戶端、Supabase 身分與資料、Express 助手 API、文獻檢索、研究紀錄與部署邊界。"
+  ],
+  [
+    "SVG backend architecture showing React, Supabase Auth and RLS, PostgreSQL, the Express API, RAG retrieval, OpenAI, and research data lineage.",
+    "SVG 後端架構：React、Supabase Auth 與 RLS、PostgreSQL、Express API、RAG 檢索、OpenAI 與研究資料譜系。"
+  ],
+  [
+    "System Flow & Architecture",
+    "系統流程與架構"
+  ],
+  [
+    "Child interaction produces trial records; task-specific scoring and analysis then support feedback, difficulty suggestions, UCB1 recommendations, professional review, and research.",
+    "兒童操作產生逐題紀錄，再由任務專屬計分與分析串接結果回饋、難度建議、UCB1 推薦、專業檢視與研究。"
+  ],
+  [
+    "From responses to analysis",
+    "從作答紀錄到分析特徵"
+  ],
+  [
+    "Contents",
+    "內容"
+  ],
+  [
+    "Task context",
+    "任務脈絡"
+  ],
+  [
+    "Pseudonymous participant ID, shared session, task, mode, difficulty, rule, completion state, and version.",
+    "去識別化參與者 ID、共享場次、任務、模式、難度、規則、完成狀態與版本。"
+  ],
+  [
+    "Raw trial",
+    "原始單題"
+  ],
+  [
+    "Stimulus, expected and actual answer, timestamps, reaction time, errors, timeout, hints, replay, and selection path.",
+    "刺激、預期與實際答案、時間戳、反應時間、錯誤、逾時、提示、重播與選取路徑。"
+  ],
+  [
+    "Derived features",
+    "衍生特徵"
+  ],
+  [
+    "Accuracy, RT mean / median / SD / CV, consecutive errors, support use, early-to-late change, memory span, and switching performance.",
+    "正確率、RT 平均／中位數／標準差／變異係數、連錯、支持使用率、前後段變化、記憶跨度與切換表現。"
+  ],
+  [
+    "Decision trace",
+    "決策軌跡"
+  ],
+  [
+    "Allowed actions, context, selected game and difficulty, policy and reward versions, and the actual outcome.",
+    "允許動作、當時脈絡、選擇的遊戲與難度、政策與獎勵版本，以及實際結果。"
+  ],
+  [
+    "Research features use valid trials and retain missing RT as null. Original task scores may use different denominators, so the cleaned analysis must not overwrite them. Reaction time is stored in milliseconds, and incomplete or unsupported observations remain visible.",
+    "研究特徵使用有效單題，缺少 RT 時保留 null；原始遊戲分數可能採不同分母，清理後分析不可覆蓋原分數。反應時間主要以毫秒保存，資料不足與缺少支持欄位也需呈現。"
+  ],
+  [
+    "Data & Behavioral Features",
+    "資料與行為特徵"
+  ],
+  [
+    "The hierarchy is Participant → Session → Task Session → Raw Trial → Derived Trial. Original responses stay intact; quality flags, exclusions, and versioned features are stored separately.",
+    "資料階層為參與者 → 場次 → 任務場次 → 原始單題 → 衍生單題；原始作答完整保留，品質旗標、排除原因與版本化特徵另行保存。"
+  ],
+  [
+    "Parents can choose a training duration of 10–60 minutes and one or more allowed games. A plan contains at most twelve stages; the system uses recent performance when no game is selected and places the online UCB1 recommendation in the first stage.",
+    "家長可選擇 10–60 分鐘與一種或多種允許遊戲，每次計畫最多十二關；未手選遊戲時參考近期表現安排，線上 UCB1 推薦放在第一關。"
+  ],
+  [
+    "Rule-based analyzers check data sufficiency before using accuracy, errors, support, response stability, and fatigue signals. The output can maintain or change a level, shorten a sequence, extend response time, reduce interference, or add support.",
+    "規則式分析器先確認資料充分度，再使用正確率、錯誤、支持、反應穩定度與疲勞訊號；可維持或調整階級、縮短序列、延長作答、減少干擾或增加協助。"
+  ],
+  [
+    "Examples of task-specific adjustment",
+    "任務專屬調整範例"
+  ],
+  [
+    "Task",
+    "任務"
+  ],
+  [
+    "Decision signals",
+    "判斷依據"
+  ],
+  [
+    "SRT",
+    "SRT"
+  ],
+  [
+    "With enough data, upgrading requires accuracy ≥85%, unprompted accuracy ≥80%, low miss and false-alarm rates, limited support, and stable responses.",
+    "資料足夠時，升級需正確率至少 85%、未提示正確率至少 80%，並兼顧低漏答與誤點、有限支持及反應穩定。"
+  ],
+  [
+    "CBT",
+    "CBT"
+  ],
+  [
+    "Early errors, spatial or order errors, timeout, and replay needs can take priority over score-based upgrading; some branches adjust two micro-levels.",
+    "前段錯誤、位置或順序錯誤、逾時與重看需求可優先於分數升級；部分分支會調整兩個微階。"
+  ],
+  [
+    "SSG",
+    "SSG"
+  ],
+  [
+    "The default upgrade rule requires two qualifying rounds, while falling performance can trigger support or a lower level sooner.",
+    "預設升級需連續兩輪達標，表現下降時可較快增加支持或降低難度。"
+  ],
+  [
+    "PM / DCCS / LB",
+    "PM／DCCS／LB"
+  ],
+  [
+    "Memory load, switching, interference, sequence errors, and independence are interpreted according to each task's configuration.",
+    "依各任務配置解讀記憶負荷、規則切換、干擾、序列錯誤與獨立完成度。"
+  ],
+  [
+    "Assessment & Adaptive Training",
+    "正式測驗與適性訓練"
+  ],
+  [
+    "Assessment observes behavior under each task's established rules. Training adjusts challenge and support from task-specific indicators, with separate decisions for scoring, next difficulty, and the next recommended game.",
+    "正式測驗依各任務既定規則觀察表現；訓練依專屬指標調整挑戰與支持。計分、下次難度與推薦哪個遊戲是不同決策。"
+  ],
+  [
+    "Verify the child-account relationship and obtain the pseudonymous research ID.",
+    "驗證兒童與帳號關係，取得去識別化研究 ID。"
+  ],
+  [
+    "Rebuild UCB1 state from completed decisions, then restrict candidates to allowed games and difficulty boundaries.",
+    "以已完成決策重建 UCB1 狀態，再限制允許遊戲與難度邊界。"
+  ],
+  [
+    "Save the candidates, selected action, and policy version before presenting the first recommended stage.",
+    "先保存候選、選擇與政策版本，再呈現第一關推薦。"
+  ],
+  [
+    "After a saved game result, append its outcome and reward once so the next recommendation can use the feedback.",
+    "遊戲結果保存後，追加一次實際 outcome 與 reward，供下次推薦使用。"
+  ],
+  [
+    "The balanced reward is bounded to 0–1. It is an algorithmic behavior-feedback value, separate from stars or coins, and does not establish treatment benefit. Known-difficulty candidates allow the same level or ±1; game analyzers can use a different internal scale.",
+    "平衡 reward 限制在 0–1，是演算法的行為回饋值，與星星或金幣不同，也不等於療效。已知難度時候選限制同級或上下一級；遊戲分析器可能採不同內部尺度。"
+  ],
+  [
+    "Pending recommendations are reused within the browser session. If storage or recommendation tables are unavailable, the original training plan remains available with a fallback message.",
+    "同一瀏覽器 session 會重用未完成推薦；儲存或推薦資料表不可用時，保留原訓練計畫並顯示備援訊息。"
+  ],
+  [
+    "Current limits include game-level arms rather than independently learned game–difficulty pairs, selection of the first allowed action for that game, a fixed 1,000 ms target RT, placeholder context values, and null-to-zero conversion that can inflate efficiency or stability.",
+    "目前限制包括只以遊戲為 arm、未分別學習遊戲與難度組合、選中後取該遊戲第一個允許動作、目標 RT 固定 1,000 毫秒、部分脈絡仍為占位值，以及 null 轉零可能高估效率或穩定度。"
+  ],
+  [
+    "Random, rule-based, ε-Greedy, Thompson Sampling, and a contextual-bandit prototype support research comparisons. Synthetic simulations check mechanisms; they do not demonstrate learning gains in children.",
+    "Random、規則式、ε-Greedy、Thompson Sampling 與 Contextual Bandit 原型供研究比較；合成模擬可檢查機制，不代表真實兒童學習成效。"
+  ],
+  [
+    "UCB1 Training Recommendations",
+    "UCB1 訓練推薦"
+  ],
+  [
+    "UCB1 treats each game as an arm. It balances the average feedback from completed recommendations with an exploration bonus for games tried less often.",
+    "UCB1 把每款遊戲視為一個可選項，平衡已完成推薦的平均回饋與較少嘗試遊戲的探索加分。"
+  ],
+  [
+    "Import PDF text and metadata, clean it, and split passages into approximately 1,800 characters with 250-character overlap.",
+    "匯入 PDF 文字與 metadata，清理後切成約 1,800 字元段落，重疊 250 字元。"
+  ],
+  [
+    "Create normalized, 384-dimensional multilingual E5 vectors and store passages and metadata in Supabase.",
+    "建立正規化的 384 維多語 E5 向量，將段落與 metadata 存入 Supabase。"
+  ],
+  [
+    "Verify professional identity and case access, then embed the query and retrieve with pgvector / HNSW and cosine similarity.",
+    "驗證專業身分與個案授權，將問題向量化，再以 pgvector／HNSW 與餘弦相似度檢索。"
+  ],
+  [
+    "Filter and deduplicate up to twelve candidates at a 0.45 similarity threshold, retaining at most six passages and 18,000 characters in total.",
+    "以 0.45 相似度門檻篩選並去重最多十二筆候選，保留最多六段與總計 18,000 字元內容。"
+  ],
+  [
+    "Combine authorized case context, verified calculations, and numbered sources for the Responses API, then display the explanation, citations, and retrieval status.",
+    "將已授權個案、已計算指標與來源編號交給 Responses API，顯示說明、引用與檢索狀態。"
+  ],
+  [
+    "For example, a question about more errors after a DCCS rule switch uses the actual before-and-after record together with literature on switching and interference. Missing sources must be stated, and the professional dashboard can fall back to a local summary when the backend fails.",
+    "例如詢問 DCCS 切換後為何錯誤增加，會結合實際切換前後紀錄與規則切換、干擾相關文獻；缺少來源時需明說，後端失敗時專業儀表板可改用本機摘要。"
+  ],
+  [
+    "Retrieved literature and case text are treated as data rather than instructions. Citations improve traceability, but neither retrieval nor a generated explanation establishes a diagnosis or guarantees correctness.",
+    "檢索文獻與個案文字視為資料，不當成操作指令；引用提升可追溯性，但檢索或生成說明都不能直接建立診斷或保證正確。"
+  ],
+  [
+    "Literature-grounded RAG Assistant",
+    "文獻輔助 RAG 助手"
+  ],
+  [
+    "The professional assistant retrieves literature before explaining authorized case data. It combines verified calculations and source passages; task difficulty remains the responsibility of rule-based analyzers.",
+    "專業端助手先檢索文獻，再說明已授權個案資料，結合已計算指標與來源段落；任務難度仍由規則式分析器負責。"
+  ],
+  [
+    "Twenty percent of participants form an untouched test set. GroupKFold or StratifiedGroupKFold is applied to the remainder; imputation, scaling, and feature filtering are fitted within each training fold, keeping one child's records from crossing training and test sets.",
+    "保留 20% 參與者作為未接觸測試集，其餘進行 GroupKFold 或 StratifiedGroupKFold；補值、標準化與特徵篩選只在各訓練折內擬合，避免同一兒童資料跨入訓練與測試。"
+  ],
+  [
+    "Baselines include logistic regression, weighted logistic regression, linear regression, and decision trees. Random forest is enabled only with at least thirty participants. Classification uses measures such as balanced accuracy, F1, ROC-AUC, and PR-AUC; regression uses MAE, RMSE, and R².",
+    "基準模型包含邏輯迴歸、加權邏輯迴歸、線性迴歸與決策樹；Random Forest 至少三十位參與者才啟用。分類採 balanced accuracy、F1、ROC-AUC、PR-AUC 等指標，迴歸採 MAE、RMSE 與 R²。"
+  ],
+  [
+    "Explanation tools use coefficients, permutation importance, individual additive contributions, feature perturbations, and ranking stability across participant folds. Linear contributions use a declared baseline; tree perturbations are not presented as TreeSHAP, and predictive explanations do not establish causes.",
+    "解釋工具包含係數、Permutation Importance、個別加性貢獻、特徵擾動與跨參與者驗證折的排名穩定度。線性貢獻需聲明基準，樹模型擾動不標成 TreeSHAP，預測解釋不等於因果。"
+  ],
+  [
+    "Experiments retain dataset and feature versions, model settings, seed, participant splits, metrics, and timestamps. Synthetic demonstrations are labeled DEMO and kept separate from real observational results.",
+    "實驗保留資料與特徵版本、模型設定、seed、參與者切分、指標與時間戳；合成示範標為 DEMO，與真實觀察結果分開。"
+  ],
+  [
+    "Research Models & Validation",
+    "研究模型與驗證"
+  ],
+  [
+    "Research pipelines examine later-in-session behavior, the next formal assessment, and cross-game prediction. They preserve each target's timing and remove features that would reveal the answer.",
+    "研究管線探索同次後段表現、下一次正式測驗與跨遊戲預測，保留預測目標的時間順序，並移除可能洩漏答案的特徵。"
+  ],
+  [
+    "Longitudinal summaries compare the first and latest valid observations, calculate absolute and relative change, use three-session rolling summaries, and estimate an OLS trend after at least three valid observations. A zero baseline leaves relative change undefined.",
+    "縱向摘要比較首次與最新有效觀察，計算絕對與相對變化、三次場次滾動摘要，至少三次有效觀察後估計 OLS 趨勢；基準為零時不計相對變化。"
+  ],
+  [
+    "Comparisons use the child's own baseline and must consider mode, difficulty, device, and practice effects. Cross-game correlations require the same participant and shared session; different dates must not be paired arbitrarily.",
+    "比較以兒童自身基準為主，需考量模式、難度、裝置與練習效應；跨遊戲相關要求同一參與者與共享場次，不任意配對不同日期。"
+  ],
+  [
+    "A mixed-effects model has a readiness and planning interface only: it has not been fitted. Reaching the proposed sample threshold does not automatically produce coefficients or p-values.",
+    "混合效應模型目前只有準備度與規劃介面，尚未擬合；達到規劃樣本門檻不會自動產生係數或 p 值。"
+  ],
+  [
+    "Statistics & Longitudinal Follow-up",
+    "統計與長期追蹤"
+  ],
+  [
+    "The research workspace provides descriptive distributions, correlations, group comparisons, effect sizes, bootstrap confidence intervals, and Benjamini–Hochberg FDR correction, subject to sample and design requirements.",
+    "研究工作區提供描述分布、相關、組間比較、效果量、Bootstrap 信賴區間與 Benjamini–Hochberg FDR 校正，依樣本數與研究設計條件使用。"
+  ],
+  [
+    "The honey mission checks both valid training days and accumulated stars, with a daily credit cap of eighteen stars. Five milestone thresholds are defined, but claiming honey and automatically advancing through rounds remain unfinished.",
+    "蜂蜜任務同時檢查有效訓練日與累積星星，每日最多計入十八顆星；已定義五組里程碑門檻，但領取蜂蜜與自動進入下一輪仍未完成。"
+  ],
+  [
+    "A hat-and-sticker invitation appears after a randomized interval of five to eight valid training stages. Child-specific progress and one-time reward records prevent duplicate credits; participation rewards are not ability norms or evidence of effectiveness.",
+    "每完成隨機五至八個有效訓練關卡可觸發帽子貼紙邀請；兒童專屬進度與一次性獎勵紀錄避免重複計入。參與獎勵不是能力常模或成效證據。"
+  ],
+  [
+    "Rewards & Continued Participation",
+    "獎勵與持續參與"
+  ],
+  [
+    "Stars, stickers, achievements, and the forest map provide immediate encouragement. Longer-term rewards combine participation across days with completed training, rather than relying only on repeated play in one sitting.",
+    "星星、貼紙、成就與森林地圖提供即時鼓勵，長期獎勵則結合跨日參與與有效訓練，避免只靠單日重複刷關。"
+  ],
+  [
+    "The README was checked on 2026-09-09 and the RACE technical notes were compiled on 2026-10-01. This portfolio update consolidates those supplied documents; it does not verify the production service or re-run the game project's full test suite.",
+    "README 核對日期為 2026-09-09，RACE 技術整理日期為 2026-10-01；本次作品集更新依這兩份資料整合，未驗證正式服務或重跑遊戲專案整套測試。"
+  ],
+  [
+    "Pseudonymous IDs still connect repeated observations. Research sharing needs consent, authorized fields, and review of timestamps and free text; a defined retention, deletion, and backup policy remains necessary for deployment.",
+    "去識別化 ID 仍可連結多次觀察，研究分享需確認同意、授權欄位，並檢查時間戳與自由文字；正式部署仍需明訂保留、刪除與備份政策。"
+  ],
+  [
+    "What has been implemented, and what remains unverified",
+    "已有實作與尚待確認的範圍"
+  ],
+  [
+    "Capability",
+    "功能"
+  ],
+  [
+    "Current status",
+    "目前定位"
+  ],
+  [
+    "Games & analysis",
+    "遊戲與分析"
+  ],
+  [
+    "Six games, scoring, and task-specific adjustment have implementations; suggested settings and their application must be checked separately.",
+    "六項遊戲、計分與專屬調整已有實作；建議設定與實際套用仍需分別核對。"
+  ],
+  [
+    "Online UCB1",
+    "線上 UCB1"
+  ],
+  [
+    "Connected to the training entry and result feedback; depends on authentication and recommendation tables.",
+    "已串接訓練入口與結果回饋，依賴登入與推薦資料表。"
+  ],
+  [
+    "Professional RAG",
+    "專業端 RAG"
+  ],
+  [
+    "Import, retrieval, and generation paths exist; availability depends on the knowledge base, API, and permissions.",
+    "已有建庫、檢索與生成路徑，可用性依賴知識庫、API 與權限。"
+  ],
+  [
+    "ML / XAI / statistics",
+    "ML／XAI／統計"
+  ],
+  [
+    "Research tools and prototypes, requiring sufficient real data and appropriate validation.",
+    "研究工具與原型，仍需足夠真實資料與適當驗證。"
+  ],
+  [
+    "Mixed-effects model",
+    "混合效應模型"
+  ],
+  [
+    "Not fitted; readiness planning only.",
+    "尚未擬合，目前僅有準備度規劃。"
+  ],
+  [
+    "Norms & effectiveness",
+    "常模與成效"
+  ],
+  [
+    "Validated age norms, diagnostic use, and training-effectiveness evidence have not been established.",
+    "尚未建立經驗證的年齡常模、診斷用途與訓練成效證據。"
+  ],
+  [
+    "Next steps include calibrating rewards across tasks and difficulty levels, resolving missing-value handling, testing device compatibility, reviewing literature coverage, and evaluating recommendations with real longitudinal data.",
+    "下一步包括校準跨任務與難度 reward、修正缺值處理、測試裝置相容性、審核文獻覆蓋，並以真實縱向資料評估推薦。"
+  ],
+  [
+    "What is recorded",
+    "紀錄內容"
+  ],
+  [
+    "Assessment design",
+    "正式測驗設計"
+  ],
+  [
+    "Training design",
+    "訓練設計"
+  ],
+  [
+    "Scroll across the diagram, or open the full SVG to zoom in.",
+    "可左右捲動圖表，或開啟完整 SVG 放大查看。"
+  ],
+  [
+    "Open full SVG",
+    "開啟完整 SVG"
+  ],
+  [
+    "Download SVG ↓",
+    "下載 SVG ↓"
+  ]
+]

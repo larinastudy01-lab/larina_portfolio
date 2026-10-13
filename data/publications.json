@@ -1,0 +1,34 @@
+[
+  {
+    "year": "2026",
+    "title": "Not All Collocation Errors Matter Equally: A Corpus-Based Study of Error Severity and Writing Quality in EFL Learners",
+    "venue": "20th International Congress on Advanced Applied Informatics",
+    "conference": "IIAI AAI 2026",
+    "role": "First Author",
+    "presentation": "English Oral Presentation",
+    "project_id": "collocation-errors",
+    "paper_url": "/static/files/collocation-errors-paper.pdf",
+    "slides_url": null,
+    "location": "Fukui, Japan · July 12–17, 2026",
+    "note": "Author-provided conference paper PDF. The file still contains publication-template placeholders; final volume, article ID, and DOI are not listed here.",
+    "paper_file": "files/collocation-errors-paper.pdf",
+    "gallery": [
+      {
+        "src": "images/research/fukui-presentation.jpg",
+        "width": 1477,
+        "height": 1108,
+        "alt": "Larina presenting collocation research at the conference in Fukui",
+        "caption": "English oral presentation · Explaining why frequency alone is not enough."
+      },
+      {
+        "src": "images/research/fukui-conference.jpg",
+        "width": 1045,
+        "height": 1567,
+        "alt": "Larina at the IIAI conference venue in Fukui, Japan",
+        "caption": "At the conference venue · Fukui, Japan."
+      }
+    ],
+    "authors": "Yen-Yu Chen, Han-Zhong Guo, Wen-Chun Lin, Chih-Kai Chang",
+    "presentation_story": "I presented this study in English in Fukui, Japan. The session brought the research question, severity-coding approach, and findings into a concise explanation of why writing feedback should look beyond total error counts."
+  }
+]

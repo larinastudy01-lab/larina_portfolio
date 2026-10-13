@@ -1,0 +1,85 @@
+/* Only marked content components get depth. The entrance and hero are untouched. */
+.vinyl-shadow { display: none; pointer-events: none; }
+[data-depth], [data-depth-reveal] { overflow-anchor: none; }
+@media (prefers-reduced-motion: no-preference) and (hover: hover) and (pointer: fine) {
+  .depth-active {
+    --depth-rx: 0deg;
+    --depth-ry: 0deg;
+    --depth-lift: 0px;
+    --depth-light-x: 50%;
+    --depth-light-y: 35%;
+  }
+
+  .depth-active.research-card {
+    position: relative;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    transform: perspective(1000px) translateY(var(--depth-lift)) rotateX(var(--depth-rx)) rotateY(var(--depth-ry));
+    transition: transform 650ms var(--spring), box-shadow 650ms var(--spring), background 250ms;
+  }
+  .depth-active.research-card.is-depth-hover,
+  .depth-active.research-card:focus-visible {
+    --depth-lift: -8px;
+    box-shadow: 5px 10px 0 var(--brand-shadow), 0 22px 30px rgb(20 23 26 / 10%);
+  }
+  .depth-active.research-card > * { transform: translateZ(10px); }
+  .depth-active.research-card .research-symbol {
+    transform: translateZ(30px);
+    box-shadow: 0 8px 14px rgb(20 23 26 / 12%);
+  }
+  .depth-active.research-card:is(:hover, :focus-visible) .research-symbol {
+    transform: translateZ(42px) rotate(-6deg) scale(1.08);
+  }
+  .depth-active.research-card .keywords { transform: translateZ(6px); }
+
+  .depth-active.vinyl-stage {
+    --depth-rx: 10deg;
+    --depth-ry: -12deg;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+  }
+  .depth-active.vinyl-stage .vinyl-record {
+    isolation: auto;
+    transform-style: preserve-3d;
+    transform: translate3d(0, var(--depth-lift), 16px) rotateX(var(--depth-rx)) rotateY(var(--depth-ry));
+    box-shadow: 0 1px 0 #090a0b, 0 2px 0 #383b40, 0 3px 0 #111315,
+      0 4px 0 #383b40, 0 5px 0 #090a0b, 0 18px 26px rgb(20 23 26 / 18%), inset 0 0 0 3px #33363a;
+    transition: transform 750ms var(--spring), rotate 850ms var(--spring), box-shadow 500ms;
+  }
+  .depth-active.vinyl-stage .vinyl-record::before { z-index: auto; transform: translateZ(.5px); }
+  .depth-active.vinyl-stage .vinyl-record::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(ellipse at var(--depth-light-x) var(--depth-light-y), rgb(255 255 255 / 24%), transparent 62%);
+    opacity: .25;
+    transform: translateZ(1px);
+    pointer-events: none;
+    transition: opacity 350ms;
+  }
+  .depth-active.vinyl-stage .vinyl-label { transform: translateZ(3px); }
+  .depth-active.vinyl-stage .vinyl-spindle { transform: translateZ(7px); }
+  .depth-active.vinyl-stage .vinyl-shadow {
+    display: block;
+    position: absolute;
+    left: 50%;
+    bottom: 18px;
+    width: min(65%, 240px);
+    height: 20px;
+    translate: -50% 0;
+    border-radius: 50%;
+    background: radial-gradient(ellipse, rgb(20 23 26 / 20%), transparent 70%);
+    transform: scaleX(.9);
+    transition: transform 600ms var(--spring), opacity 600ms;
+    pointer-events: none;
+  }
+  .depth-active.vinyl-stage.is-depth-hover,
+  .vinyl-card:focus-within .depth-active.vinyl-stage { --depth-lift: -12px; }
+  .depth-active.vinyl-stage.is-depth-hover .vinyl-record::after,
+  .vinyl-card:focus-within .depth-active.vinyl-stage .vinyl-record::after { opacity: .85; }
+  .depth-active.vinyl-stage.is-depth-hover .vinyl-shadow,
+  .vinyl-card:focus-within .depth-active.vinyl-stage .vinyl-shadow { transform: scaleX(1.1); opacity: .6; }
+  .depth-active.is-depth-hover,
+  .depth-active.is-depth-hover .vinyl-record { transition-duration: 180ms; }
+}

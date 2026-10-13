@@ -1,0 +1,76 @@
+[
+  {
+    "id": "human-ai",
+    "title": "Human-centered AI",
+    "short": "Intelligence that starts with people.",
+    "description": "從使用者需求出發，探索可理解、可調整的 AI 支援，讓人能參與判斷與決策。",
+    "keywords": [
+      "User Needs",
+      "Explainability",
+      "Adaptive Systems",
+      "Human-AI Interaction"
+    ],
+    "related": [
+      "executive-function",
+      "chatgpt-usage",
+      "sleep-posture"
+    ],
+    "symbol": "◎"
+  },
+  {
+    "id": "hci",
+    "title": "Human–Computer Interaction",
+    "short": "Understand the person behind the interaction.",
+    "description": "觀察人與系統互動時的困難，將需求轉換成可操作的介面，透過評估持續改進。",
+    "keywords": [
+      "User Research",
+      "Interaction Design",
+      "Usability",
+      "Empirical Evaluation"
+    ],
+    "related": [
+      "executive-function",
+      "life-investment",
+      "safe-seat",
+      "404-daily"
+    ],
+    "symbol": "↗"
+  },
+  {
+    "id": "learning",
+    "title": "Learning Analytics",
+    "short": "Look beyond the final score.",
+    "description": "從行為與長期資料理解學習歷程，探索錯誤、模式與回饋之間的關係。",
+    "keywords": [
+      "Behavioral Data",
+      "Longitudinal Data",
+      "Learning Process",
+      "Adaptive Feedback"
+    ],
+    "related": [
+      "collocation-errors",
+      "chatgpt-usage",
+      "fitplay",
+      "life-investment"
+    ],
+    "symbol": "▥"
+  },
+  {
+    "id": "health",
+    "title": "Digital Health",
+    "short": "Make small changes visible.",
+    "description": "關注復健、感測資料與長期追蹤，探索數位系統如何支持可理解的健康回饋。",
+    "keywords": [
+      "Rehabilitation",
+      "Long-term Tracking",
+      "Sensor Data",
+      "Patient Feedback"
+    ],
+    "related": [
+      "executive-function",
+      "sleep-posture",
+      "fitplay"
+    ],
+    "symbol": "⌁"
+  }
+]

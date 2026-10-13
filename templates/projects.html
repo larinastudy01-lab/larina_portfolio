@@ -1,0 +1,6 @@
+{% extends 'base.html' %}
+{% from '_components.html' import project_card, contact_cta %}
+{% block content %}
+<section class="page-hero container centered"><p class="eyebrow">PROJECTS / 研究與實作</p><h1>My <em>Work.</em></h1><p class="lead">Turning human questions into something we can explore, build, and evaluate.</p></section>
+<section class="container section projects-section"><div class="filter-bar" role="group" aria-label="依領域篩選作品">{% for category in ['All','Research','AI','HCI','Learning','Health','Data','System'] %}<button class="filter-btn" data-filter="{{ category }}" aria-pressed="{{ 'true' if loop.first else 'false' }}">{{ category }}</button>{% endfor %}</div><p class="filter-count muted" aria-live="polite">{{ projects|length }} projects</p><div class="project-grid">{% for p in projects %}{{ project_card(p, loop.index) }}{% endfor %}</div><p id="empty-projects" hidden>此分類尚無作品。</p></section>{{ contact_cta() }}
+{% endblock %}

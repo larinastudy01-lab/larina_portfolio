@@ -1,0 +1,49 @@
+{% macro case_section(section, heading_level=2, number=none) %}
+<section id="{{ section.id }}" class="{{ 'case-section reveal' if heading_level == 2 else 'case-subsection' }}">
+  {% if number is not none %}<p class="eyebrow">{{ '%02d'|format(number) }}</p>{% endif %}
+  <h{{ heading_level }}>{{ section.title }}</h{{ heading_level }}>
+  <p>{{ section.body }}</p>
+  {% for paragraph in section.paragraphs|default([]) %}<p>{{ paragraph }}</p>{% endfor %}
+  {% if section.get('items') %}<ul class="detail-list">{% for item in section['items'] %}<li>{{ item }}</li>{% endfor %}</ul>{% endif %}
+  {{ case_content(section, heading_level + 1) }}
+</section>
+{% endmacro %}
+
+{% macro case_content(section, heading_level=3) %}
+{% if section.table %}
+<div class="case-table-scroll" role="region" aria-label="{{ section.title }}" tabindex="0">
+  <table class="case-table">
+    <caption>{{ section.table.caption }}</caption>
+    <thead><tr>{% for heading in section.table.headers %}<th scope="col">{{ heading }}</th>{% endfor %}</tr></thead>
+    <tbody>{% for row in section.table.rows %}<tr>{% for cell in row %}{% if loop.first %}<th scope="row">{{ cell }}</th>{% else %}<td>{{ cell }}</td>{% endif %}{% endfor %}</tr>{% endfor %}</tbody>
+  </table>
+</div>
+{% endif %}
+{% if section.games %}
+<div class="case-games">
+  {% for game in section.games %}
+  <article class="case-game">
+    <div class="case-game-heading"><span class="case-game-code" data-no-translate>{{ game.code }}</span><span class="tag">{{ game.domain }}</span></div>
+    <h{{ heading_level }}>{{ game.name }}</h{{ heading_level }}>
+    <p>{{ game.instruction }}</p>
+    <dl><dt>What is recorded</dt><dd>{{ game.observations }}</dd><dt>Assessment design</dt><dd>{{ game.assessment }}</dd><dt>Training design</dt><dd>{{ game.training }}</dd></dl>
+  </article>
+  {% endfor %}
+</div>
+{% endif %}
+{% if section.steps %}<ol class="case-steps">{% for step in section.steps %}<li>{{ step }}</li>{% endfor %}</ol>{% endif %}
+{% if section.formula %}<pre class="case-formula" tabindex="0"><code>{{ section.formula }}</code></pre>{% endif %}
+{% for diagram in section.diagrams|default([]) %}
+<figure class="case-diagram">
+  <figcaption><h{{ heading_level }}>{{ diagram.title }}</h{{ heading_level }}><p>{{ diagram.caption }}</p></figcaption>
+  <div class="case-diagram-scroll" role="region" tabindex="0" aria-label="{{ diagram.title }}">
+    <img src="{{ url_for('static', filename=diagram.src) }}" data-svg-zh="{{ url_for('static', filename=diagram.src) }}" data-svg-en="{{ url_for('static', filename=diagram.src_en) }}" alt="{{ diagram.alt }}" width="{{ diagram.width }}" height="{{ diagram.height }}" loading="lazy" decoding="async">
+  </div>
+  <p class="case-diagram-hint">Scroll across the diagram, or open the full SVG to zoom in.</p>
+  <div class="case-diagram-actions">
+    <a class="text-link" href="{{ url_for('static', filename=diagram.src) }}" data-svg-zh="{{ url_for('static', filename=diagram.src) }}" data-svg-en="{{ url_for('static', filename=diagram.src_en) }}" target="_blank" rel="noopener noreferrer">Open full SVG ↗</a>
+    <a class="text-link" href="{{ url_for('static', filename=diagram.src) }}" data-svg-zh="{{ url_for('static', filename=diagram.src) }}" data-svg-en="{{ url_for('static', filename=diagram.src_en) }}" download>Download SVG ↓</a>
+  </div>
+</figure>
+{% endfor %}
+{% endmacro %}

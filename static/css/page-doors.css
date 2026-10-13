@@ -1,0 +1,77 @@
+.page-doors {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  overflow: hidden;
+  visibility: hidden;
+  pointer-events: none;
+  contain: paint;
+}
+.doors-covered .page-doors,
+.doors-moving .page-doors { visibility: visible; }
+.doors-leaving .page-doors { pointer-events: auto; }
+.page-door {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: calc(50% + 1px);
+  box-sizing: border-box;
+  background: var(--brand-cream);
+}
+.doors-moving .page-door { will-change: transform; }
+.page-door::before {
+  content: '';
+  position: absolute;
+  inset: clamp(20px, 4vw, 58px);
+  border: 2px solid var(--brand-line);
+  border-radius: 8px;
+}
+.page-door-left {
+  left: 0;
+  transform: translateX(-102%);
+  border-right: 1px solid var(--brand-line);
+  background: linear-gradient(135deg, color-mix(in srgb, var(--brand-pink) 12%, var(--brand-cream)), var(--brand-cream) 65%);
+  box-shadow: 5px 0 22px color-mix(in srgb, var(--brand-ink) 10%, transparent);
+}
+.page-door-right {
+  right: 0;
+  transform: translateX(102%);
+  border-left: 1px solid var(--brand-line);
+  background: linear-gradient(225deg, var(--brand-light), var(--brand-cream) 65%);
+  box-shadow: -5px 0 22px color-mix(in srgb, var(--brand-ink) 10%, transparent);
+}
+.doors-covered .page-door { transform: translateX(0); }
+.page-door-handle {
+  position: absolute;
+  top: 50%;
+  width: clamp(72px, 9vw, 124px);
+  height: clamp(72px, 9vw, 124px);
+  transform: translateY(-50%);
+  display: grid;
+  place-items: center;
+}
+.page-door-left .page-door-handle { right: clamp(14px, 2.4vw, 36px); }
+.page-door-right .page-door-handle { left: clamp(14px, 2.4vw, 36px); }
+.page-door-handle::before {
+  content: '';
+  position: absolute;
+  width: 66%;
+  height: 66%;
+  border: 1.5px solid #bc9570;
+  border-radius: 50%;
+  background: #ead8be;
+  box-shadow: 0 4px 10px #26384a18;
+}
+.page-door-handle img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 5px 4px #26384a25);
+  user-select: none;
+}
+.page-door-left img { rotate: -10deg; }
+.page-door-right img { rotate: 10deg; }
+@media (prefers-reduced-motion: reduce) {
+  .page-doors { display: none !important; }
+}

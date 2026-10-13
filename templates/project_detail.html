@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% from '_components.html' import flow, project_card, conference_gallery, paper_panel %}
+{% from '_case_content.html' import case_section %}
+{% block content %}
+<section class="page-hero container"><a class="text-link" href="{{ url_for('projects') }}">← All Projects</a><p class="eyebrow space-top"><span>{{ project.type }}</span> / <span>{{ project.year }}</span></p><h1 class="project-title">{{ project.title }}</h1>{% if project.full_title %}<p class="project-full-title">{{ project.full_title }}</p>{% endif %}<p class="lead">{{ project.summary }}</p><div class="tags">{% for tag in project.tags %}<span class="tag">{{ tag }}</span>{% endfor %}</div>{% if project.links %}<div class="project-resources">{% for link in project.links %}<a class="btn btn-outline" href="{{ link.url }}" target="_blank" rel="noopener noreferrer">{{ link.label }} ↗</a>{% endfor %}</div>{% endif %}</section>
+{% if project.visual != 'study' %}<section class="section container project-story"><p class="eyebrow">THE QUESTION BEHIND THE WORK</p>
+{% if project.visual == 'assessment' %}<div class="score-story"><strong class="story-score">Score: 78</strong><h2>But what does 78<br><em>actually mean?</em></h2><div class="score-dimensions tags">{% for label in ['Accuracy','Reaction Time','Error Type','Hint','Difficulty','Dropout'] %}<span class="tag">{{ label }}</span>{% endfor %}</div></div><p class="muted">Illustrative score / 示意數字</p>
+{% elif project.visual == 'errors' %}<h2 class="reveal">100 Errors<br><em>≠ 100 Equal Problems</em></h2><div class="severity large"><i>Minor</i><i>Moderate</i><i>Severe</i></div>
+{% elif project.visual == 'survey' %}<div class="stats-grid">{% for number, label in [(131,'Participants'),(120,'Questionnaires'),(11,'Interviews'),(6,'Colleges')] %}<div><strong data-count="{{ number }}">{{ number }}</strong><span>{{ label }}</span></div>{% endfor %}</div><h2>Quantitative + Qualitative<br><em>Mixed Methods</em></h2>
+{% else %}<h2>Every decision is<br><em>a chance to reflect.</em></h2><p>Educational Simulation · Not Investment Advice</p><div class="demo-choices" role="group" aria-label="探索決策情境">{% for label, result in [('Buy House?','住房支出會如何影響每月現金流與其他目標？'),('Invest?','當市場波動時，你能承擔多少不確定性？'),('Insurance?','你希望轉移哪些家庭與生活風險？'),('Emergency Fund?','如果收入暫停，你需要多久的生活緩衝？')] %}<button class="btn btn-outline" data-reflection="{{ result }}" aria-pressed="false">{{ label }}</button>{% endfor %}</div><p class="reflection-result" aria-live="polite">選擇一個情境，探索它帶來的問題。</p>{% endif %}
+{% if project.process %}{{ flow(project.process) }}{% endif %}</section>{% endif %}
+{% if project.gallery %}<section class="section container"><p class="eyebrow">CONFERENCE MOMENTS</p><h2>From the paper to the presentation.</h2>{{ conference_gallery(project.gallery) }}</section>{% endif %}
+{% set chapters = project.section_groups|default(project.sections) %}
+<div class="container case-layout">
+  <aside class="case-nav" aria-label="Case study sections">
+    <p class="eyebrow">IN THIS CASE STUDY</p>
+    {% for chapter in chapters %}<a href="#{{ chapter.id }}">{{ chapter.title }}</a>{% endfor %}
+  </aside>
+  <div class="case-content">
+    {% if project.section_groups %}
+      {% for chapter in chapters %}
+      <section id="{{ chapter.id }}" class="case-section case-group reveal">
+        <p class="eyebrow">{{ '%02d'|format(loop.index) }}</p>
+        <h2>{{ chapter.title }}</h2>
+        {% for section_id in chapter.sections %}
+          {% for section in project.sections|selectattr('id', 'equalto', section_id) %}
+            {{ case_section(section, heading_level=3) }}
+          {% endfor %}
+        {% endfor %}
+      </section>
+      {% endfor %}
+    {% else %}
+      {% for section in project.sections %}{{ case_section(section, number=loop.index) }}{% endfor %}
+    {% endif %}
+  </div>
+</div>
+{% if project.paper_file %}<section class="section container">{{ paper_panel(project.paper_file, project.paper_note) }}</section>{% endif %}
+<section class="section container"><p class="eyebrow">KEEP EXPLORING</p><h2>Related <em>projects.</em></h2><div class="project-grid">{% for p in projects %}{{ project_card(p) }}{% endfor %}</div></section>
+{% endblock %}

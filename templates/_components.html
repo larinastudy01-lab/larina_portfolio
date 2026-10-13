@@ -1,0 +1,63 @@
+{% macro flow(items, vertical=false) %}
+<ol class="data-flow {{ 'vertical' if vertical else '' }}">{% for item in items %}<li><span class="flow-index">{{ '%02d'|format(loop.index) }}</span>{{ item }}</li>{% endfor %}</ol>
+{% endmacro %}
+
+{% macro project_card(p, number=none) %}
+<article class="project-card vinyl-card reveal" data-depth-reveal data-categories="{{ p.tags|join(' ') }}">
+  <a class="project-link" href="{{ url_for('project_detail', project_id=p.id) }}">
+    <div class="vinyl-stage" data-depth="record">
+      <span class="vinyl-shadow" aria-hidden="true"></span>
+      <div class="vinyl-record">
+        <div class="vinyl-label {{ 'vinyl-label-photo' if p.thumbnail else '' }}">
+          {% if p.thumbnail %}<img class="vinyl-photo" src="{{ url_for('static', filename=p.thumbnail) }}" alt="{{ p.thumbnail_alt }}" width="1477" height="1108" loading="lazy">{% endif %}
+          <span class="vinyl-brand" aria-hidden="true" data-no-translate>LARINA</span>
+          <span class="vinyl-number {{ 'vinyl-topic' if number is none else '' }}" aria-hidden="true">{{ '%02d'|format(number) if number is not none else p.tags[0] }}</span>
+          <span class="vinyl-category" aria-hidden="true">{{ p.tags[:2]|join(' · ') }}</span>
+        </div>
+        <span class="vinyl-spindle" aria-hidden="true"></span>
+      </div>
+      <span class="vinyl-open" aria-hidden="true">↗</span>
+    </div>
+    <div class="project-card-copy">
+    <div class="card-meta"><span>{{ p.type }}</span><span>{{ p.year }}</span></div>
+    <h3>{{ p.title }}</h3><p class="project-role">{{ p.role }}</p>
+    <p class="card-description">{{ p.summary }}</p>
+    <div class="tags">{% for tag in p.tags %}<span class="tag">{{ tag }}</span>{% endfor %}</div>
+    <span class="text-link">View Case Study <span aria-hidden="true">↗</span></span>
+    </div>
+  </a>
+</article>
+{% endmacro %}
+
+{% macro research_cards(areas) %}
+<div class="research-grid">{% for area in areas %}<a class="research-card reveal" data-depth="card" data-depth-reveal href="{{ url_for('research') }}#{{ area.id }}"><div class="card-meta"><span>{{ '%02d'|format(loop.index) }}</span><span>↗</span></div><span class="research-symbol" aria-hidden="true">{{ area.symbol }}</span><h3>{{ area.title }}</h3><p>{{ area.short }}</p><div class="keywords">{{ area.keywords|join(' · ') }}</div></a>{% endfor %}</div>
+{% endmacro %}
+
+{% macro timeline(items) %}
+<div class="timeline"><div class="timeline-track" aria-hidden="true"></div>{% for item in items %}<article class="timeline-item reveal"><span class="timeline-year">{{ item.year }}</span><div><h3>{{ item.title }}</h3><p>{{ item.description }}</p></div></article>{% endfor %}</div>
+{% endmacro %}
+
+{% macro contact_cta() %}
+<section class="contact-cta"><div class="container"><p class="eyebrow">LET'S CONNECT</p><div class="cta-row"><h2>Let's build something<br><em>meaningful.</em></h2><a class="round-link" data-magnetic href="{{ url_for('contact') }}" aria-label="Contact Larina">↗</a></div><p>Research Collaboration <span>／</span> Graduate Study <span>／</span> HCI · AI · Digital Health</p></div></section>
+{% endmacro %}
+
+{% macro conference_gallery(photos) %}
+<div class="conference-gallery">
+  {% for photo in photos %}
+  <figure class="conference-photo">
+    <a href="{{ url_for('static', filename=photo.src) }}" target="_blank" rel="noopener noreferrer" title="Full-size photograph"><img src="{{ url_for('static', filename=photo.src) }}" alt="{{ photo.alt }}" width="{{ photo.width }}" height="{{ photo.height }}" loading="lazy"></a>
+    <figcaption>{{ photo.caption }}</figcaption>
+  </figure>
+  {% endfor %}
+</div>
+{% endmacro %}
+
+{% macro paper_panel(file, note) %}
+<div class="paper-panel">
+  <p class="eyebrow">PDF / RESEARCH</p>
+  <h2>Read the conference paper</h2>
+  <p class="muted">{{ note }}</p>
+  <div class="project-resources"><a class="btn btn-primary" href="{{ url_for('static', filename=file) }}" target="_blank" rel="noopener noreferrer">Open PDF in a new tab ↗</a><a class="btn btn-outline" href="{{ url_for('static', filename=file) }}" download>Download PDF ↓</a></div>
+  <details class="paper-preview"><summary>Paper preview</summary><iframe src="{{ url_for('static', filename=file) }}" title="Conference paper PDF preview" loading="lazy"></iframe></details>
+</div>
+{% endmacro %}

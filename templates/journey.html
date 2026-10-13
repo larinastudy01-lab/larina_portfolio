@@ -1,0 +1,6 @@
+{% extends 'base.html' %}
+{% from '_components.html' import timeline as render_timeline, contact_cta %}
+{% block content %}
+<section class="page-hero container"><p class="eyebrow">JOURNEY / 跨域之路</p><h1>Not a straight line.<br><em>A connected path.</em></h1><p class="lead">English → Digital Learning → Programming → AI → Research → HCI → Digital Health</p></section>
+<section class="section container journey-map"><svg class="journey-path" viewBox="0 0 1000 1000" preserveAspectRatio="none" aria-hidden="true"><path class="draw-path" d="M180 40 C180 200 820 100 820 260 S180 320 180 480 S820 530 820 700 S500 800 500 970"/></svg>{{ render_timeline(timeline) }}</section>{{ contact_cta() }}
+{% endblock %}

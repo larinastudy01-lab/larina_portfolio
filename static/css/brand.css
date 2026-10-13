@@ -1,0 +1,18 @@
+/* Shared with the cover so every route uses the same visual identity. */
+:root {
+  --brand-cream: #F7F5F2;
+  --brand-blue: #7C9CBF;
+  --brand-ink: #26384A;
+  --brand-text: var(--brand-ink);
+  --brand-muted: #657481;
+  --brand-light: #E8EEF3;
+  --brand-pink: #D9A5A5;
+  --brand-white: #FFFFFF;
+  /* Deeper text tones keep small type readable on tinted surfaces. */
+  --brand-on-blue: color-mix(in srgb, var(--brand-ink) 85%, black);
+  --brand-muted-on-tint: color-mix(in srgb, var(--brand-muted) 80%, var(--brand-ink));
+  --brand-line: color-mix(in srgb, var(--brand-blue) 40%, var(--brand-cream));
+  --brand-shadow: color-mix(in srgb, var(--brand-blue) 35%, transparent);
+  --brand-hand: 'Segoe Print', 'Bradley Hand', 'Comic Sans MS', 'Microsoft JhengHei', cursive;
+  --brand-sans: Inter, 'Noto Sans TC', 'Segoe UI', 'Microsoft JhengHei', sans-serif;
+}

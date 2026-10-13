@@ -1,0 +1,38 @@
+.case-content { min-width: 0; }
+.case-group > h2 { margin-bottom: 28px; }
+.case-subsection { margin-top: 32px; scroll-margin-top: 105px; }
+.case-subsection + .case-subsection { margin-top: 40px; }
+.case-subsection > h3 { font-family: var(--sans); font-size: 22px; font-weight: 750; line-height: 1.5; margin-bottom: 16px; }
+.case-nav { max-height: calc(100vh - 140px); overflow-y: auto; padding-right: 10px; }
+.case-table-scroll { max-width: 100%; overflow-x: auto; margin: 24px 0; border: 1px solid var(--line); border-radius: 10px; }
+.case-table { width: 100%; min-width: 540px; border-collapse: collapse; font-size: 14px; line-height: 1.75; }
+.case-table caption { padding: 16px 18px; text-align: left; font-weight: 700; background: var(--brand-light); }
+.case-table th, .case-table td { padding: 14px 18px; text-align: left; vertical-align: top; border-top: 1px solid var(--line); }
+.case-table thead th { color: var(--muted); font-size: 12px; }
+.case-table tbody th { min-width: 110px; font-weight: 650; }
+.case-table td { color: var(--muted); }
+.case-games { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; margin-top: 28px; }
+.case-game { padding: 24px; border: 1px solid var(--line); border-radius: 12px; background: var(--brand-light); }
+.case-game-heading { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-bottom: 16px; }
+.case-game-code { font-size: 15px; font-weight: 800; letter-spacing: .08em; }
+.case-game .tag { font-size: 11px; }
+.case-game :is(h3, h4) { font-family: var(--sans); font-size: 20px; line-height: 1.5; margin-bottom: 12px; }
+.case-game p, .case-game dd { font-size: 14px; line-height: 1.85; }
+.case-game dl { margin: 18px 0 0; }
+.case-game dt { margin-top: 14px; font-size: 12px; font-weight: 750; }
+.case-game dd { margin: 4px 0 0; color: var(--muted); }
+.case-steps { padding-left: 24px; color: var(--muted); font-size: 15px; line-height: 1.85; }
+.case-steps li { padding: 8px 0 8px 8px; }
+.case-formula { max-width: 100%; padding: 20px; overflow-x: auto; font-size: 13px; line-height: 1.9; border-radius: 10px; background: var(--brand-light); }
+.case-diagram { margin: 32px 0 40px; min-width: 0; }
+.case-diagram :is(h3, h4) { font-family: var(--sans); font-size: 20px; font-weight: 750; line-height: 1.5; margin-bottom: 16px; }
+.case-diagram figcaption p { font-size: 14px; }
+.case-diagram-scroll { width: 100%; max-width: 100%; overflow-x: auto; border: 1px solid var(--line); border-radius: 12px; background: #f7fafc; }
+.case-diagram-scroll img { display: block; width: 100%; min-width: 1120px; max-width: none; height: auto; }
+.case-diagram-hint { font-size: 12px; margin: 12px 0; }
+.case-diagram-actions { display: flex; flex-wrap: wrap; gap: 14px 24px; }
+.case-diagram-actions .text-link { font-size: 13px; }
+.case-table-scroll:focus-visible, .case-diagram-scroll:focus-visible, .case-formula:focus-visible { outline: 3px solid var(--blue); outline-offset: 4px; }
+@media (max-width: 1100px) { .case-games { grid-template-columns: 1fr; } }
+@media (max-width: 800px) { .case-games { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 600px) { .case-games { grid-template-columns: 1fr; } .case-game { padding: 20px; } .case-subsection > h3 { font-size: 20px; } }

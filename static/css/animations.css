@@ -1,0 +1,113 @@
+/* Motion is decorative; the base stylesheet always stays readable. */
+.motion-ready .hero-diagram {
+  transform: translate3d(var(--diagram-x, 0px), var(--diagram-y, 0px), 0);
+  transition: transform 650ms cubic-bezier(.22, 1, .36, 1);
+}
+.motion-ready .diagram-connectors path {
+  animation: research-flow 24s linear infinite;
+  animation-play-state: paused;
+}
+.motion-ready .diagram-connectors .feedback-path {
+  animation-direction: reverse;
+  animation-duration: 30s;
+}
+.motion-ready .diagram-node {
+  animation: research-node 12.5s ease-in-out infinite;
+  animation-delay: var(--node-delay, 0s);
+  animation-play-state: paused;
+}
+.motion-ready .orbit {
+  animation: orbit-breathe 12s ease-in-out infinite;
+  animation-play-state: paused;
+}
+.motion-ready .orbit-two { animation-delay: -6s; }
+.motion-ready .hero-diagram.is-motion-visible .diagram-connectors path,
+.motion-ready .hero-diagram.is-motion-visible .diagram-node,
+.motion-ready .hero-diagram.is-motion-visible .orbit { animation-play-state: running; }
+.motion-ready .hero.is-motion-visible .status-dot { animation: status-breathe 4s ease-in-out infinite; }
+.motion-paused .diagram-connectors path,
+.motion-paused .diagram-node,
+.motion-paused .orbit,
+.motion-paused .status-dot { animation-play-state: paused !important; }
+
+.motion-ready .data-flow li::after {
+  transition: transform 750ms cubic-bezier(.22, 1, .36, 1);
+  transition-delay: var(--flow-delay, 0ms);
+}
+.motion-ready .motion-flow:not(.is-flow-visible) li::after { transform: scaleX(0); }
+.motion-ready .motion-flow.vertical:not(.is-flow-visible) li::after { transform: scaleY(0); }
+
+.project-card .visual-arrow { transition: transform 350ms cubic-bezier(.22, 1, .36, 1), color 250ms; }
+.research-card .research-symbol {
+  transform-origin: center;
+  transition: transform 450ms cubic-bezier(.22, 1, .36, 1);
+}
+.expand-icon { transition: transform 300ms cubic-bezier(.22, 1, .36, 1); }
+.project-card:focus-within { transform: translateY(-5px); }
+.project-card:focus-within .project-visual { box-shadow: 0 14px 30px var(--brand-shadow); }
+.project-card:focus-within .project-thumbnail,
+.project-card:focus-within .project-visual > div { transform: scale(1.035); }
+.project-card:focus-within .visual-arrow,
+.project-card:hover .visual-arrow { transform: translate(3px, -3px); color: var(--blue-dark); }
+.research-card:focus-visible .research-symbol,
+.research-card:hover .research-symbol { transform: rotate(-6deg) scale(1.08); }
+.btn:focus-visible { transform: translateY(-2px); }
+.round-link:focus-visible { background: var(--brand-light); transform: rotate(8deg); }
+.text-link { position: relative; }
+.text-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 1px;
+  background: var(--blue-dark);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 350ms cubic-bezier(.22, 1, .36, 1);
+}
+.text-link:hover::after,
+.text-link:focus-visible::after { transform: scaleX(1); }
+[data-count] { font-variant-numeric: tabular-nums; }
+
+@keyframes research-flow { to { stroke-dashoffset: -108; } }
+@keyframes research-node {
+  0%, 20%, 100% { box-shadow: 3px 4px 0 var(--brand-shadow); }
+  5%, 14% { box-shadow: 5px 6px 0 var(--brand-shadow), 0 0 0 3px var(--brand-blue); }
+}
+@keyframes orbit-breathe {
+  0%, 100% { transform: scale(1); opacity: .6; }
+  50% { transform: scale(1.035); opacity: 1; }
+}
+@keyframes status-breathe {
+  0%, 100% { box-shadow: 0 0 0 0 transparent; }
+  50% { box-shadow: 0 0 0 5px var(--brand-shadow); }
+}
+
+@media (hover: none), (pointer: coarse) {
+  .motion-ready .hero-diagram,
+  .project-card:hover,
+  .project-card:hover .project-visual > div,
+  .project-card:hover .project-thumbnail,
+  .project-card:hover .visual-arrow,
+  .research-card:hover,
+  .research-card:hover .research-symbol,
+  .btn:hover,
+  .round-link:hover { transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-diagram,
+  .orbit,
+  .project-card:focus-within,
+  .project-card:focus-within .project-visual > div,
+  .project-card:focus-within .project-thumbnail,
+  .project-card:hover .project-visual > div,
+  .project-card:hover .project-thumbnail,
+  .project-card .visual-arrow,
+  .research-card .research-symbol,
+  .btn:focus-visible,
+  .round-link:focus-visible { transform: none !important; }
+  .timeline-track { transform: none !important; }
+  .draw-path { stroke-dasharray: none !important; stroke-dashoffset: 0 !important; }
+  .data-flow li::after { transform: none !important; }
+}

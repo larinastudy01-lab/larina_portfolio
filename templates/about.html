@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% from '_components.html' import timeline as render_timeline, research_cards, contact_cta %}
+{% block content %}
+<section class="page-hero container"><p class="eyebrow">ABOUT / 關於我</p><h1>Different disciplines.<br><em>The same curiosity.</em></h1><p class="lead">{{ profile.education }}</p></section>
+<section class="section container split"><figure class="profile-photo"><img src="{{ url_for('static', filename=profile.portrait) }}" alt="{{ profile.portrait_alt }}" width="1128" height="1451" fetchpriority="high"><figcaption>Yen-Yu Chen / 陳彥妤</figcaption></figure><div><p class="eyebrow">01 / WHO I AM</p><h2>Hi, I'm Larina.</h2><p>{{ profile.intro }}</p><p>{{ profile.transition }}</p></div></section>
+<section class="section container split"><div><p class="eyebrow">02 / FROM ENGLISH TO DIGITAL TECHNOLOGY</p><h2>A change in tools.<br><em>A consistent purpose.</em></h2></div>{{ render_timeline(timeline) }}</section>
+<section class="section container split"><div><p class="eyebrow">03 / WHAT I CARE ABOUT</p><h2>The experience behind the outcome.</h2></div><div><p>{{ profile.motivation }}</p><p>{{ profile.learning_focus }}</p></div></section>
+<section class="section research-section"><div class="container"><p class="eyebrow">04 / CORE STRENGTHS</p><h2>Connecting inquiry<br><em>with implementation.</em></h2><div class="strength-grid">{% for strength in profile.strengths %}<article class="reveal"><span class="eyebrow">0{{ loop.index }}</span><h3>{{ strength.title }}</h3><p>{{ strength.body }}</p></article>{% endfor %}</div></div></section>
+<section class="section container"><p class="eyebrow">05 / RESEARCH INTERESTS</p>{{ research_cards(research) }}</section>
+<section class="section container"><p class="eyebrow">06 / EDUCATION</p><h2>Learning, <em>always.</em></h2><p>{{ profile.education }}</p><p class="eyebrow">INTERDISCIPLINARY PROGRAMS</p><ul class="detail-list">{% for program in profile.programs %}<li>{{ program }}</li>{% endfor %}</ul></section>{{ contact_cta() }}
+{% endblock %}

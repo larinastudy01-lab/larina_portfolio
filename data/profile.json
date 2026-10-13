@@ -1,0 +1,37 @@
+{
+  "name": "Yen-Yu Chen",
+  "chinese_name": "陳彥妤",
+  "email": null,
+  "github": "https://github.com/larinastudy01-lab",
+  "linkedin": null,
+  "cv": null,
+  "education": "National University of Tainan · Major in Digital Learning and Technology · Minor in English",
+  "intro": "I am Yen-Yu Chen (Larina), a Digital Learning and Technology major with a minor in English at National University of Tainan. I bring language, teaching, user research, and system development together to understand where people need support.",
+  "transition": "I began in English in 2022, added a Digital Learning and Technology minor in September 2023, and transferred to the department in September 2025. Building FitPlay helped me turn an idea into a working learning system and commit to this direction.",
+  "motivation": "Teaching and research taught me to look beyond scores and completion. Experience accompanying a family member through rehabilitation drew my attention to small changes over time, everyday independence, and caregiver needs. I hope to work with professionals and users to turn these observations into research questions.",
+  "learning_focus": "I am strengthening modular architecture, testing, refactoring, user interviews, and usability evaluation. I use AI and documentation to support development while remaining responsible for defining problems, checking results, and explaining design decisions.",
+  "programs": [
+    "Interdisciplinary Program in Digital Technology Applications",
+    "Interdisciplinary Program in Digital Humanities and Arts"
+  ],
+  "strengths": [
+    {
+      "title": "Research Design",
+      "body": "A 131-participant mixed-methods study connects questionnaires, interviews, theory, and interpretation."
+    },
+    {
+      "title": "Behavioral Data",
+      "body": "Trial-level records and severity-aware error measures reveal what aggregate scores miss."
+    },
+    {
+      "title": "System Development",
+      "body": "Six cognitive tasks, role-specific interfaces, and research modules connect needs with implementation."
+    },
+    {
+      "title": "Knowledge Translation",
+      "body": "Life × Investment and 404 Daily turn abstract ideas into decisions, stories, and reflection."
+    }
+  ],
+  "portrait": "images/profile/larina-portrait.jpg",
+  "portrait_alt": "Portrait of Yen-Yu Chen (Larina)"
+}

@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% from '_components.html' import conference_gallery, paper_panel %}
+{% block content %}
+<section class="page-hero container"><p class="eyebrow">PUBLICATIONS / 研究發表</p><h1>Ideas, examined.<br><em>Insights, shared.</em></h1><p class="lead">A record of research questions and the work they become.</p></section>
+<section class="section container academic-timeline">
+{% for p in publications %}
+<article class="publication-preview reveal">
+  <div class="pub-year">{{ p.year }}<span>{{ p.conference }}</span></div>
+  <div>
+    <h2>{{ p.title }}</h2>
+    <p class="publication-authors" data-no-translate>{{ p.authors }}</p>
+    <p>{{ p.venue }}</p><p>{{ p.location }}</p>
+    <div class="tags"><span class="tag">{{ p.role }}</span><span class="tag">{{ p.presentation }}</span></div>
+    <div class="publication-actions">
+      <a class="btn btn-outline" href="{{ p.paper_url }}" target="_blank" rel="noopener noreferrer">Read Paper PDF ↗</a>
+      <a class="btn btn-primary" href="{{ url_for('project_detail', project_id=p.project_id) }}">View Project ↗</a>
+      {% if p.slides_url %}<a class="btn btn-outline" href="{{ p.slides_url }}">View Slides ↗</a>{% else %}<span class="unavailable">Slides · 待提供</span>{% endif %}
+    </div>
+    <p>{{ p.presentation_story }}</p>
+  </div>
+</article>
+<section class="publication-moments"><p class="eyebrow">CONFERENCE MOMENTS</p><h2>From the paper to the presentation.</h2>{{ conference_gallery(p.gallery) }}</section>
+{{ paper_panel(p.paper_file, p.note) }}
+{% endfor %}
+</section>
+{% endblock %}

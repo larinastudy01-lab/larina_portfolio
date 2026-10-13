@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="site-root" content="{{ url_for('intro') }}">
+  <title>{{ title }} — Larina / Yen-Yu Chen</title>
+  <meta name="description" content="Larina 陳彥妤的研究作品集：以使用者問題為起點，探索 Human-centered AI、HCI、Learning Analytics 與 Digital Health。">
+  <meta property="og:title" content="{{ title }} — Larina">
+  <meta property="og:description" content="Understanding people. Building meaningful systems.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="zh_TW">
+  <meta property="og:url" content="{{ request.base_url }}">
+  <meta name="theme-color" content="#F7F5F2">
+  <link rel="icon" href="{{ url_for('static', filename='icons/favicon.svg') }}" type="image/svg+xml">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/brand.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/page-doors.css') }}">
+  <link rel="preload" as="image" href="{{ url_for('door_flower', filename='flower01.webp') }}">
+  <link rel="preload" as="image" href="{{ url_for('door_flower', filename='flower03.webp') }}">
+  <script src="{{ url_for('static', filename='js/page-doors.js') }}"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/intro.css') }}">
+  <script defer src="{{ url_for('static', filename='js/i18n.js') }}"></script>
+  <script defer src="{{ url_for('static', filename='js/intro.js') }}"></script>
+</head>
+<body class="intro-page">
+  {% include '_page_doors.html' %}
+  <button id="language-toggle" class="intro-language" type="button" data-no-translate data-dictionary="{{ url_for('static', filename='i18n/translations.json') }}" aria-label="Switch to English" disabled>EN</button>
+  <main id="main" class="intro-stage">
+    <div class="intro-center">
+      <div class="intro-heading">
+        <p class="intro-question">Who am I?</p>
+        <h1 class="intro-name" data-no-translate>Larina.</h1>
+      </div>
+      <a id="intro-enter" class="intro-avatar" href="{{ url_for('index') }}" aria-label="Enter Larina's portfolio" draggable="false">
+        <img class="intro-portrait" src="{{ url_for('intro_avatar') }}" alt="Larina's illustrated avatar" width="1099" height="1431" fetchpriority="high" draggable="false">
+      </a>
+      <p class="intro-instruction">Click my portrait to enter.</p>
+      <svg class="intro-click-mark" viewBox="0 0 100 35" aria-hidden="true"><path d="M10 8C34 1 68 4 89 12M26 26C41 13 62 13 80 20M73 15L82 20L75 27"/></svg>
+    </div>
+
+    <div class="intro-me intro-doodle" aria-hidden="true"><span>ME</span><svg viewBox="0 0 100 50"><path d="M7 36C31 34 44 14 83 17M73 8L86 16L77 28"/></svg></div>
+    <div class="intro-curiosity intro-doodle" aria-hidden="true">
+      <svg viewBox="0 0 95 100"><circle cx="49" cy="31" r="15"/><path d="M42 28L44 30M55 28L56 30M43 37Q49 42 55 36M45 46L39 69L60 72L55 46M42 54L25 62M56 54L73 48M43 71L37 88M57 72L64 89M18 20Q11 10 18 6Q29 5 25 17L20 22M20 28L20 29"/></svg>
+      <span>Explore?</span>
+    </div>
+    <div class="intro-drag-hint intro-doodle" aria-hidden="true">
+      <svg viewBox="0 0 105 85"><circle cx="56" cy="39" r="12"/><path d="M51 36L53 38M61 35L61 38M51 44Q56 49 63 42M53 51L48 68L67 68L60 50M51 56L32 42L23 26M63 56L77 46M51 69L45 80M64 69L74 77M11 28L14 8L30 19M14 8L35 35"/></svg>
+      <span>Drag to play</span>
+    </div>
+    <svg class="intro-pointing-hand" viewBox="0 0 200 160" aria-hidden="true"><path class="hand-fill" d="M204 97L157 86C154 64 148 54 133 48L121 44L110 18C106 5 94 7 96 22L101 62C78 53 53 46 33 48C16 48 4 54 5 66C6 80 23 83 40 79L85 77L72 89C66 101 73 111 86 108L92 104C83 117 94 132 108 125L119 118C112 133 124 143 139 135L159 125L204 133Z"/><path d="M85 77L108 78M91 104L115 94M108 125L129 111M166 89L166 126"/></svg>
+    <svg class="intro-spark spark-one" viewBox="0 0 60 60" aria-hidden="true"><path d="M30 6L30 54M7 29L54 29M13 12L47 48M11 46L49 11"/></svg>
+    <svg class="intro-spark spark-two" viewBox="0 0 60 60" aria-hidden="true"><path d="M30 6L30 54M7 29L54 29M13 12L47 48M11 46L49 11"/></svg>
+  </main>
+  <footer class="intro-footer"><span data-no-translate>Yen-Yu Chen / 陳彥妤</span><span>Research Portfolio / V1</span></footer>
+</body>
+</html>
